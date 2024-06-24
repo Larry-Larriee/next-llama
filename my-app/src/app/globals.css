@@ -9,6 +9,7 @@
   --primary-color: #0b1121;
   --hero-radial: #3a5497;
   --primary-color-2: #101628;
+  --primary-color-3: #16203b;
 }
 
 body {
@@ -31,11 +32,14 @@ p {
 .primary-color-2 {
   background: var(--primary-color-2);
 }
+.primary-color-3 {
+  background: var(--primary-color-3);
+}
 
 .radial-gradient-absolute {
   position: absolute;
   z-index: -1;
-  top: 3rem;
+  top: 0rem;
 
   background: radial-gradient(
     50% 50% at 50% 50%,
@@ -44,14 +48,17 @@ p {
   );
 }
 .radial-gradient-height {
-  height: 35rem;
+  height: 40rem;
+}
+.radial-gradient-width {
+  width: 50rem;
 }
 
 .fat-width {
-  width: 30rem;
+  width: 33rem;
 }
 .fat-width-2 {
-  width: 35rem;
+  width: 36rem;
 }
 
 @layer utilities {
