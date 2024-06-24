@@ -7,14 +7,51 @@
 
 :root {
   --primary-color: #0b1121;
+  --hero-radial: #3a5497;
+  --primary-color-2: #101628;
 }
 
 body {
   background: var(--primary-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
 }
 
 p {
   font-family: "League Spartan", sans-serif;
+}
+
+.custom-primary-color {
+  background-color: var(--primary-color);
+}
+.primary-color-2 {
+  background: var(--primary-color-2);
+}
+
+.radial-gradient-absolute {
+  position: absolute;
+  z-index: -1;
+  top: 3rem;
+
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(58, 84, 151, 0.75) 0%,
+    rgba(58, 84, 151, 0) 100%
+  );
+}
+.radial-gradient-height {
+  height: 35rem;
+}
+
+.fat-width {
+  width: 30rem;
+}
+.fat-width-2 {
+  width: 35rem;
 }
 
 @layer utilities {

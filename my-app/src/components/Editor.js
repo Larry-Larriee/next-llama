@@ -4,7 +4,9 @@ import React, { useState, useRef } from "react";
 
 export default function Editor() {
   let tailwindInput = useRef();
-  let [tailwindText, setTailwindText] = useState();
+  let [tailwindText, setTailwindText] = useState(
+    "<p class='text-3xl text-red-600'>Hello World</p>",
+  );
 
   // when the user types, use the value of the input
   let changeTailwindText = () => {
@@ -23,15 +25,23 @@ export default function Editor() {
     "<script>tailwind.config = {theme: {extend: {colors: {clifford: '#da373d',}}}}</script>";
 
   return (
-    <section className="mx-20 flex gap-20">
-      <input
-        type="text"
-        ref={tailwindInput}
-        onChange={changeTailwindText}
-        className="rounded"
-      />
+    <section className="mx-16 flex gap-20">
+      <div class="h-80 w-1/3 rounded-3xl bg-white p-1 transition duration-200 ease-in-out hover:-translate-y-1">
+        <article className="custom-primary-color h-full w-full rounded-3xl p-3">
+          <textarea
+            type="text"
+            ref={tailwindInput}
+            onChange={changeTailwindText}
+            value={tailwindText}
+            className="custom-primary-color h-full w-full resize-none text-white"
+          />
+        </article>
+      </div>
 
-      <iframe className="bg-white" srcDoc={header + tailwindText + script} />
+      <iframe
+        className="h-80 w-3/5 bg-white"
+        srcDoc={header + tailwindText + script}
+      />
     </section>
   );
 }
