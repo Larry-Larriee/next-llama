@@ -106,14 +106,53 @@ export default function page() {
           Recreate designs. Practice and perfect tailwind.
         </p>
       </div>
-      {/* 
-      <div className="primary-color-3 h-96 w-full">
-        <p>Level Up. Review Quickly.</p>
+
+      <div className="primary-color-3 flex h-96 w-full justify-center">
+        <p className="text-5xl text-white">Level Up. Review Quickly.</p>
 
         <section>
-          <p>Level 5</p>
+          <p className="text-2xl text-white">Level 5</p>
+
+          <div>
+            <section>
+              <p className="text-xl text-white">Classes Your Code Used:</p>
+
+              <div>
+                <ul>
+                  <li className="text-lg text-white">
+                    font-size (i.e. you used text-3xl)
+                  </li>
+                  <li className="text-lg text-white">
+                    background (i.e. you used bg-yellow-600)
+                  </li>
+                  <li className="text-lg text-white">
+                    width (i.e. you used w-full)
+                  </li>
+                  <li className="text-lg text-white">
+                    max-height (i.e. you used max-h-64)
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section>
+              <div>
+                <ul>
+                  <li className="text-lg text-white">
+                    Time taken: 9 minutes, 36 seconds
+                  </li>
+                  <li className="text-lg text-white">Accuracy: 99.8%</li>
+                </ul>
+              </div>
+
+              <div>
+                <p>Your Code</p>
+                <p>Sample Solution</p>
+              </div>
+            </section>
+          </div>
         </section>
-      </div> */}
+      </div>
     </div>
   );
 }
