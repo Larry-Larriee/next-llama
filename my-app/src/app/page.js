@@ -107,47 +107,51 @@ export default function page() {
         </p>
       </div>
 
-      <div className="primary-color-3 flex h-96 w-full justify-center">
-        <p className="text-5xl text-white">Level Up. Review Quickly.</p>
+      <div className="primary-color-3 flex w-full flex-col justify-center gap-10 py-24">
+        <p className="ml-32 text-4xl text-white">Level Up. Review Quickly.</p>
 
-        <section>
+        <section className="primary-color-4 ml-32 flex w-2/3 flex-col gap-5 rounded-2xl border-2 border-white pb-20 pl-10 pt-5">
           <p className="text-2xl text-white">Level 5</p>
 
-          <div>
-            <section>
+          <div className="flex gap-24">
+            <section className="flex flex-col gap-5">
               <p className="text-xl text-white">Classes Your Code Used:</p>
 
               <div>
-                <ul>
-                  <li className="text-lg text-white">
+                <ul className="list-disc pl-8">
+                  <li className="text-md text-white">
                     font-size (i.e. you used text-3xl)
                   </li>
-                  <li className="text-lg text-white">
+                  <li className="text-md text-white">
                     background (i.e. you used bg-yellow-600)
                   </li>
-                  <li className="text-lg text-white">
+                  <li className="text-md text-white">
                     width (i.e. you used w-full)
                   </li>
-                  <li className="text-lg text-white">
+                  <li className="text-md text-white">
                     max-height (i.e. you used max-h-64)
                   </li>
                 </ul>
               </div>
             </section>
 
-            <section>
+            <section className="flex flex-col gap-8">
               <div>
                 <ul>
-                  <li className="text-lg text-white">
+                  <li className="text-xl text-white">
                     Time taken: 9 minutes, 36 seconds
                   </li>
-                  <li className="text-lg text-white">Accuracy: 99.8%</li>
+                  <li className="text-xl text-white">Accuracy: 99.8%</li>
                 </ul>
               </div>
 
-              <div>
-                <p>Your Code</p>
-                <p>Sample Solution</p>
+              <div className="flex flex-col gap-5">
+                <p className="w-56 rounded-lg border-2 border-white bg-blue-500 px-5 py-4 text-center text-xl font-bold text-white">
+                  Your Code
+                </p>
+                <p className="w-56 rounded-lg border-2 border-white bg-orange-500 px-5 py-4 text-center text-xl font-bold text-white">
+                  Sample Solution
+                </p>
               </div>
             </section>
           </div>

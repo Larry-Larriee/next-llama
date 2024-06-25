@@ -10,6 +10,7 @@
   --hero-radial: #3a5497;
   --primary-color-2: #101628;
   --primary-color-3: #16203b;
+  --primary-color-4: #1e293b;
 }
 
 body {
@@ -34,6 +35,9 @@ p {
 }
 .primary-color-3 {
   background: var(--primary-color-3);
+}
+.primary-color-4 {
+  background: var(--primary-color-4);
 }
 
 .radial-gradient-absolute {
