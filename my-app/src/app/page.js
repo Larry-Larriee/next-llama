@@ -1,5 +1,6 @@
 import React from "react";
 import Editor from "../components/Editor";
+import Link from "next/link";
 
 export default function page() {
   return (
@@ -18,12 +19,17 @@ export default function page() {
         </p>
 
         <section className="flex items-center justify-center gap-10">
-          <p className="rounded-md bg-blue-500 px-8 py-4 text-xl font-bold text-white">
-            Get Started
-          </p>
-          <p className="rounded-md bg-orange-500 px-6 py-4 text-xl font-bold text-white">
-            Support my project on Patreon
-          </p>
+          <Link href="/levels/level1">
+            <p className="rounded-md bg-blue-500 px-8 py-4 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105">
+              Get Started
+            </p>
+          </Link>
+
+          <Link href="https://www.patreon.com/LarryLe">
+            <p className="rounded-md bg-orange-500 px-6 py-4 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105">
+              Support my project on Patreon
+            </p>
+          </Link>
         </section>
       </header>
 
@@ -146,10 +152,10 @@ export default function page() {
               </div>
 
               <div className="flex flex-col gap-5">
-                <p className="w-56 rounded-lg border-2 border-white bg-blue-500 px-5 py-4 text-center text-xl font-bold text-white">
+                <p className="w-56 cursor-default rounded-lg border-2 border-white bg-blue-500 px-5 py-4 text-center text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105">
                   Your Code
                 </p>
-                <p className="w-56 rounded-lg border-2 border-white bg-orange-500 px-5 py-4 text-center text-xl font-bold text-white">
+                <p className="w-56 cursor-default rounded-lg border-2 border-white bg-orange-500 px-5 py-4 text-center text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105">
                   Sample Solution
                 </p>
               </div>
@@ -158,27 +164,34 @@ export default function page() {
         </section>
       </div>
 
-      <div className="relative flex w-full flex-col items-center justify-center gap-24">
+      {/* position relative means it's relative to where it was originally supposed to be */}
+      <div className="relative bottom-16 flex w-full flex-col items-center justify-center gap-24">
         <section className="radial-gradient-absolute-2 radial-gradient-height radial-gradient-width" />
 
         <section className="flex flex-col gap-5">
-          <p className="text-5xl text-white">Documentation on file.</p>
-          <p className="text-3xl text-white">
-            no need to constantly switch tabs
+          <p className="text-center text-5xl text-white">
+            Documentation on file
+          </p>
+          <p className="text-center text-2xl text-white">
+            so there&apos;s no need to constantly switch tabs
           </p>
         </section>
 
         <section className="flex w-10/12 justify-between">
           <div className="flex w-5/12 flex-col gap-5">
             <section className="primary-color-2 h-72 w-full rounded-xl border-2 border-white pl-10 pt-10">
-              <p className="h-48 text-lg text-white">tags</p>
+              <p className="h-48 text-xl text-white">
+                &lt;p class=&quot;
+                <span className="text-blue-400">was-it-width-10?</span>
+                &quot;&gt;Hello World&lt;/p&gt;
+              </p>
             </section>
 
             <section className="flex gap-5">
-              <p className="w-40 rounded-xl bg-blue-500 px-5 py-3 text-center text-xl text-white">
+              <p className="w-40 cursor-default rounded-xl bg-blue-500 px-5 py-3 text-center text-xl text-white transition duration-200 ease-in-out hover:scale-105">
                 Docs
               </p>
-              <p className="w-40 rounded-xl bg-orange-500 px-5 py-3 text-center text-xl text-white">
+              <p className="w-40 cursor-default rounded-xl bg-orange-500 px-5 py-3 text-center text-xl text-white transition duration-200 ease-in-out hover:scale-105">
                 Submit
               </p>
             </section>
@@ -187,6 +200,30 @@ export default function page() {
           <div className="h-72 w-6/12 rounded-xl bg-gray-300">
             <p className="p-10 text-xl text-black">Hello World</p>
           </div>
+        </section>
+      </div>
+
+      <div className="mb-5 flex w-10/12 justify-between">
+        <p className="text-lg text-white">
+          ©2024 Larry Le All Rights Reserved
+        </p>
+
+        <section className="flex gap-10">
+          <Link href="/levels/level1">
+            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
+              Get Started
+            </p>
+          </Link>
+          <Link href="#">
+            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
+              Daily Challenge
+            </p>
+          </Link>
+          <Link href="#">
+            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
+              Leaderboards
+            </p>
+          </Link>
         </section>
       </div>
     </div>
