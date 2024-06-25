@@ -51,6 +51,17 @@ p {
     rgba(58, 84, 151, 0) 100%
   );
 }
+.radial-gradient-absolute-2 {
+  position: absolute;
+  z-index: -1;
+  top: 0rem;
+
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(43, 43, 124, 0.75) 0%,
+    rgba(43, 43, 124, 0) 100%
+  );
+}
 .radial-gradient-height {
   height: 40rem;
 }

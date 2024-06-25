@@ -110,10 +110,10 @@ export default function page() {
       <div className="primary-color-3 flex w-full flex-col justify-center gap-10 py-24">
         <p className="ml-32 text-4xl text-white">Level Up. Review Quickly.</p>
 
-        <section className="primary-color-4 ml-32 flex w-2/3 flex-col gap-5 rounded-2xl border-2 border-white pb-20 pl-10 pt-5">
+        <section className="primary-color-4 ml-32 flex w-9/12 flex-col gap-6 rounded-2xl border-2 border-white pb-20 pl-10 pt-10">
           <p className="text-2xl text-white">Level 5</p>
 
-          <div className="flex gap-24">
+          <div className="flex gap-48">
             <section className="flex flex-col gap-5">
               <p className="text-xl text-white">Classes Your Code Used:</p>
 
@@ -154,6 +154,38 @@ export default function page() {
                 </p>
               </div>
             </section>
+          </div>
+        </section>
+      </div>
+
+      <div className="relative flex w-full flex-col items-center justify-center gap-24">
+        <section className="radial-gradient-absolute-2 radial-gradient-height radial-gradient-width" />
+
+        <section className="flex flex-col gap-5">
+          <p className="text-5xl text-white">Documentation on file.</p>
+          <p className="text-3xl text-white">
+            no need to constantly switch tabs
+          </p>
+        </section>
+
+        <section className="flex w-10/12 justify-between">
+          <div className="flex w-5/12 flex-col gap-5">
+            <section className="primary-color-2 h-72 w-full rounded-xl border-2 border-white pl-10 pt-10">
+              <p className="h-48 text-lg text-white">tags</p>
+            </section>
+
+            <section className="flex gap-5">
+              <p className="w-40 rounded-xl bg-blue-500 px-5 py-3 text-center text-xl text-white">
+                Docs
+              </p>
+              <p className="w-40 rounded-xl bg-orange-500 px-5 py-3 text-center text-xl text-white">
+                Submit
+              </p>
+            </section>
+          </div>
+
+          <div className="h-72 w-6/12 rounded-xl bg-gray-300">
+            <p className="p-10 text-xl text-black">Hello World</p>
           </div>
         </section>
       </div>
