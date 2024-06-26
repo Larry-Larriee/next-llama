@@ -2,31 +2,35 @@ import React from "react";
 import Editor from "../components/Editor";
 import Link from "next/link";
 
+import SquareBackground from "../components/SquareBackground";
+
 export default function page() {
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center gap-40">
       {/* radial gradient background for hero */}
       <div className="radial-gradient-absolute radial-gradient-height radial-gradient-width" />
 
-      <header className="mt-36 flex w-9/12 flex-col items-center gap-10">
+      <SquareBackground />
+
+      <header className="mb-4 mt-36 flex w-9/12 flex-col items-center gap-10">
         <p className="w-5/6 text-center text-6xl font-bold text-white">
           Getting The Hang of Tailwind Starts Today.
         </p>
 
         <p className="w-3/4 text-center text-3xl text-white">
-          TailwindPractice is the most hands-on experience to learning tailwind
+          Tailwind Practice is the most hands-on experience to learning tailwind
           you could ever ask for.
         </p>
 
         <section className="flex items-center justify-center gap-10">
           <Link href="/levels/level1">
-            <p className="rounded-md bg-blue-500 px-8 py-4 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105">
+            <p className="relative z-10 rounded-md bg-blue-500 px-8 py-4 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105">
               Get Started
             </p>
           </Link>
 
           <Link href="https://www.patreon.com/LarryLe">
-            <p className="rounded-md bg-orange-500 px-6 py-4 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105">
+            <p className="relative z-10 rounded-md bg-orange-500 px-6 py-4 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105">
               Support my project on Patreon
             </p>
           </Link>
