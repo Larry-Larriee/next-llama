@@ -21,7 +21,7 @@ export default function Editor() {
 
   return (
     <section className="flex w-10/12 gap-36">
-      <section className="flex w-5/12 flex-col gap-10">
+      <section className="flex h-80 w-5/12 flex-col justify-between">
         <div class="padding-tiny h-56 rounded-xl bg-white">
           <article className="primary-color-2 h-full w-full rounded-xl p-3">
             <textarea
@@ -35,17 +35,17 @@ export default function Editor() {
         </div>
 
         <div className="flex gap-8">
-          <p className="rounded-lg bg-indigo-500 px-8 py-2 text-lg text-white">
+          <p className="rounded-lg bg-indigo-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer">
             Docs
           </p>
-          <p className="rounded-lg bg-orange-500 px-8 py-2 text-lg text-white">
+          <p className="rounded-lg bg-orange-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer">
             Submit
           </p>
         </div>
       </section>
 
       <iframe
-        className="h-80 w-1/2 bg-gray-200"
+        className="h-80 w-1/2 bg-gray-300"
         srcDoc={header + tailwindText + script}
       />
     </section>

@@ -1,4 +1,5 @@
 import React from "react";
+import Menu from "./Menu";
 
 export default function Navigation() {
   return (
@@ -10,7 +11,7 @@ export default function Navigation() {
         <p className="text-4xl text-white">Tailwind Practice</p>
       </section>
 
-      <p className="text-5xl text-white">☰</p>
+      <Menu />
     </nav>
   );
 }
