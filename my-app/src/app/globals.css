@@ -76,6 +76,10 @@ p {
   width: 36rem;
 }
 
+.padding-tiny {
+  padding: 0.1rem;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

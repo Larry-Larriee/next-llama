@@ -13,11 +13,6 @@ export default function Editor() {
     setTailwindText(tailwindInput.current.value);
   };
 
-  //   add CSS, when tailwind may not be enough
-  //   let changeCSSText = () => {
-
-  //   }
-
   // tailwind CDN configuration
   let header =
     "<head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><script src='https://cdn.tailwindcss.com'></script></head>  <style type='text/tailwindcss'>@layer utilities {.content-auto {content-visibility: auto;}}</style>";
@@ -25,21 +20,32 @@ export default function Editor() {
     "<script>tailwind.config = {theme: {extend: {colors: {clifford: '#da373d',}}}}</script>";
 
   return (
-    <section className="mx-16 flex gap-20">
-      <div class="h-80 w-1/3 rounded-3xl bg-white p-1 transition duration-200 ease-in-out hover:-translate-y-1">
-        <article className="custom-primary-color h-full w-full rounded-3xl p-3">
-          <textarea
-            type="text"
-            ref={tailwindInput}
-            onChange={changeTailwindText}
-            value={tailwindText}
-            className="custom-primary-color h-full w-full resize-none text-white"
-          />
-        </article>
-      </div>
+    <section className="flex w-10/12 gap-36">
+      <section className="flex w-5/12 flex-col gap-10">
+        <div class="padding-tiny h-56 rounded-xl bg-white">
+          <article className="primary-color-2 h-full w-full rounded-xl p-3">
+            <textarea
+              type="text"
+              ref={tailwindInput}
+              onChange={changeTailwindText}
+              value={tailwindText}
+              className="primary-color-2 h-full w-full resize-none text-white"
+            />
+          </article>
+        </div>
+
+        <div className="flex gap-8">
+          <p className="rounded-lg bg-indigo-500 px-8 py-2 text-lg text-white">
+            Docs
+          </p>
+          <p className="rounded-lg bg-orange-500 px-8 py-2 text-lg text-white">
+            Submit
+          </p>
+        </div>
+      </section>
 
       <iframe
-        className="h-80 w-3/5 bg-white"
+        className="h-80 w-1/2 bg-gray-200"
         srcDoc={header + tailwindText + script}
       />
     </section>
