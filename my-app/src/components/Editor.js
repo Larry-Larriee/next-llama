@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 
-export default function Editor() {
+export default function Editor({ changeDocsOpen }) {
   let tailwindInput = useRef();
   let [tailwindText, setTailwindText] = useState(
     "<p class='text-3xl text-red-600'>Hello World</p>",
@@ -35,7 +35,10 @@ export default function Editor() {
         </div>
 
         <div className="flex gap-8">
-          <p className="rounded-lg bg-indigo-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer">
+          <p
+            className="rounded-lg bg-indigo-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
+            onClick={() => changeDocsOpen()}
+          >
             Docs
           </p>
           <p className="rounded-lg bg-orange-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer">

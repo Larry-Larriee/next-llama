@@ -1,12 +1,23 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Navigation from "../../../components/Navigation";
 import LevelHero from "../../../components/LevelHero";
 import Editor from "../../../components/Editor";
+import Docs from "../../../components/Docs";
 
 export default function Level1() {
+  const [docsOpen, setDocsOpen] = useState(false);
+
+  let changeDocsOpen = () => {
+    setDocsOpen(!docsOpen);
+  };
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-16">
+        {docsOpen && <Docs />}
+
         <Navigation />
 
         <LevelHero
@@ -16,13 +27,7 @@ export default function Level1() {
           levelDescriptionTwo="For your first task, you need to get used to your power. Use tailwind to make a “Hello World,” and make it red-500 while you're at it."
         />
 
-        <Editor />
-
-        <footer className="mb-5 flex w-10/12 justify-start">
-          <p className="text-md text-white">
-            ©2024 Larry Le All Rights Reserved
-          </p>
-        </footer>
+        <Editor changeDocsOpen={changeDocsOpen} />
       </div>
     </>
   );
