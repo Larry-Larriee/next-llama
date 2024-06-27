@@ -29,7 +29,7 @@ export default function Editor() {
               ref={tailwindInput}
               onChange={changeTailwindText}
               value={tailwindText}
-              className="primary-color-2 h-full w-full resize-none text-white"
+              className="primary-color-2 h-full w-full resize-none text-white focus:outline-none"
             />
           </article>
         </div>
