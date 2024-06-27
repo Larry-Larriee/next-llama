@@ -22,7 +22,7 @@ export default function Editor() {
   return (
     <section className="flex w-10/12 gap-36">
       <section className="flex h-80 w-5/12 flex-col justify-between">
-        <div class="padding-tiny h-56 rounded-xl bg-white">
+        <div className="padding-tiny h-56 rounded-xl bg-white">
           <article className="primary-color-2 h-full w-full rounded-xl p-3">
             <textarea
               type="text"

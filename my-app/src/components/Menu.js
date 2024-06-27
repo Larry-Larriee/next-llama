@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Description,
   Dialog,
@@ -13,6 +13,7 @@ import Link from "next/link";
 // This react component is meant to work with the Navigation component
 export default function Menu() {
   let [menuOpen, setMenuOpen] = useState(false);
+  let menuContainer = useRef();
 
   let changeMenuOpen = () => {
     setMenuOpen(!menuOpen);
@@ -31,39 +32,46 @@ export default function Menu() {
 
       <Dialog
         open={menuOpen}
-        onClose={() => changeMenuOpen()}
+        onClose={() => {
+          menuContainer.current.classList.remove("slideIn");
+          menuContainer.current.classList.add("slideOut");
+
+          setTimeout(() => {
+            changeMenuOpen();
+          }, 750);
+        }}
         className="z-5 relative"
       >
-        <div className="fixed inset-0 flex w-screen items-center justify-center">
+        <div className="justify-left fixed inset-0 flex w-screen items-center">
           <article className="primary-color-2 absolute inset-0 -z-10 opacity-50" />
 
-          <DialogPanel className="primary-color-3 flex max-w-xl flex-col gap-5 rounded-lg border-2 border-white p-12">
+          <DialogPanel
+            className="primary-color-3 slideIn flex h-screen max-w-xl flex-col gap-5 p-12"
+            ref={menuContainer}
+          >
             <DialogTitle className="text-lg font-bold text-white">
               Tailwind Practice Menu
             </DialogTitle>
-            <Description className="text-white">
-              It would be funny if I added a cat api to give a random fact
-              everytime the user opens up the menu
-            </Description>
+            {/* <Description className="text-white"></Description> */}
 
             <ul className="flex list-none flex-col gap-5">
               <li>
-                <Link href='#'>
+                <Link href="#">
                   <p className="text-white">Leaderboard</p>
                 </Link>
               </li>
               <li>
-                <Link href='#'>
+                <Link href="#">
                   <p className="text-white">Level Select</p>
                 </Link>
               </li>
               <li>
-                <Link href='#'>
+                <Link href="#">
                   <p className="text-white">User</p>
                 </Link>
               </li>
               <li>
-                <Link href='#'>
+                <Link href="#">
                   <p className="text-white">Daily Challenge</p>
                 </Link>
               </li>
