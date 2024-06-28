@@ -8,22 +8,44 @@ import Docs from "../../../components/Docs";
 
 export default function Level1() {
   const [docsOpen, setDocsOpen] = useState(false);
-  let closing = "false";
+  const [closing, setClosing] = useState("");
 
+  // debounce to prevent spam
+  const [debounce, setDebounce] = useState(false);
+
+  // when the docs button is pressed (found in editor.js), the docsOpen will be true and closing will be set to false
+  // once the docs button is pressed again to close the docs, docsOpen will be set to false (for useEffect to play the
+  // closing animation), and closing will be set to true remove the docs from the DOM
   let changeDocsOpen = () => {
-    if (docsOpen === true) {
-      closing = "true";
-    }
+    if (debounce === true) return;
 
-    setDocsOpen(!docsOpen);
+    if (docsOpen === true) {
+      setDebounce(true);
+      // Docs.js also reads that docsOpen is false and plays the animation
+      setDocsOpen(false);
+
+      // closing being true will remove the docs from the DOM
+      setTimeout(() => {
+        setClosing("true");
+        setDebounce(false);
+      }, 750);
+    } else if (docsOpen === false) {
+      setDebounce(true);
+
+      // closing being false will add the docs back to the DOM
+      setClosing("false");
+      setDocsOpen(true);
+
+      setTimeout(() => {
+        setDebounce(false);
+      }, 750);
+    }
   };
 
   return (
     <>
       <div className="flex w-full flex-col items-center gap-16">
-        {docsOpen && closing === "false" && (
-          <Docs closing={closing} docsOpen={docsOpen} />
-        )}
+        {closing === "false" && <Docs docsOpen={docsOpen} />}
 
         <Navigation />
 
