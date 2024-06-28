@@ -8,15 +8,22 @@ import Docs from "../../../components/Docs";
 
 export default function Level1() {
   const [docsOpen, setDocsOpen] = useState(false);
+  let closing = "false";
 
   let changeDocsOpen = () => {
+    if (docsOpen === true) {
+      closing = "true";
+    }
+
     setDocsOpen(!docsOpen);
   };
 
   return (
     <>
       <div className="flex w-full flex-col items-center gap-16">
-        {docsOpen && <Docs />}
+        {docsOpen && closing === "false" && (
+          <Docs closing={closing} docsOpen={docsOpen} />
+        )}
 
         <Navigation />
 
