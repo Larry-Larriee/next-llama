@@ -20,7 +20,7 @@ export default function SquareBackground() {
     const offsetX = ((x - midX) / midX) * 100;
     const offsetY = ((y - midY) / midY) * 100;
 
-    squareContainer.current.style.transform = `translate(${offsetX / 10}%, ${offsetY / 10}%)`;
+    squareContainer.current.style.transform = `translate(${offsetX / 100}%, ${offsetY / 100}%)`;
   };
 
   return (

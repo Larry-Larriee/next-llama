@@ -5,6 +5,7 @@ import Navigation from "../../../components/Navigation";
 import LevelHero from "../../../components/LevelHero";
 import Editor from "../../../components/Editor";
 import Docs from "../../../components/Docs";
+import Submit from "../../../components/Submit";
 
 export default function Level1() {
   const [docsOpen, setDocsOpen] = useState(false);
@@ -42,10 +43,20 @@ export default function Level1() {
     }
   };
 
+  const [submitOpen, setSubmitOpen] = useState(false);
+
+  let changeSubmitOpen = () => {
+    setSubmitOpen(!submitOpen);
+  };
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-16">
         {closing === "false" && <Docs docsOpen={docsOpen} />}
+        {/* the submit component also needs its change state primarily because of the button in the modal to close the modal */}
+        {submitOpen && (
+          <Submit submitOpen={submitOpen} changeSubmitOpen={changeSubmitOpen} />
+        )}
 
         <Navigation />
 
@@ -56,7 +67,11 @@ export default function Level1() {
           levelDescriptionTwo="For your first task, you need to get used to your power. Use tailwind to make a “Hello World,” and make it red-500 while you're at it."
         />
 
-        <Editor changeDocsOpen={changeDocsOpen} />
+        {/* We add states and changeStates in page.jsx because docs and submit need to effect the entire page, not just the area where the editor is (editor contains the buttons) */}
+        <Editor
+          changeDocsOpen={changeDocsOpen}
+          changeSubmitOpen={changeSubmitOpen}
+        />
       </div>
     </>
   );
