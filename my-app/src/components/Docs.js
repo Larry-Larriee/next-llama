@@ -8,8 +8,8 @@ export default function Docs({ docsOpen }) {
   // useEffect will actively determine if docsOpen changes and will run the callback accordingly
   useEffect(() => {
     if (docsOpen === false) {
-      iframe.current.classList.remove("slideInRight");
-      iframe.current.classList.add("slideOutRight");
+      iframe.current.classList.remove("slideIn");
+      iframe.current.classList.add("slideOut");
     }
   }, [docsOpen]);
 
@@ -17,7 +17,7 @@ export default function Docs({ docsOpen }) {
     <>
       <iframe
         src="https://tailwindcss.com/docs/width"
-        className="slideInRight absolute bottom-0 right-0 h-screen w-1/3 border-2 border-black"
+        className="slideIn absolute bottom-0 left-0 h-screen w-5/12 border-2 border-black"
         ref={iframe}
       ></iframe>
     </>

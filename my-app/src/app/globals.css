@@ -4,13 +4,13 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
-
 :root {
   --primary-color: #0b1121;
   --hero-radial: #3a5497;
   --primary-color-2: #101628;
   --primary-color-3: #16203b;
   --primary-color-4: #1e293b;
+  --primary-color-5: #11192f;
 }
 
 body {
@@ -38,6 +38,9 @@ p {
 }
 .primary-color-4 {
   background: var(--primary-color-4);
+}
+.primary-color-5 {
+  background: var(--primary-color-5);
 }
 
 @keyframes slideIn {

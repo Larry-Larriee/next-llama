@@ -16,44 +16,43 @@ export default function Editor({ changeDocsOpen, changeSubmitOpen }) {
   // tailwind CDN configuration
   let header =
     "<head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><script src='https://cdn.tailwindcss.com'></script></head>  <style type='text/tailwindcss'>@layer utilities {.content-auto {content-visibility: auto;}}</style>";
-  let script =
-    "<script>tailwind.config = {theme: {extend: {colors: {clifford: '#da373d',}}}}</script>";
 
   return (
-    <section className="flex w-10/12 gap-36">
-      <section className="flex h-80 w-5/12 flex-col justify-between">
-        <div className="padding-tiny h-56 rounded-xl bg-white">
-          <article className="primary-color-2 h-full w-full rounded-xl p-3">
-            <textarea
-              type="text"
-              ref={tailwindInput}
-              onChange={changeTailwindText}
-              value={tailwindText}
-              className="primary-color-2 h-full w-full resize-none text-white focus:outline-none"
-            />
-          </article>
-        </div>
+    <section className="flex w-1/2 flex-col gap-5">
+      <section className="primary-color-5 flex h-64 flex-col rounded-md border border-white">
+        <p className="text-md border-b pl-3 text-white">Code</p>
 
-        <div className="flex gap-8">
-          <p
-            className="rounded-lg bg-indigo-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
-            onClick={() => changeDocsOpen()}
-          >
-            Docs
-          </p>
-          <p
-            className="rounded-lg bg-orange-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
-            onClick={() => changeSubmitOpen()}
-          >
-            Submit
-          </p>
-        </div>
+        <textarea
+          type="text"
+          ref={tailwindInput}
+          onChange={changeTailwindText}
+          value={tailwindText}
+          className="primary-color-5 h-full w-full resize-none rounded-md p-3 text-white focus:outline-none"
+        />
       </section>
 
       <iframe
-        className="h-80 w-1/2 bg-gray-300"
-        srcDoc={header + tailwindText + script}
+        className="h-64 rounded-md bg-gray-300"
+        srcDoc={header + tailwindText}
       />
+
+      <div className="flex gap-4">
+        <p
+          className="rounded-lg bg-indigo-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
+          onClick={() => changeDocsOpen()}
+        >
+          Docs
+        </p>
+        <p className="rounded-lg bg-green-700 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer">
+          See Design
+        </p>
+        <p
+          className="rounded-lg bg-orange-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
+          onClick={() => changeSubmitOpen()}
+        >
+          Submit
+        </p>
+      </div>
     </section>
   );
 }
