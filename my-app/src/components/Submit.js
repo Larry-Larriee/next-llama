@@ -1,8 +1,9 @@
 import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import React from "react";
 import Link from "next/link";
+import next from "next";
 
-export default function Submit({ submitOpen, changeSubmitOpen }) {
+export default function Submit({ submitOpen, changeSubmitOpen, nextLevel }) {
   return (
     <>
       {/* onClose changes the state when the user clicks outside the modal, like another way to close if the user does not click the close button */}
@@ -26,7 +27,7 @@ export default function Submit({ submitOpen, changeSubmitOpen }) {
                 <section className="flex flex-col gap-5">
                   <p className="text-xl text-white">Classes Used:</p>
 
-                  <ul className="ml-3 flex list-disc flex-col gap-3 text-white">
+                  <ul className="flex max-h-40 list-disc flex-col gap-3 overflow-scroll pl-4 text-white">
                     <li>
                       <p className="text-lg">
                         font-size (i.e. you used text-3xl)
@@ -58,24 +59,15 @@ export default function Submit({ submitOpen, changeSubmitOpen }) {
 
                   <Link href="#">
                     <p className="text-md max-w-48 rounded-md border-2 border-white bg-blue-500 px-4 py-3 text-center font-bold text-white">
-                      Your Code
+                      Compare Solution
                     </p>
                   </Link>
-                  <Link href="#">
+                  <Link href={"../levels/level" + nextLevel}>
                     <p className="text-md max-w-48 rounded-md border-2 border-white bg-orange-500 px-4 py-3 text-center font-bold text-white">
-                      Sample Solution
+                      Next Level
                     </p>
                   </Link>
                 </section>
-              </div>
-
-              <div className="mt-4">
-                <Button
-                  onClick={() => changeSubmitOpen()}
-                  className="inline-flex items-center gap-2 rounded-md bg-gray-700 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white"
-                >
-                  Got it, thanks!
-                </Button>
               </div>
             </DialogPanel>
           </div>

@@ -7,7 +7,7 @@ import Editor from "../../../components/Editor";
 import Docs from "../../../components/Docs";
 import Submit from "../../../components/Submit";
 
-export default function Level1() {
+export default function Level2() {
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
 
@@ -58,17 +58,17 @@ export default function Level1() {
           <Submit
             submitOpen={submitOpen}
             changeSubmitOpen={changeSubmitOpen}
-            nextLevel={"2"}
+            nextLevel={"3"}
           />
         )}
 
         <Navigation />
         <section className="flex w-10/12 justify-center gap-5">
           <LevelHero
-            levelNumber={"One"}
-            levelTitle="The Tryouts"
-            levelDescriptionOne="Welcome to tailwind practice! You're taking the fast lane to mastering the tailwind language and having the ability to code like magic."
-            levelDescriptionTwo="For your first task, you need to get used to your power. Use tailwind to make a “Hello World,” and make it red-500 while you're at it. For a visual demonstration, click on See Design."
+            levelNumber={"Two"}
+            levelTitle="Paint the Town Red"
+            levelDescriptionOne="Paint the town red by filling the background with the color red-500."
+            levelDescriptionTwo="In addition, write the words 'Paint the Town Red' in the center (white text and a size of 3xl)."
           />
 
           {/* We add states and changeStates in page.jsx because docs and submit need to effect the entire page, not just the area where the editor is (editor contains the buttons) */}
