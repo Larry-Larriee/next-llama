@@ -1,9 +1,21 @@
-import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
-import React from "react";
-import Link from "next/link";
-import next from "next";
+"use client";
 
-export default function Submit({ submitOpen, changeSubmitOpen, nextLevel }) {
+import React, { useEffect } from "react";
+import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import Link from "next/link";
+
+export default function Submit({
+  submitOpen,
+  changeSubmitOpen,
+  nextLevel,
+  time,
+  changeIsPaused,
+}) {
+  // When the modal is open, the timer will pause
+  useEffect(() => {
+    if (submitOpen) changeIsPaused();
+  }, [submitOpen]);
+
   return (
     <>
       {/* onClose changes the state when the user clicks outside the modal, like another way to close if the user does not click the close button */}
@@ -51,9 +63,7 @@ export default function Submit({ submitOpen, changeSubmitOpen, nextLevel }) {
 
                 <section className="flex flex-col gap-8">
                   <div className="flex flex-col gap-2">
-                    <p className="text-xl text-white">
-                      Time taken: 9 minutes, 36 seconds
-                    </p>
+                    <p className="text-xl text-white">Time taken: {time}s</p>
                     <p className="text-xl text-white">Accuracy: 99.8%</p>
                   </div>
 
