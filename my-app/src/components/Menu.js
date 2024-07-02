@@ -61,7 +61,7 @@ export default function Menu() {
                 </Link>
               </li>
               <li>
-                <Link href="#">
+                <Link href="/levels/levelselect">
                   <p className="text-white">Level Select</p>
                 </Link>
               </li>

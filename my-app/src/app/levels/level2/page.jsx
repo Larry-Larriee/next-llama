@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "../../../components/Navigation";
 import LevelHero from "../../../components/LevelHero";
 import Editor from "../../../components/Editor";
 import Docs from "../../../components/Docs";
 import Submit from "../../../components/Submit";
 
-export default function Level2() {
+export default function Level1() {
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
 
@@ -49,16 +49,56 @@ export default function Level2() {
     setSubmitOpen(!submitOpen);
   };
 
+  // Timer states
+  const [isRunning, setIsRunning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  let changeIsRunning = () => {
+    setIsRunning(!isRunning);
+  };
+
+  let changeIsPaused = () => {
+    setIsPaused(!isPaused);
+  };
+
+  useEffect(() => {
+    changeIsRunning();
+    // We can suppress the linter warning because we only want this to run once and don't need any dependencies to make the function run
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const [time, setTime] = useState(0);
+
+  // The reason for timer having use useEffects is to start the timer and also allow for pausing
+  useEffect(() => {
+    // setInterval is a built-in function that takes two arguments: a function and a time in milliseconds
+    // The interval variable holds the setInterval function, will increase the time by 1 every second
+    // The reason we have interval as a variable is because setInterval returns an ID that clearInterval uses to stop the interval
+    let interval = null;
+
+    if (isRunning && !isPaused) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
+      }, 1000);
+    } else {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [isPaused, isRunning]);
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-16">
         {closing === "false" && <Docs docsOpen={docsOpen} />}
         {/* the submit component also needs its change state primarily because of the onClose property to close the modal */}
+        {/* Furthermore, there's an changeIsPaused function to pause the timer when the submit modal is open */}
         {submitOpen && (
           <Submit
             submitOpen={submitOpen}
             changeSubmitOpen={changeSubmitOpen}
             nextLevel={"3"}
+            time={time}
+            changeIsPaused={changeIsPaused}
           />
         )}
 
