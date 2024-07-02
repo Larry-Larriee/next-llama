@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import Link from "next/link";
 
 export default function Submit({
@@ -14,6 +14,7 @@ export default function Submit({
   // When the modal is open, the timer will pause
   useEffect(() => {
     if (submitOpen) changeIsPaused();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submitOpen]);
 
   return (
@@ -23,7 +24,10 @@ export default function Submit({
         open={submitOpen}
         as="div"
         className="relative z-10 focus:outline-none"
-        onClose={changeSubmitOpen}
+        onClose={() => {
+          changeSubmitOpen();
+          changeIsPaused();
+        }}
       >
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full w-full items-center justify-center p-4">

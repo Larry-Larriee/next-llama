@@ -72,15 +72,17 @@ export default function Level1() {
   // The reason for timer having use useEffects is to start the timer and also allow for pausing
   useEffect(() => {
     // setInterval is a built-in function that takes two arguments: a function and a time in milliseconds
-    // The interval function will increase the time by 1 every second
-    function interval() {
-      setInterval(() => {
+    // The interval variable holds the setInterval function, will increase the time by 1 every second
+    // The reason we have interval as a variable is because setInterval returns an ID that clearInterval uses to stop the interval
+    let interval = null;
+
+    if (isRunning && !isPaused) {
+      interval = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
       }, 1000);
+    } else {
+      clearInterval(interval);
     }
-    if (isRunning && !isPaused) interval();
-    else clearInterval(interval);
-
     return () => clearInterval(interval);
   }, [isPaused, isRunning]);
 
