@@ -131,11 +131,18 @@ p {
 .level-height {
   height: 32rem;
 }
-.level-radial-gradient {
+.level-radial-gradient-background-blue {
   background: radial-gradient(
     50% 50% at 50% 50%,
     rgba(58, 84, 151, 0.75) 0%,
     rgba(58, 84, 151, 0) 100%
+  );
+}
+.level-radial-gradient-background-orange {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #f56116 0%,
+    rgba(245, 97, 22, 0) 100%
   );
 }
 
