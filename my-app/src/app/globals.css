@@ -146,6 +146,46 @@ p {
   );
 }
 
+.rotate-80 {
+  transform: rotate(80deg);
+}
+.-rotate-80 {
+  transform: rotate(-80deg);
+}
+.rotate-8 {
+  transform: rotate(8deg);
+}
+.-rotate-8 {
+  transform: rotate(-8deg);
+}
+.left-128 {
+  left: 26rem;
+}
+.left-144 {
+  left: 30rem;
+}
+.left-156 {
+  left: 32rem;
+}
+.left-169 {
+  left: 34rem;
+}
+.left-172 {
+  left: 38rem;
+}
+.left-181 {
+  left: 40rem;
+}
+.right-85 {
+  right: 23rem;
+}
+.right-144 {
+  right: 29rem;
+}
+.bottom-18 {
+  bottom: 4.5rem;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
