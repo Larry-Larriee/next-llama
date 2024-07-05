@@ -7,7 +7,7 @@ import Editor from "../../../components/Editor";
 import Docs from "../../../components/Docs";
 import Submit from "../../../components/Submit";
 
-export default function Level2() {
+export default function Level5() {
   let level2 =
     "<div class='w-screen h-screen bg-red-500 flex justify-center items-center'><p class='text-3xl text-white'>Paint the Town Red</p></div>";
   const [docsOpen, setDocsOpen] = useState(false);
@@ -98,7 +98,7 @@ export default function Level2() {
           <Submit
             submitOpen={submitOpen}
             changeSubmitOpen={changeSubmitOpen}
-            nextLevel={"3"}
+            nextLevel={"6"}
             time={time}
             changeIsPaused={changeIsPaused}
           />

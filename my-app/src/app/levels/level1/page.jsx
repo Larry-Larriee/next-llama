@@ -8,6 +8,8 @@ import Docs from "../../../components/Docs";
 import Submit from "../../../components/Submit";
 
 export default function Level1() {
+  let level1 = "<p class='text-red-500 text-2xl'>Hello World</p>";
+
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
 
@@ -115,6 +117,7 @@ export default function Level1() {
           <Editor
             changeDocsOpen={changeDocsOpen}
             changeSubmitOpen={changeSubmitOpen}
+            level={level1}
           />
         </section>
       </div>

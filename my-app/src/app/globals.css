@@ -186,6 +186,10 @@ p {
   bottom: 4.5rem;
 }
 
+.docs-width {
+  width: 47.4rem;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

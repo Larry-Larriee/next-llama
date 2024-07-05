@@ -7,9 +7,10 @@ import Editor from "../../../components/Editor";
 import Docs from "../../../components/Docs";
 import Submit from "../../../components/Submit";
 
-export default function Level2() {
-  let level2 =
-    "<div class='w-screen h-screen bg-red-500 flex justify-center items-center'><p class='text-3xl text-white'>Paint the Town Red</p></div>";
+export default function Level3() {
+  let level3 =
+    "<div class='flex justify-center items-center bg-black w-screen h-screen'><div class='bg-gray-900 flex justify-between items-center rounded-full w-96 h-32'><section class='ml-4 h-20 w-20 bg-white rounded-full'></section><article><p class='text-white text-lg'>Elon Musk (Parody)</p><p class='text-white text-lg'>@elonmusk</p></article><section class='h-20 w-20 flex gap-1 justify-center items-center'><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div></section></div></div>";
+  ("<div class='w-screen h-screen bg-red-500 flex justify-center items-center'><p class='text-3xl text-white'>Paint the Town Red</p></div>");
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
 
@@ -98,7 +99,7 @@ export default function Level2() {
           <Submit
             submitOpen={submitOpen}
             changeSubmitOpen={changeSubmitOpen}
-            nextLevel={"3"}
+            nextLevel={"4"}
             time={time}
             changeIsPaused={changeIsPaused}
           />
@@ -107,17 +108,17 @@ export default function Level2() {
         <Navigation />
         <section className="flex w-10/12 justify-center gap-5">
           <LevelHero
-            levelNumber={"Two"}
-            levelTitle="Paint the Town Red"
-            levelDescriptionOne="Paint the town red by filling the background with the color red-500."
-            levelDescriptionTwo="In addition, write the words 'Paint the Town Red' in the center (white text and a size of 3xl)."
+            levelNumber={"Three"}
+            levelTitle="Twitter Profile"
+            levelDescriptionOne="Tailwind has a lot of real applications. You've made the right choice by choosing to learn this library."
+            levelDescriptionTwo="Create a twitter profile using tailwind. Not the whole thing; just that one cool part in the navigation menu (see design). Also WARNING: this level is the hardest one yet!!"
           />
 
           {/* We add states and changeStates in page.jsx because docs and submit need to effect the entire page, not just the area where the editor is (editor contains the buttons) */}
           <Editor
             changeDocsOpen={changeDocsOpen}
             changeSubmitOpen={changeSubmitOpen}
-            level={level2}
+            level={level3}
           />
         </section>
       </div>

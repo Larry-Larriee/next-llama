@@ -2,7 +2,7 @@ import React from "react";
 import Navigation from "../../../components/Navigation";
 import Link from "next/link";
 
-export default function page() {
+export default function LevelSelect() {
   return (
     <>
       <div className="flex w-full flex-col items-center gap-16">
@@ -33,7 +33,7 @@ export default function page() {
 
                 <Link
                   className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900"
-                  href="/levels/level1"
+                  href="/levels/level2"
                 >
                   <p className="text-2xl font-bold text-white">2</p>
                 </Link>
@@ -50,7 +50,7 @@ export default function page() {
 
                 <Link
                   className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900"
-                  href="/levels/level1"
+                  href="/levels/level3"
                 >
                   <p className="text-2xl font-bold text-white">3</p>
                 </Link>
@@ -65,7 +65,7 @@ export default function page() {
 
                 <Link
                   className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900"
-                  href="/levels/level1"
+                  href="/levels/level4"
                 >
                   <p className="text-2xl font-bold text-white">4</p>
                 </Link>
@@ -80,7 +80,7 @@ export default function page() {
 
                 <Link
                   className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900"
-                  href="/levels/level1"
+                  href="/levels/level5"
                 >
                   <p className="text-2xl font-bold text-white">5</p>
                 </Link>
@@ -95,7 +95,7 @@ export default function page() {
 
                 <Link
                   className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-orange-500"
-                  href="/levels/level1"
+                  href="/levels/final-challenge"
                 >
                   <p className="text-2xl font-bold text-white">👑</p>
                 </Link>

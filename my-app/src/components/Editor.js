@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react";
 import LevelOne from "../assets/levels/levelOne.png";
 import LevelVisual from "./LevelVisual";
 
-export default function Editor({ changeDocsOpen, changeSubmitOpen }) {
+export default function Editor({ changeDocsOpen, changeSubmitOpen, level }) {
   let tailwindInput = useRef();
   let [tailwindText, setTailwindText] = useState(
     "<p class='text-2xl text-black'>Hello World</p>",
@@ -46,7 +46,7 @@ export default function Editor({ changeDocsOpen, changeSubmitOpen }) {
           srcDoc={header + tailwindText}
         />
 
-        {designOpen && <LevelVisual levelVisualImage={LevelOne} />}
+        {designOpen && <LevelVisual level={level} />}
       </section>
 
       <div className="flex gap-4">
