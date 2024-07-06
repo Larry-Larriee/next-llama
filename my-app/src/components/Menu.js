@@ -40,10 +40,10 @@ export default function Menu() {
             changeMenuOpen();
           }, 750);
         }}
-        className="z-5 relative"
+        className="relative z-10"
       >
         <div className="justify-left fixed inset-0 flex w-screen items-center">
-          <article className="primary-color-2 absolute inset-0 -z-10 opacity-50" />
+          <article className="primary-color-2 absolute inset-0 opacity-50" />
 
           <DialogPanel
             className="primary-color-3 slideIn flex h-screen max-w-xl flex-col gap-5 p-12"
@@ -56,12 +56,18 @@ export default function Menu() {
 
             <ul className="flex list-none flex-col gap-5">
               <li>
+                <Link href="/">
+                  <p className="text-white">Home</p>
+                </Link>
+              </li>
+
+              <li>
                 <Link href="#">
                   <p className="text-white">Leaderboard</p>
                 </Link>
               </li>
               <li>
-                <Link href="/levels/levelselect">
+                <Link href="/levels/level-select">
                   <p className="text-white">Level Select</p>
                 </Link>
               </li>

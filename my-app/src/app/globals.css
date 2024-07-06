@@ -43,6 +43,17 @@ p {
   background: var(--primary-color-5);
 }
 
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.appear {
+  animation: appear 0.25s ease-in-out forwards;
+}
 @keyframes slideIn {
   from {
     transform: translateX(-100%);

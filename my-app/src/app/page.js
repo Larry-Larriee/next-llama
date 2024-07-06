@@ -1,5 +1,4 @@
 import React from "react";
-import Editor from "../components/Editor";
 import Link from "next/link";
 
 import SquareBackground from "../components/SquareBackground";
@@ -216,6 +215,11 @@ export default function page() {
           <Link href="/levels/level1">
             <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
               Get Started
+            </p>
+          </Link>
+          <Link href="/levels/level-select">
+            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
+              Level Select
             </p>
           </Link>
           <Link href="#">
