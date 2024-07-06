@@ -8,8 +8,8 @@ import Docs from "../../../components/Docs";
 import Submit from "../../../components/Submit";
 
 export default function Level6() {
-  let level2 =
-    "<div class='w-screen h-screen bg-red-500 flex justify-center items-center'><p class='text-3xl text-white'>Paint the Town Red</p></div>";
+  let level6 =
+    "<div class='flex h-screen w-screen items-center justify-center gap-0 bg-yellow-100'><div class='relative flex'><section class='h-0 w-0 border-yellow-300 big-border-left border-l-transparent border-b-transparent'></section><section class='w-20 h-20 bg-yellow-300'></section><section class='h-0 w-0 border-yellow-300 big-border-right border-r-transparent border-b-transparent'></section><section class='middle-crown-piece h-0 w-0 border-yellow-300 border-r-transparent border-l-transparent'></section><section class='left-crown-piece h-0 w-0 border-yellow-300 border-r-transparent border-l-transparent'></section><section class='right-crown-piece h-0 w-0 border-yellow-300 border-r-transparent border-l-transparent'></section></div></div><style>.big-border-right{border-bottom-width:5rem;border-left-width:2rem;border-right-width:5rem}.big-border-left{border-bottom-width:5rem;border-left-width:5rem;border-right-width:2rem}.middle-crown-piece{position:absolute;top:-3rem;left:33%;border-bottom-width:3rem;border-left-width:3rem;border-right-width:3rem}.left-crown-piece{position:absolute;top:-2.5rem;left:19.8%;transform:rotate(-50deg);border-bottom-width:4rem;border-left-width:2rem;border-right-width:2rem}.right-crown-piece{position:absolute;top:-2.5rem;right:19.8%;transform:rotate(50deg);border-bottom-width:4rem;border-left-width:2rem;border-right-width:2rem}.up-arrow{width:0;height:0;border-left:50px solid #fff0;border-right:50px solid #fff0;border-bottom:50px solid green;margin:2rem}</style>";
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
 
@@ -107,17 +107,17 @@ export default function Level6() {
         <Navigation />
         <section className="flex w-10/12 justify-center gap-5">
           <LevelHero
-            levelNumber={"Two"}
-            levelTitle="Paint the Town Red"
-            levelDescriptionOne="Paint the town red by filling the background with the color red-500."
-            levelDescriptionTwo="In addition, write the words 'Paint the Town Red' in the center (white text and a size of 3xl)."
+            levelNumber={"👑"}
+            levelTitle="Final Challenge"
+            levelDescriptionOne="If you got this far without cheating, I'm already super impressed with you. Beat this level and you're ready to graduate. For your final challenge, you have to recreate a crown using tailwind."
+            levelDescriptionTwo="Hint: It might be helpful learning how to make triangles on the web. You may also have to make your own styles (yikes). This level is one of the hardest because of how unique it is. Good luck!"
           />
 
           {/* We add states and changeStates in page.jsx because docs and submit need to effect the entire page, not just the area where the editor is (editor contains the buttons) */}
           <Editor
             changeDocsOpen={changeDocsOpen}
             changeSubmitOpen={changeSubmitOpen}
-            level={level2}
+            level={level6}
           />
         </section>
       </div>

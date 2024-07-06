@@ -17,7 +17,7 @@ export default function LevelSelect() {
                 <div className="level-radial-gradient-background-blue absolute -bottom-5 -left-8 -z-10 h-28 w-32" />
 
                 <Link
-                  className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900"
+                  className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900 transition duration-200 ease-in-out hover:scale-105"
                   href="/levels/level1"
                 >
                   <p className="text-2xl font-bold text-white">1</p>
@@ -32,7 +32,7 @@ export default function LevelSelect() {
                 <div className="level-radial-gradient-background-blue absolute -bottom-5 -left-8 -z-10 h-28 w-32" />
 
                 <Link
-                  className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900"
+                  className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900 transition duration-200 ease-in-out hover:scale-105"
                   href="/levels/level2"
                 >
                   <p className="text-2xl font-bold text-white">2</p>
@@ -49,7 +49,7 @@ export default function LevelSelect() {
                 <div className="level-radial-gradient-background-blue absolute -bottom-5 -left-8 -z-10 h-28 w-32" />
 
                 <Link
-                  className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900"
+                  className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900 transition duration-200 ease-in-out hover:scale-105"
                   href="/levels/level3"
                 >
                   <p className="text-2xl font-bold text-white">3</p>
@@ -64,7 +64,7 @@ export default function LevelSelect() {
                 <div className="level-radial-gradient-background-blue absolute -bottom-5 -left-8 -z-10 h-28 w-32" />
 
                 <Link
-                  className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900"
+                  className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900 transition duration-200 ease-in-out hover:scale-105"
                   href="/levels/level4"
                 >
                   <p className="text-2xl font-bold text-white">4</p>
@@ -79,7 +79,7 @@ export default function LevelSelect() {
                 <div className="level-radial-gradient-background-blue absolute -bottom-5 -left-8 -z-10 h-28 w-32" />
 
                 <Link
-                  className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900"
+                  className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900 transition duration-200 ease-in-out hover:scale-105"
                   href="/levels/level5"
                 >
                   <p className="text-2xl font-bold text-white">5</p>
@@ -94,8 +94,8 @@ export default function LevelSelect() {
                 <div className="level-radial-gradient-background-orange absolute -bottom-5 -left-8 -z-10 h-28 w-32 animate-pulse" />
 
                 <Link
-                  className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-orange-500"
-                  href="/levels/final-challenge"
+                  className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-orange-500 transition duration-200 ease-in-out hover:scale-105"
+                  href="/levels/level6"
                 >
                   <p className="text-2xl font-bold text-white">👑</p>
                 </Link>
