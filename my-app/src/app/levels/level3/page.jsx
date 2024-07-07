@@ -102,6 +102,7 @@ export default function Level3() {
             nextLevel={"4"}
             time={time}
             changeIsPaused={changeIsPaused}
+            level={level3}
           />
         )}
 

@@ -101,6 +101,7 @@ export default function Level6() {
             nextLevel={"1"}
             time={time}
             changeIsPaused={changeIsPaused}
+            level={level6}
           />
         )}
 

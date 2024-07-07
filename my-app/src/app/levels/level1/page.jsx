@@ -101,6 +101,8 @@ export default function Level1() {
             nextLevel={"2"}
             time={time}
             changeIsPaused={changeIsPaused}
+            // Note that the level property displays the solution code.
+            level={level1}
           />
         )}
 
