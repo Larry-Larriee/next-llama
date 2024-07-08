@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import Navigation from "../../../components/Navigation";
-import LevelHero from "../../../components/LevelHero";
+import LevelHero from "../../../components/helper/LevelHero";
 import Editor from "../../../components/Editor";
 import Docs from "../../../components/Docs";
-import Submit from "../../../components/Submit";
+import SubmitModal from "../../../components/helper/SubmitModal";
 
 export default function Level1() {
-  let level1 = "<p class='text-red-500 text-2xl'>Hello World</p>";
+  let levelSolution = "<p class='text-red-500 text-2xl'>Hello World</p>";
 
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
@@ -20,9 +20,9 @@ export default function Level1() {
   // once the docs button is pressed again to close the docs, docsOpen will be set to false (for useEffect to play the
   // closing animation), and closing will be set to true remove the docs from the DOM
   let changeDocsOpen = () => {
-    if (debounce === true) return;
+    if (debounce) return;
 
-    if (docsOpen === true) {
+    if (docsOpen) {
       setDebounce(true);
       // Docs.js also reads that docsOpen is false and plays the animation
       setDocsOpen(false);
@@ -32,7 +32,7 @@ export default function Level1() {
         setClosing("true");
         setDebounce(false);
       }, 750);
-    } else if (docsOpen === false) {
+    } else if (!docsOpen) {
       setDebounce(true);
 
       // closing being false will add the docs back to the DOM
@@ -58,7 +58,6 @@ export default function Level1() {
   let changeIsRunning = () => {
     setIsRunning(!isRunning);
   };
-
   let changeIsPaused = () => {
     setIsPaused(!isPaused);
   };
@@ -76,7 +75,7 @@ export default function Level1() {
     // setInterval is a built-in function that takes two arguments: a function and a time in milliseconds
     // The interval variable holds the setInterval function, will increase the time by 1 every second
     // The reason we have interval as a variable is because setInterval returns an ID that clearInterval uses to stop the interval
-    let interval = null;
+    let interval;
 
     if (isRunning && !isPaused) {
       interval = setInterval(() => {
@@ -95,14 +94,14 @@ export default function Level1() {
         {/* the submit component also needs its change state primarily because of the onClose property to close the modal */}
         {/* Furthermore, there's an changeIsPaused function to pause the timer when the submit modal is open */}
         {submitOpen && (
-          <Submit
+          <SubmitModal
             submitOpen={submitOpen}
             changeSubmitOpen={changeSubmitOpen}
             nextLevel={"2"}
             time={time}
             changeIsPaused={changeIsPaused}
-            // Note that the level property displays the solution code.
-            level={level1}
+            // submit modal uses level solution to display the solution code as part of comparing user code
+            levelSolution={levelSolution}
           />
         )}
 
@@ -119,7 +118,8 @@ export default function Level1() {
           <Editor
             changeDocsOpen={changeDocsOpen}
             changeSubmitOpen={changeSubmitOpen}
-            level={level1}
+            // editor uses level solution to display the solution code as a visual
+            levelSolution={levelSolution}
           />
         </section>
       </div>

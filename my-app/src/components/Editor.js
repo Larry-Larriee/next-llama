@@ -1,10 +1,13 @@
 "use client"; // by default, files are treated like they're in a server environment
 
 import React, { useState, useRef } from "react";
-import LevelOne from "../assets/levels/levelOne.png";
-import LevelVisual from "./LevelVisual";
+import LevelVisual from "./helper/LevelVisual";
 
-export default function Editor({ changeDocsOpen, changeSubmitOpen, level }) {
+export default function Editor({
+  changeDocsOpen,
+  changeSubmitOpen,
+  levelSolution,
+}) {
   let tailwindInput = useRef();
   let [tailwindText, setTailwindText] = useState(
     "<p class='text-2xl text-black'>Hello World</p>",
@@ -46,7 +49,7 @@ export default function Editor({ changeDocsOpen, changeSubmitOpen, level }) {
           srcDoc={header + tailwindText}
         />
 
-        {designOpen && <LevelVisual level={level} />}
+        {designOpen && <LevelVisual levelSolution={levelSolution} />}
       </section>
 
       <div className="flex gap-4">

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import SquareBackground from "../components/SquareBackground";
+import SquareBackground from "../components/helper/SquareBackground";
 
 export default function page() {
   return (

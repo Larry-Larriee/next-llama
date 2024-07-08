@@ -1,5 +1,5 @@
 import React from "react";
-import Menu from "./Menu";
+import Menu from "./helper/Menu";
 import Link from "next/link";
 
 export default function Navigation() {

@@ -4,14 +4,13 @@ import React, { useState, useEffect } from "react";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import Link from "next/link";
 
-export default function Submit({
+export default function SubmitModal({
   submitOpen,
   changeSubmitOpen,
   nextLevel,
   time,
   changeIsPaused,
-  level,
-  userCode,
+  levelSolution,
 }) {
   // When the modal is open, the timer will pause
   useEffect(() => {
@@ -117,9 +116,11 @@ export default function Submit({
                     <p className="text-md text-white">Characters Used: 235</p>
                   </div>
                   <div className="flex h-80 w-1/2 flex-col justify-between gap-6 px-5 py-3">
-                    <p className="text-md overflow-auto text-white">{level}</p>
+                    <p className="text-md overflow-auto text-white">
+                      {levelSolution}
+                    </p>
                     <p className="text-md text-white">
-                      Characters Used: {level.length}
+                      Characters Used: {levelSolution.length}
                     </p>
                   </div>
                 </section>
