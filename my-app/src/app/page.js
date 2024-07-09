@@ -9,14 +9,32 @@ import SquareBackground from "../components/helper/SquareBackground";
 export default function Page() {
   // Recreate designs. Practice and perfect tailwind.
   const exampOneRef = useRef();
+  const exampTwoRef = useRef();
+  const exampThrPrtOneRef = useRef();
+  const exampThrPrtTwoRef = useRef();
 
   let exampOneInView = UseInView(exampOneRef, 1);
+  let exampTwoInView = UseInView(exampTwoRef, 1);
+  let exampThrPrtOneInView = UseInView(exampThrPrtOneRef, 0.15);
+  let exampThrPrtTwoInView = UseInView(exampThrPrtTwoRef, 1);
 
   useEffect(() => {
-    console.log(exampOneInView.isInView);
     if (exampOneInView.isInView)
-      exampOneRef.current.classList.add("slideInAppear");
-  }, [exampOneInView]);
+      exampOneRef.current.classList.add("appearFromBottom");
+
+    if (exampTwoInView.isInView) exampTwoRef.current.classList.add("appear");
+
+    if (exampThrPrtOneInView.isInView)
+      exampThrPrtOneRef.current.classList.add("appear");
+
+    if (exampThrPrtTwoInView.isInView)
+      exampThrPrtTwoRef.current.classList.add("appear");
+  }, [
+    exampOneInView,
+    exampTwoInView,
+    exampThrPrtOneInView,
+    exampThrPrtTwoInView,
+  ]);
 
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center gap-40">
@@ -134,7 +152,9 @@ export default function Page() {
       </div>
 
       <div className="primary-color-3 flex w-full flex-col justify-center gap-10 py-24">
-        <p className="ml-32 text-4xl text-white">Level Up. Review Quickly.</p>
+        <p className="ml-32 text-4xl text-white opacity-0" ref={exampTwoRef}>
+          Level Up. Review Quickly.
+        </p>
 
         <section className="primary-color-4 ml-32 flex w-9/12 flex-col gap-6 rounded-2xl border-2 border-white pb-20 pl-10 pt-10">
           <p className="text-2xl text-white">Level 5</p>
@@ -199,7 +219,10 @@ export default function Page() {
 
         <section className="flex w-10/12 justify-between">
           <div className="flex w-5/12 flex-col gap-5">
-            <section className="primary-color-2 h-72 w-full rounded-xl border-2 border-white pl-10 pt-10">
+            <section
+              className="primary-color-2 h-72 w-full rounded-xl border-2 border-white pl-10 pt-10 opacity-0"
+              ref={exampThrPrtOneRef}
+            >
               <p className="h-48 text-xl text-white">
                 &lt;p class=&quot;
                 <span className="text-blue-400">was-it-width-10?</span>
@@ -217,7 +240,10 @@ export default function Page() {
             </section>
           </div>
 
-          <div className="h-72 w-6/12 rounded-xl bg-gray-300">
+          <div
+            className="h-72 w-6/12 rounded-xl bg-gray-300 opacity-0"
+            ref={exampThrPrtTwoRef}
+          >
             <p className="p-10 text-xl text-black">Hello World</p>
           </div>
         </section>

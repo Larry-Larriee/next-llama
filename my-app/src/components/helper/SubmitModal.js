@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import Link from "next/link";
 
+import confetti from "canvas-confetti";
+
 export default function SubmitModal({
   submitOpen,
   changeSubmitOpen,
@@ -13,8 +15,14 @@ export default function SubmitModal({
   levelSolution,
 }) {
   // When the modal is open, the timer will pause
+  // Confetti will also fire lol
   useEffect(() => {
     if (submitOpen) changeIsPaused();
+
+    confetti({
+      spread: 125,
+    });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submitOpen]);
 

@@ -76,7 +76,7 @@ p {
   }
 }
 .slideInAppear {
-  animation: slideInAppear 0.5s ease-in-out forwards;
+  animation: slideInAppear 0.75s ease-in-out forwards;
 }
 @keyframes slideOut {
   from {
@@ -114,7 +114,7 @@ p {
 @keyframes appearFromBottom {
   from {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(35%);
   }
   to {
     opacity: 1;
@@ -122,7 +122,7 @@ p {
   }
 }
 .appearFromBottom {
-  animation: appearFromBottom 0.5s ease-in-out forwards;
+  animation: appearFromBottom 750ms linear forwards;
 }
 
 .radial-gradient-absolute {
