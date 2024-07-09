@@ -65,6 +65,19 @@ p {
 .slideIn {
   animation: slideIn 0.5s ease-in-out forwards;
 }
+@keyframes slideInAppear {
+  from {
+    transform: translateX(-25%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.slideInAppear {
+  animation: slideInAppear 0.5s ease-in-out forwards;
+}
 @keyframes slideOut {
   from {
     transform: translateX(0);
@@ -97,6 +110,19 @@ p {
 }
 .slideOutRight {
   animation: slideOutRight 0.5s ease-in-out forwards;
+}
+@keyframes appearFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.appearFromBottom {
+  animation: appearFromBottom 0.5s ease-in-out forwards;
 }
 
 .radial-gradient-absolute {

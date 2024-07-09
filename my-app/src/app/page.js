@@ -1,9 +1,23 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
+import UseInView from "../components/hooks/UseInView.js";
 
 import SquareBackground from "../components/helper/SquareBackground";
 
-export default function page() {
+export default function Page() {
+  // Recreate designs. Practice and perfect tailwind.
+  const exampOneRef = useRef();
+
+  let exampOneInView = UseInView(exampOneRef, 1);
+
+  useEffect(() => {
+    console.log(exampOneInView.isInView);
+    if (exampOneInView.isInView)
+      exampOneRef.current.classList.add("slideInAppear");
+  }, [exampOneInView]);
+
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center gap-40">
       {/* radial gradient background for hero */}
@@ -111,7 +125,10 @@ export default function page() {
           </section>
         </div>
 
-        <p className="absolute bottom-20 max-w-96 text-3xl text-white">
+        <p
+          className="absolute bottom-20 max-w-96 text-3xl text-white opacity-0"
+          ref={exampOneRef}
+        >
           Recreate designs. Practice and perfect tailwind.
         </p>
       </div>

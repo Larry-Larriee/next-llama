@@ -96,20 +96,20 @@ export default function SubmitModal({
             )}
 
             {compareSolution && (
-              <DialogPanel className="data-[closed]:transform-[scale(95%)] flex w-7/12 flex-col rounded-xl border border-white bg-gray-900/80 backdrop-blur-2xl data-[closed]:opacity-0">
-                <section className="flex items-center justify-between border-b border-white px-3 py-2">
+              <DialogPanel className="data-[closed]:transform-[scale(95%)] flex w-7/12 flex-col rounded-xl border border-white/25 bg-gray-900/80 backdrop-blur-2xl data-[closed]:opacity-0">
+                <section className="flex items-center justify-between border-b border-white/25 px-3 py-2">
                   <p className="text-xl text-white">
                     Level Five - Chinese Restuarant
                   </p>
                   <p
-                    className="text-md rounded-lg border border-white px-2 py-1 text-center text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer hover:border-red-600 hover:text-red-600"
+                    className="text-md rounded-lg border border-white/25 px-2 py-1 text-center text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer hover:border-red-600 hover:text-red-600"
                     onClick={() => changeCompareSolution()}
                   >
                     Back
                   </p>
                 </section>
                 <section className="flex">
-                  <div className="flex h-80 w-1/2 flex-col justify-between border-r border-white p-3">
+                  <div className="flex h-80 w-1/2 flex-col justify-between border-r border-white/25 p-3">
                     <p className="text-md max-h-64 overflow-auto text-white">
                       Hello World.
                     </p>
