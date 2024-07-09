@@ -3,28 +3,31 @@
 import React, { useState, useRef } from "react";
 import LevelVisual from "./helper/LevelVisual";
 
+// changeDocsOpen (setState) determines whether to open or close the tailwind docs
+// changeSubmitOpen (setState) determines whether to open or close the submit modal
+// levelSolution (string) the solution to the level
 export default function Editor({
   changeDocsOpen,
   changeSubmitOpen,
   levelSolution,
 }) {
-  let tailwindInput = useRef();
-  let [tailwindText, setTailwindText] = useState(
+  let userSolutionRef = useRef();
+  let [userSolution, setUserSolution] = useState(
     "<p class='text-2xl text-black'>Hello World</p>",
   );
 
   // when the user types, use the value of the input
-  let changeTailwindText = () => {
-    setTailwindText(tailwindInput.current.value);
+  let changeUserSolution = () => {
+    setUserSolution(userSolutionRef.current.value);
   };
 
   // tailwind CDN configuration
   let header =
     "<head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><script src='https://cdn.tailwindcss.com'></script></head>  <style type='text/tailwindcss'>@layer utilities {.content-auto {content-visibility: auto;}}</style>";
 
-  const [designOpen, setDesignOpen] = useState(false);
-  let changeDesignOpen = () => {
-    setDesignOpen(!designOpen);
+  const [levelSolutionVisualOpen, setlevelSolutionVisualOpen] = useState(false);
+  let changelevelSolutionVisualOpen = () => {
+    setlevelSolutionVisualOpen(!levelSolutionVisualOpen);
   };
 
   return (
@@ -36,20 +39,23 @@ export default function Editor({
 
         <textarea
           type="text"
-          ref={tailwindInput}
-          onChange={changeTailwindText}
-          value={tailwindText}
+          ref={userSolutionRef}
+          onChange={changeUserSolution}
+          value={userSolution}
           className="primary-color-5 h-full w-full resize-none rounded-md p-3 text-white focus:outline-none"
         />
       </section>
 
+      {/* This area contains both the user's solution visual and the level solution visual */}
       <section className="relative">
         <iframe
           className="h-64 w-full rounded-md bg-white"
-          srcDoc={header + tailwindText}
+          srcDoc={header + userSolution}
         />
 
-        {designOpen && <LevelVisual levelSolution={levelSolution} />}
+        {levelSolutionVisualOpen && (
+          <LevelVisual levelSolution={levelSolution} />
+        )}
       </section>
 
       <div className="flex gap-4">
@@ -61,7 +67,7 @@ export default function Editor({
         </p>
         <p
           className="rounded-lg bg-green-700 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
-          onClick={() => changeDesignOpen()}
+          onClick={() => changelevelSolutionVisualOpen()}
         >
           See Design
         </p>

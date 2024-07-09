@@ -7,6 +7,8 @@ import Editor from "../../../components/Editor";
 import Docs from "../../../components/Docs";
 import SubmitModal from "../../../components/helper/SubmitModal";
 
+import UseStopWatch from "../../../components/hooks/UseStopWatch";
+
 export default function Level3() {
   let levelSolution =
     "<div class='flex justify-center items-center bg-black w-screen h-screen'><div class='bg-gray-900 flex justify-between items-center rounded-full w-96 h-32'><section class='ml-4 h-20 w-20 bg-white rounded-full'></section><article><p class='text-white text-lg'>Elon Musk (Parody)</p><p class='text-white text-lg'>@elonmusk</p></article><section class='h-20 w-20 flex gap-1 justify-center items-center'><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div></section></div></div>";
@@ -46,35 +48,7 @@ export default function Level3() {
     setSubmitOpen(!submitOpen);
   };
 
-  // Timer states
-  const [isRunning, setIsRunning] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  const [time, setTime] = useState(0);
-
-  let changeIsRunning = () => {
-    setIsRunning(!isRunning);
-  };
-  let changeIsPaused = () => {
-    setIsPaused(!isPaused);
-  };
-
-  useEffect(() => {
-    changeIsRunning();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    let interval;
-
-    if (isRunning && !isPaused) {
-      interval = setInterval(() => {
-        setTime((prevTime) => prevTime + 1);
-      }, 1000);
-    } else {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [isPaused, isRunning]);
+  let { time, changeIsPaused } = UseStopWatch();
 
   return (
     <>

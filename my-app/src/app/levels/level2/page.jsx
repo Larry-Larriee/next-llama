@@ -7,9 +7,12 @@ import Editor from "../../../components/Editor";
 import Docs from "../../../components/Docs";
 import SubmitModal from "../../../components/helper/SubmitModal";
 
+import UseStopWatch from "../../../components/hooks/UseStopWatch";
+
 export default function Level2() {
   let levelSolution =
     "<div class='w-screen h-screen bg-red-500 flex justify-center items-center'><p class='text-3xl text-white'>Paint the Town Red</p></div>";
+
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
 
@@ -45,35 +48,7 @@ export default function Level2() {
     setSubmitOpen(!submitOpen);
   };
 
-  // Timer states
-  const [isRunning, setIsRunning] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  const [time, setTime] = useState(0);
-
-  let changeIsRunning = () => {
-    setIsRunning(!isRunning);
-  };
-  let changeIsPaused = () => {
-    setIsPaused(!isPaused);
-  };
-
-  useEffect(() => {
-    changeIsRunning();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    let interval;
-
-    if (isRunning && !isPaused) {
-      interval = setInterval(() => {
-        setTime((prevTime) => prevTime + 1);
-      }, 1000);
-    } else {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [isPaused, isRunning]);
+  let { time, changeIsPaused } = UseStopWatch();
 
   return (
     <>
