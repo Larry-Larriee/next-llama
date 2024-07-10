@@ -8,6 +8,7 @@ import Docs from "../../../components/Docs";
 import SubmitModal from "../../../components/helper/SubmitModal";
 
 import UseStopWatch from "../../../components/hooks/UseStopWatch";
+import UseAnimation from "../../../components/hooks/UseAnimation";
 
 export default function Level5() {
   let levelSolution =
@@ -15,31 +16,11 @@ export default function Level5() {
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
 
-  // debounce to prevent spam
-  const [debounce, setDebounce] = useState(false);
-
   let changeDocsOpen = () => {
-    if (debounce) return;
-
-    if (docsOpen) {
-      setDebounce(true);
-      setDocsOpen(false);
-
-      setTimeout(() => {
-        setClosing("true");
-        setDebounce(false);
-      }, 750);
-    } else if (!docsOpen) {
-      setDebounce(true);
-
-      setClosing("false");
-      setDocsOpen(true);
-
-      setTimeout(() => {
-        setDebounce(false);
-      }, 750);
-    }
+    setDocsOpen(!docsOpen);
   };
+
+  let animation = UseAnimation(docsOpen, changeDocsOpen, setClosing);
 
   const [submitOpen, setSubmitOpen] = useState(false);
 
@@ -74,7 +55,7 @@ export default function Level5() {
           />
 
           <Editor
-            changeDocsOpen={changeDocsOpen}
+            changeDocsOpen={() => animation.useAnimation()}
             changeSubmitOpen={changeSubmitOpen}
             levelSolution={levelSolution}
           />
