@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Navigation from "../../../components/Navigation";
 import LevelHero from "../../../components/helper/LevelHero";
 import Editor from "../../../components/Editor";
@@ -30,6 +30,15 @@ export default function Level6() {
 
   let { time, changeIsPaused } = UseStopWatch();
 
+  const userSolutionRef = useRef();
+  let [userSolution, setUserSolution] = useState(
+    "<p class='text-2xl text-black'>Hello World</p>",
+  );
+
+  let changeUserSolution = () => {
+    setUserSolution(userSolutionRef.current.value);
+  };
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-16">
@@ -58,6 +67,9 @@ export default function Level6() {
             changeDocsOpen={() => animation.useAnimation()}
             changeSubmitOpen={changeSubmitOpen}
             levelSolution={levelSolution}
+            userSolution={userSolution}
+            userSolutionRef={userSolutionRef}
+            changeUserSolution={changeUserSolution}
           />
         </section>
       </div>

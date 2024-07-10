@@ -10,17 +10,10 @@ export default function Editor({
   changeDocsOpen,
   changeSubmitOpen,
   levelSolution,
+  userSolutionRef,
+  userSolution,
+  changeUserSolution,
 }) {
-  let userSolutionRef = useRef();
-  let [userSolution, setUserSolution] = useState(
-    "<p class='text-2xl text-black'>Hello World</p>",
-  );
-
-  // when the user types, use the value of the input
-  let changeUserSolution = () => {
-    setUserSolution(userSolutionRef.current.value);
-  };
-
   // tailwind CDN configuration
   let header =
     "<head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><script src='https://cdn.tailwindcss.com'></script></head>  <style type='text/tailwindcss'>@layer utilities {.content-auto {content-visibility: auto;}}</style>";
