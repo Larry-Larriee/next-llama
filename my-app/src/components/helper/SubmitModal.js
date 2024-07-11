@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import Link from "next/link";
+import AssessTailwind from "./AssessTailwind";
 
 import confetti from "canvas-confetti";
 
@@ -61,6 +62,8 @@ export default function SubmitModal({
                     <p className="text-xl text-white">Classes Used:</p>
 
                     <ul className="flex max-h-40 list-disc flex-col gap-3 overflow-scroll pl-4 text-white">
+                      <AssessTailwind userSolution={userSolution} />
+
                       <li>
                         <p className="text-lg">
                           font-size (i.e. you used text-3xl)

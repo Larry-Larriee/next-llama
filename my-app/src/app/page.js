@@ -5,6 +5,7 @@ import Link from "next/link";
 import UseInView from "../components/hooks/UseInView.js";
 
 import SquareBackground from "../components/helper/SquareBackground";
+// import Puppeteer from "./Puppeteer.js";
 
 export default function Page() {
   // Recreate designs. Practice and perfect tailwind.
@@ -48,6 +49,8 @@ export default function Page() {
     exampThrPrtOneInView,
     exampThrPrtTwoInView,
   ]);
+
+  // Puppeteer();
 
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center gap-40">

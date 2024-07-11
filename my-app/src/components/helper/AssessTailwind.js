@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function AssessTailwind({ userCode }) {
+export default function AssessTailwind({ userSolution }) {
   let tailwindKeywords = {
     accentColor: "",
     accessibility: "",
@@ -183,5 +183,22 @@ export default function AssessTailwind({ userCode }) {
     zIndex: "z-",
   };
 
-  return <div>AssessTailwind</div>;
+  let included;
+
+  // if (userSolution.includes(tailwindKeywords.maxWidth)) {
+  //   included = "max-width is included";
+  // }
+
+  // for...in allows you to iterate over js objects
+  for (let key in tailwindKeywords) {
+    if (userSolution.includes(tailwindKeywords[key])) {
+      included = key + " is included";
+    }
+  }
+
+  return (
+    <>
+      <p className="text-2xl text-white">{included}</p>
+    </>
+  );
 }
