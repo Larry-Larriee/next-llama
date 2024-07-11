@@ -9,12 +9,16 @@ import SquareBackground from "../components/helper/SquareBackground";
 export default function Page() {
   // Recreate designs. Practice and perfect tailwind.
   const exampOneRef = useRef();
-  const exampTwoRef = useRef();
+  const exampTwoPrtOneRef = useRef();
+  const exampTwoPrtTwoRef = useRef();
+  const exampTwoPrtThrRef = useRef();
   const exampThrPrtOneRef = useRef();
   const exampThrPrtTwoRef = useRef();
 
   let exampOneInView = UseInView(exampOneRef, 1);
-  let exampTwoInView = UseInView(exampTwoRef, 1);
+  let exampTwoPrtOneInView = UseInView(exampTwoPrtOneRef, 0.15);
+  let exampTwoPrtTwoInView = UseInView(exampTwoPrtTwoRef, 0.45);
+  let exampTwoPrtThrInView = UseInView(exampTwoPrtThrRef, 0.45);
   let exampThrPrtOneInView = UseInView(exampThrPrtOneRef, 0.15);
   let exampThrPrtTwoInView = UseInView(exampThrPrtTwoRef, 1);
 
@@ -22,7 +26,14 @@ export default function Page() {
     if (exampOneInView.isInView)
       exampOneRef.current.classList.add("appearFromBottom");
 
-    if (exampTwoInView.isInView) exampTwoRef.current.classList.add("appear");
+    if (exampTwoPrtOneInView.isInView)
+      exampTwoPrtOneRef.current.classList.add("appear");
+
+    if (exampTwoPrtTwoInView.isInView)
+      exampTwoPrtTwoRef.current.classList.add("appear");
+
+    if (exampTwoPrtThrInView.isInView)
+      exampTwoPrtThrRef.current.classList.add("appear");
 
     if (exampThrPrtOneInView.isInView)
       exampThrPrtOneRef.current.classList.add("appear");
@@ -31,7 +42,9 @@ export default function Page() {
       exampThrPrtTwoRef.current.classList.add("appear");
   }, [
     exampOneInView,
-    exampTwoInView,
+    exampTwoPrtOneInView,
+    exampTwoPrtTwoInView,
+    exampTwoPrtThrInView,
     exampThrPrtOneInView,
     exampThrPrtTwoInView,
   ]);
@@ -152,7 +165,10 @@ export default function Page() {
       </div>
 
       <div className="primary-color-3 flex w-full flex-col justify-center gap-10 py-24">
-        <p className="ml-32 text-4xl text-white opacity-0" ref={exampTwoRef}>
+        <p
+          className="ml-32 text-4xl text-white opacity-0"
+          ref={exampTwoPrtOneRef}
+        >
           Level Up. Review Quickly.
         </p>
 
@@ -160,7 +176,10 @@ export default function Page() {
           <p className="text-2xl text-white">Level 5</p>
 
           <div className="flex gap-48">
-            <section className="flex flex-col gap-5">
+            <section
+              className="flex flex-col gap-5 opacity-0"
+              ref={exampTwoPrtTwoRef}
+            >
               <p className="text-xl text-white">Classes Your Code Used:</p>
 
               <div>
@@ -181,7 +200,10 @@ export default function Page() {
               </div>
             </section>
 
-            <section className="flex flex-col gap-8">
+            <section
+              className="flex flex-col gap-8 opacity-0"
+              ref={exampTwoPrtThrRef}
+            >
               <div>
                 <ul>
                   <li className="text-xl text-white">
