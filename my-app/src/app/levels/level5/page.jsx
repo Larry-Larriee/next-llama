@@ -51,6 +51,7 @@ export default function Level5() {
             time={time}
             changeIsPaused={changeIsPaused}
             levelSolution={levelSolution}
+            userSolution={userSolution}
           />
         )}
 

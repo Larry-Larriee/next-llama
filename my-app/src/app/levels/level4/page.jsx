@@ -50,6 +50,7 @@ export default function Level4() {
             time={time}
             changeIsPaused={changeIsPaused}
             levelSolution={levelSolution}
+            userSolution={userSolution}
           />
         )}
 

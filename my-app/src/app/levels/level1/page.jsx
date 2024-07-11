@@ -58,6 +58,7 @@ export default function Level1() {
             changeIsPaused={changeIsPaused}
             // submit modal uses level solution to display the solution code as part of comparing user code
             levelSolution={levelSolution}
+            userSolution={userSolution}
           />
         )}
 
