@@ -171,20 +171,28 @@ export default function AssessTailwind({ userSolution }) {
     zIndex: "z-",
   };
 
-  let included;
+  let included = [];
 
   // for...in allows you to iterate over js objects
-  for (let key in tailwindKeywords) {
-    if (userSolution.includes(tailwindKeywords[key])) {
-      included = key + " is included";
+  for (let tailwindKeyword in tailwindKeywords) {
+    if (userSolution.includes(tailwindKeywords[tailwindKeyword])) {
+      included.push(tailwindKeyword);
     }
   }
 
   return (
     <>
-      <li>
-        <p className="text-lg text-white">{included}</p>
-      </li>
+      {
+        // map will return a new array with all the list elements that were created in the callback
+        // react will automatically use the array and render all the list elements
+        included.map((tailwindKeyword) => {
+          return (
+            <li key={tailwindKeyword}>
+              <p className="text-lg text-white">{tailwindKeyword}</p>
+            </li>
+          )
+        })
+      }
     </>
   );
 }

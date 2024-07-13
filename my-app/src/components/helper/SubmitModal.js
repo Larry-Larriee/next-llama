@@ -57,41 +57,22 @@ export default function SubmitModal({
                   Level One
                 </DialogTitle>
 
-                <div className="flex w-full justify-between">
-                  <section className="flex flex-col gap-5">
+                <div className="flex justify-between gap-10">
+                  <section className="flex flex-col gap-5 w-3/4">
                     <p className="text-xl text-white">Classes Used:</p>
 
                     <ul className="flex max-h-40 list-disc flex-col gap-3 overflow-scroll pl-4 text-white">
                       <AssessTailwind userSolution={userSolution} />
-
-                      <li>
-                        <p className="text-lg">
-                          font-size (i.e. you used text-3xl)
-                        </p>
-                      </li>
-                      <li>
-                        <p className="text-lg">
-                          background (i.e. you used bg-yellow-600)
-                        </p>
-                      </li>
-                      <li>
-                        <p className="text-lg">width (i.e. you used w-full)</p>
-                      </li>
-                      <li>
-                        <p className="text-lg">
-                          max-height (i.e. you used max-h-64)
-                        </p>
-                      </li>
                     </ul>
                   </section>
 
-                  <section className="flex flex-col gap-8">
+                  <section className="flex flex-col gap-8 w-1/4">
                     <div className="flex flex-col gap-2">
                       <p className="text-xl text-white">Time taken: {time}s</p>
                       <p className="text-xl text-white">Accuracy: 99.8%</p>
                     </div>
 
-                    <p
+                    <p 
                       className="text-md max-w-48 rounded-md border-2 border-white bg-blue-500 px-4 py-3 text-center font-bold text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
                       onClick={() => changeCompareSolution()}
                     >
