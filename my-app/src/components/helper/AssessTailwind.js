@@ -142,7 +142,7 @@ export default function AssessTailwind({ userSolution }) {
     stroke: "stroke-regex",
     strokeWidth: "stroke-regex",
     tableLayout: "table-",
-    textAlign: "text-regex",
+    textAlign: /^text-[lcrjse]$/,
     textColor: "text-regex",
     textDecoration: "regex",
     textDecorationColor: "decoration-regex",
@@ -175,8 +175,16 @@ export default function AssessTailwind({ userSolution }) {
 
   // for...in allows you to iterate over js objects
   for (let tailwindKeyword in tailwindKeywords) {
-    if (userSolution.includes(tailwindKeywords[tailwindKeyword])) {
+    if (typeof tailwindKeywords[tailwindKeyword] === 'string' && userSolution.includes(tailwindKeywords[tailwindKeyword])) {
       included.push(tailwindKeyword);
+    }
+    // check if the tailwind keyword is regex
+    else {
+      if (userSolution.search(tailwindKeywords[tailwindKeyword])) {
+        console.log(tailwindKeywords[tailwindKeyword]);
+
+        included.push(tailwindKeyword);
+      }
     }
   }
 
