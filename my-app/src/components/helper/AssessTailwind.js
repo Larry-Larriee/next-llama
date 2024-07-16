@@ -130,29 +130,31 @@ export default function AssessTailwind({ userSolution }) {
     saturate: "saturate-",
     scale: "scale-",
     scrollBehavior: "scroll-",
-    scrollMargin: "scroll-m",
+    scrollMargin:
+      /scroll-m([xyestrbl]?)-(([0]|(0\.5)|(1\.5)|(2\.5)|(3\.5)|[4-9]|(10)|(11)|(12)|(14)|(16)|(20)|(24)|(28)|(32)|(36)|(40)|(44)|(48)|(52)|(56)|(60)|(64)|(72)|(80)|(96)|px))/,
     scrollPadding: "scroll-p",
-    scrollSnapAlign: "snap-regex",
-    scrollSnapStop: "snap-regex",
-    scrollSnapType: "snap-regex",
+    scrollSnapAlign: /snap-(start|end|center|align-none)/,
+    scrollSnapStop: "snap-(normal|always)",
+    scrollSnapType: /snap-(none|[xy]|both|mandatory|proximity)/,
     sepia: "sepia",
     size: "size-",
     skew: "skew-",
     space: "space-",
-    stroke: "stroke-regex",
-    strokeWidth: "stroke-regex",
+    stroke: /stroke-(.*?)(?=[0]|inherit|current|transparent|black|white)/,
+    strokeWidth: /stroke-[0-2]/,
     tableLayout: "table-",
-    textAlign: /^text-[lcrjse]$/,
-    textColor: "text-regex",
-    textDecoration: "regex",
-    textDecorationColor: "decoration-regex",
-    textDecorationStyle: "decoration-regex",
-    textDecorationThickness: "decoration-regex",
+    textAlign: /text-(left|center|right|justify|start|end)/,
+    textColor: /text-(.*?)(?=[0]|inherit|current|transparent|black|white)/,
+    textDecoration: /underline|overline|line-through|no-underline/,
+    textDecorationColor:
+      /decoration-(.*?)(?=[0]|inherit|current|transparent|black|white)/,
+    textDecorationStyle: /decoration-(solid|double|dotted|dashed|wavy)/,
+    textDecorationThickness: /decoration-(auto|from-font|[0-8])/,
     textIndent: "indent-",
-    textOverflow: "regex",
-    textTransform: "regex",
+    textOverflow: /truncate|text-ellipsis|text-clip/,
+    textTransform: /undercase|lowercase|capitalize|normal-case/,
     textUnderlineOffset: "underline-",
-    textWrap: "text-regex",
+    textWrap: /text-(wrap|nowrap|balance|pretty)/,
     touchAction: "touch-",
     transform: "transform-",
     transformOrigin: "origin-",
@@ -163,7 +165,7 @@ export default function AssessTailwind({ userSolution }) {
     translate: "translate-",
     userSelect: "select-",
     verticalAlign: "align-",
-    visibility: "regex",
+    visibility: /decoration-([sw]|double|dotted|dashed)/,
     whitespace: "whitespace-",
     width: "w-",
     willChange: "will-change-",
@@ -174,17 +176,22 @@ export default function AssessTailwind({ userSolution }) {
   let included = [];
 
   // for...in allows you to iterate over js objects
+  // includes returns a boolean and does not allow regex
+  // search returns an integer and allows regex
   for (let tailwindKeyword in tailwindKeywords) {
-    if (typeof tailwindKeywords[tailwindKeyword] === 'string' && userSolution.includes(tailwindKeywords[tailwindKeyword])) {
+    if (
+      typeof tailwindKeywords[tailwindKeyword] === "string" &&
+      userSolution.includes(tailwindKeywords[tailwindKeyword])
+    ) {
       included.push(tailwindKeyword);
     }
     // check if the tailwind keyword is regex
-    else {
-      if (userSolution.search(tailwindKeywords[tailwindKeyword])) {
-        console.log(tailwindKeywords[tailwindKeyword]);
-
-        included.push(tailwindKeyword);
-      }
+    // In your code, if the if condition was true and the code within it executed, the else if condition wouldn't be evaluated at all. However, if the first condition in the if was false but the typeof part was true, the else if would be evaluated because the if block didn't execute fully.
+    if (
+      typeof tailwindKeywords[tailwindKeyword] === "object" &&
+      userSolution.search(tailwindKeywords[tailwindKeyword]) !== -1
+    ) {
+      included.push(tailwindKeyword);
     }
   }
 
@@ -198,7 +205,7 @@ export default function AssessTailwind({ userSolution }) {
             <li key={tailwindKeyword}>
               <p className="text-lg text-white">{tailwindKeyword}</p>
             </li>
-          )
+          );
         })
       }
     </>
