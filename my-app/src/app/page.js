@@ -292,11 +292,6 @@ export default function Page() {
           </Link>
           <Link href="#">
             <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
-              Daily Challenge
-            </p>
-          </Link>
-          <Link href="#">
-            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
               Leaderboards
             </p>
           </Link>

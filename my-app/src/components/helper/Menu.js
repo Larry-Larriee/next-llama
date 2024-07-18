@@ -60,12 +60,6 @@ export default function Menu() {
                   <p className="text-white">Home</p>
                 </Link>
               </li>
-
-              <li>
-                <Link href="#">
-                  <p className="text-white">Leaderboard</p>
-                </Link>
-              </li>
               <li>
                 <Link href="/levels/level-select">
                   <p className="text-white">Level Select</p>
