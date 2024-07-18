@@ -18,25 +18,25 @@ export default function AssessTailwind({ userSolution }) {
     backdropOpacity: "backdrop-opacity-",
     backdropSaturate: "backdrop-saturate-",
     backdropSepia: "backdrop-sepia-",
-    backgroundAttachment: "bg-regex",
+    backgroundAttachment: /bg-(fixed|local|scroll)/,
     backgroundBlendMode: "bg-blend-",
     backgroundClip: "bg-clip-",
-    backgroundColor: "bg-regex",
+    backgroundColor: /bg-(.*?)(?=inherit|current|transparent|black|white|0)/,
     backgroundImage: "bg-gradient-",
     backgroundOrigin: "bg-origin-",
-    backgroundPosition: "bg-regex",
-    backgroundRepeat: "bg-regex",
-    backgroundSize: "bg-regex",
+    backgroundPosition: /bg-(bottom|center|left|right|top)(-)?(bottom|top)?/,
+    backgroundRepeat: /bg-(no-)?(repeat)(-)?(x|y|round|space)?/,
+    backgroundSize: /bg-(auto|cover|contain)/,
     blur: "blur-",
-    borderCollapse: "border-regex",
-    borderColor: "border-regex",
+    borderCollapse: /border-(collapse|separate)/,
+    borderColor: /border-(.*?)(?=inherit|current|transparent|black|white|0)/,
     borderRadius: "rounded",
     borderSpacing: "border-spacing-",
-    borderStyle: "border-regex",
-    borderWidth: "border-regex",
+    borderStyle: /border-(solid|dashed|dotted|double|hidden|none)/,
+    borderWidth: /border-([xysetrbl]-)?(0|2|4|6|8)/,
     boxDecorationBreak: "box-decoration-",
-    boxShadow: "shadow-regex",
-    boxShadowColor: "shadow-regex",
+    boxShadow: /shadow(-)?(sm|md|lg|xl|2xl|inner|none)?/,
+    boxShadowColor: /shadow-(.*?)(?=inherit|current|transparent|black|white|0)/,
     boxSizing: "box-",
     breakAfter: "break-after-",
     breakBefore: "break-before-",
@@ -50,10 +50,9 @@ export default function AssessTailwind({ userSolution }) {
     content: "content-",
     contrast: "contrast-",
     cursor: "cursor-",
-    divideColor: "divide-regex",
-    divideOpacity: "divide-regex",
-    divideStyle: "divide-regex",
-    divideWidth: "divide-regex",
+    divideColor: /divide-(.*?)(?=inherit|current|transparent|black|white|0)/,
+    divideStyle: /divide-(solid|dashed|dotted|double|none)/,
+    divideWidth: /divide-(?:[xy])(-([0]|[2]|[4]|[6]|[8]))?/,
     dropShadow: "drop-shadow-",
     fill: "fill-",
     flex: "flex",
@@ -61,7 +60,7 @@ export default function AssessTailwind({ userSolution }) {
     flexDirection: "flex-",
     flexGrow: "grow",
     flexShrink: "shrink",
-    flexWrap: "flex-regex",
+    flexWrap: /flex-(no)?(wrap)(-)?(reverse)?/,
     float: "float-",
     fontFamily: "font-",
     fontSize: /text-(?:(xs|sm|base|lg|xl)|([2-9]xl))/,
@@ -206,6 +205,16 @@ export default function AssessTailwind({ userSolution }) {
         // map will return a new array with all the list elements that were created in the callback
         // react will automatically use the array and render all the list elements
         included.map((tailwindKeyword) => {
+          let capitalIndex = tailwindKeyword.search(/[A-Z]/);
+
+          // updating tailwind keyword to match the tailwind class name
+          if (capitalIndex !== -1) {
+            tailwindKeyword =
+              tailwindKeyword.slice(0, capitalIndex) +
+              "-" +
+              tailwindKeyword.slice(capitalIndex).toLowerCase();
+          }
+
           return (
             <li key={tailwindKeyword}>
               <p className="text-lg text-white">{tailwindKeyword}</p>
