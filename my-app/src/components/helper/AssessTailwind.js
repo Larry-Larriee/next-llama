@@ -62,14 +62,14 @@ export default function AssessTailwind({ userSolution }) {
     flexShrink: "shrink",
     flexWrap: /flex-(no)?(wrap)(-)?(reverse)?/,
     float: "float-",
-    fontFamily: "font-",
+    fontFamily: /font-(sans|serif|mono)/,
     fontSize: /text-(?:(xs|sm|base|lg|xl)|([2-9]xl))/,
     fontSmoothing: /(subpixel-?)antialiased/,
     fontStyle: /italic|not-italic/,
     fontVariantNumeric:
       /normal-nums|ordinal|slashed-zero|lining-nums|oldstyle-nums|proportional-nums|tabular-nums|diagonal-fractions|stacked-fractions/,
     fontWeight:
-      /text-(thin|extralight|light|normal|medium|semibold|bold|extrabold|black)/,
+      /font-(thin|extralight|light|normal|medium|semibold|bold|extrabold|black)/,
     forcedColorAdjust: "forced-color-adjust-",
     gap: "gap-",
     gradientColorStops: "from-",
@@ -125,11 +125,11 @@ export default function AssessTailwind({ userSolution }) {
     pointerEvents: "pointer-events",
     position: /static|fixed|absolute|relative|sticky/,
     resize: "resize",
-    ringColor: /ring-(.*?)(?=[0]|inherit|current|transparent|black|white)/,
+    ringColor: /ring-(.*?)(0|inherit|current|transparent|black|white)/,
     ringOffsetColor:
       /ring-offset-(.*?)(?=[0]|inherit|current|transparent|black|white)/,
     ringOffsetWidth: /ring-offset-([0-2]|[4]|[8])(?!\d)/,
-    ringWidth: /ring-(?:([0-2]?)|([4]?)|([8]?)|(inset?))/,
+    ringWidth: /ring|ring-([0-2]|4|8|inset)(?!\d)/,
     rotate: "rotate-",
     saturate: "saturate-",
     scale: "scale-",
@@ -139,7 +139,7 @@ export default function AssessTailwind({ userSolution }) {
     scrollPadding: "scroll-p",
     scrollSnapAlign: /snap-(start|end|center|align-none)/,
     scrollSnapStop: "snap-(normal|always)",
-    scrollSnapType: /snap-(none|[xy]|both|mandatory|proximity)/,
+    scrollSnapType: /snap-(none|[xy]|both|mandatory|proximity)(?!\w)/,
     sepia: "sepia",
     size: "size-",
     skew: "skew-",
@@ -148,15 +148,15 @@ export default function AssessTailwind({ userSolution }) {
     strokeWidth: /stroke-[0-2]/,
     tableLayout: "table-",
     textAlign: /text-(left|center|right|justify|start|end)/,
-    textColor: /text-(.*?)(?=[0]|inherit|current|transparent|black|white)/,
-    textDecoration: /underline|overline|line-through|no-underline/,
+    textColor: /text-(.*?)([0]|inherit|current|transparent|black|white)/,
+    textDecoration: /(underline|overline|line-through|no-underline)(?!\w)/,
     textDecorationColor:
       /decoration-(.*?)(?=[0]|inherit|current|transparent|black|white)/,
-    textDecorationStyle: /decoration-(solid|double|dotted|dashed|wavy)/,
+    textDecorationStyle: /decoration-(solid|double|dotted|dashed|wavy)(?!\w)/,
     textDecorationThickness: /decoration-(auto|from-font|[0-8])(?!\d)/,
     textIndent: "indent-",
-    textOverflow: /truncate|text-ellipsis|text-clip/,
-    textTransform: /undercase|lowercase|capitalize|normal-case/,
+    textOverflow: /(truncate|text-ellipsis|text-clip)(?!\w)/,
+    textTransform: /(undercase|lowercase|capitalize|normal-case)(?!\w)/,
     textUnderlineOffset: "underline-",
     textWrap: /text-(wrap|nowrap|balance|pretty)/,
     touchAction: "touch-",
@@ -169,7 +169,7 @@ export default function AssessTailwind({ userSolution }) {
     translate: "translate-",
     userSelect: "select-",
     verticalAlign: "align-",
-    visibility: /decoration-([sw]|double|dotted|dashed)/,
+    visibility: /(visible|invisible|collapse)(?!w)/,
     whitespace: "whitespace-",
     width: "w-",
     willChange: "will-change-",
@@ -205,15 +205,9 @@ export default function AssessTailwind({ userSolution }) {
         // map will return a new array with all the list elements that were created in the callback
         // react will automatically use the array and render all the list elements
         included.map((tailwindKeyword) => {
-          let capitalIndex = tailwindKeyword.search(/[A-Z]/);
-
-          // updating tailwind keyword to match the tailwind class name
-          if (capitalIndex !== -1) {
-            tailwindKeyword =
-              tailwindKeyword.slice(0, capitalIndex) +
-              "-" +
-              tailwindKeyword.slice(capitalIndex).toLowerCase();
-          }
+          // reformat tailwind camelCase to look more like CSS
+          let tailwindKeywordSplit = tailwindKeyword.split(/(?=[A-Z])/);
+          tailwindKeyword = tailwindKeywordSplit.join("-").toLowerCase();
 
           return (
             <li key={tailwindKeyword}>

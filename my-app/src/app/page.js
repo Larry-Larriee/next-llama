@@ -188,16 +188,16 @@ export default function Page() {
               <div>
                 <ul className="list-disc pl-8">
                   <li className="text-md text-white">
-                    font-size (i.e. you used text-3xl)
+                    font-size (text-3xl)
                   </li>
                   <li className="text-md text-white">
-                    background (i.e. you used bg-yellow-600)
+                    background (bg-yellow-600)
                   </li>
                   <li className="text-md text-white">
-                    width (i.e. you used w-full)
+                    width (w-full)
                   </li>
                   <li className="text-md text-white">
-                    max-height (i.e. you used max-h-64)
+                    max-height (max-h-64)
                   </li>
                 </ul>
               </div>
