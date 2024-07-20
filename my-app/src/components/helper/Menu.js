@@ -66,13 +66,8 @@ export default function Menu() {
                 </Link>
               </li>
               <li>
-                <Link href="#">
-                  <p className="text-white">User</p>
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  <p className="text-white">Daily Challenge</p>
+                <Link href="/leaderboard">
+                  <p className="text-white">Leaderboard</p>
                 </Link>
               </li>
             </ul>
