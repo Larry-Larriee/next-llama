@@ -11,6 +11,7 @@
   --primary-color-3: #16203b;
   --primary-color-4: #1e293b;
   --primary-color-5: #11192f;
+  --primary-color-6: #3a5497b8;
 }
 
 body {
@@ -41,6 +42,9 @@ p {
 }
 .primary-color-5 {
   background: var(--primary-color-5);
+}
+.primary-color-6 {
+  background: var(--primary-color-6);
 }
 
 @keyframes appear {
