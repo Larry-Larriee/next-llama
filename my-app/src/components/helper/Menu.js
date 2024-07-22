@@ -70,6 +70,11 @@ export default function Menu() {
                   <p className="text-white">Leaderboard</p>
                 </Link>
               </li>
+              <li>
+                <Link href="https://www.patreon.com/LarryLe">
+                  <p className="text-white">Patreon</p>
+                </Link>
+              </li>
             </ul>
           </DialogPanel>
         </div>

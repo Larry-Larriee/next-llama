@@ -34,6 +34,25 @@ export default function SubmitModal({
     setCompareSolution(!compareSolution);
   };
 
+  async function getAccuracy() {
+    const response = await fetch(
+      "https://next-llama-server.onrender.com/accuracy",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userSolution: userSolution,
+          level: nextLevel.parseInt() - 1,
+        }),
+      },
+    ).catch((error) => console.error(error));
+
+    let data = await response.json();
+    return data.accuracy;
+  }
+
   return (
     <>
       {/* onClose changes the state when the user clicks outside the modal, like another way to close if the user does not click the close button */}
@@ -58,7 +77,7 @@ export default function SubmitModal({
                 </DialogTitle>
 
                 <div className="flex justify-between gap-10">
-                  <section className="flex flex-col gap-5 w-3/4">
+                  <section className="flex w-3/4 flex-col gap-5">
                     <p className="text-xl text-white">Classes Used:</p>
 
                     <ul className="flex max-h-40 list-disc flex-col gap-3 overflow-scroll pl-4 text-white">
@@ -66,13 +85,13 @@ export default function SubmitModal({
                     </ul>
                   </section>
 
-                  <section className="flex flex-col gap-8 w-1/4">
+                  <section className="flex w-1/4 flex-col gap-8">
                     <div className="flex flex-col gap-2">
                       <p className="text-xl text-white">Time taken: {time}s</p>
                       <p className="text-xl text-white">Accuracy: 99.8%</p>
                     </div>
 
-                    <p 
+                    <p
                       className="text-md max-w-48 rounded-md border-2 border-white bg-blue-500 px-4 py-3 text-center font-bold text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
                       onClick={() => changeCompareSolution()}
                     >

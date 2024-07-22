@@ -187,18 +187,12 @@ export default function Page() {
 
               <div>
                 <ul className="list-disc pl-8">
-                  <li className="text-md text-white">
-                    font-size (text-3xl)
-                  </li>
+                  <li className="text-md text-white">font-size (text-3xl)</li>
                   <li className="text-md text-white">
                     background (bg-yellow-600)
                   </li>
-                  <li className="text-md text-white">
-                    width (w-full)
-                  </li>
-                  <li className="text-md text-white">
-                    max-height (max-h-64)
-                  </li>
+                  <li className="text-md text-white">width (w-full)</li>
+                  <li className="text-md text-white">max-height (max-h-64)</li>
                 </ul>
               </div>
             </section>
