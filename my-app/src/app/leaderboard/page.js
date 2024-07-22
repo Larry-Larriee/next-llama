@@ -10,10 +10,10 @@ export default function Page() {
   async function getLeaderboard() {
     const response = await fetch(
       "https://next-llama-server.onrender.com/leaderboard",
-    );
+    ).catch((error) => console.error(error));
     let data = await response.json();
 
-    setLeaderboard(data[0]);
+    setLeaderboard(data);
   }
 
   useEffect(() => {
@@ -58,18 +58,23 @@ export default function Page() {
           </article>
 
           <div className="primary-color-6 flex min-h-96 w-full flex-col gap-1 rounded-lg pt-2">
-            {leaderboard && (
-              <LeaderboardRank
-                position={"1"}
-                user={leaderboard.metadata.userName}
-                level={leaderboard.tailwindLevel}
-                time={leaderboard.time}
-                accuracy={leaderboard.accuracy}
-                date={leaderboard.metadata.date}
-                characters={leaderboard.characters}
-                code={leaderboard.tailwindCode}
-              />
-            )}
+            {/* the map method uses index as an argument, which is the index it is mapping in the array (i.e. 0,1,2) */}
+            {leaderboard &&
+              leaderboard.map((leaderBoardRank, index) => {
+                return (
+                  <LeaderboardRank
+                    key={index}
+                    position={index + 1}
+                    user={leaderBoardRank.metadata.userName}
+                    level={leaderBoardRank.tailwindLevel}
+                    time={leaderBoardRank.time}
+                    accuracy={leaderBoardRank.accuracy}
+                    date={leaderBoardRank.metadata.date}
+                    characters={leaderBoardRank.characters}
+                    code={leaderBoardRank.tailwindCode}
+                  />
+                );
+              })}
           </div>
         </div>
       </div>

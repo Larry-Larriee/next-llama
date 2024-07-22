@@ -1,2 +1,3 @@
 <!-- preittierignore on AssessTailwind.js file because it was creating a semi colon in the map callback -->
 /src/components/helper/AssessTailwind.js
+/src/app/leaderboard/page.js
