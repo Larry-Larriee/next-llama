@@ -35,14 +35,14 @@ export default function Editor({
           ref={userSolutionRef}
           onChange={changeUserSolution}
           value={userSolution}
-          className="primary-color-5 h-full w-full resize-none rounded-md p-3 text-white focus:outline-none"
+          className="textEditor primary-color-5 h-full w-full resize-none rounded-md p-3 text-white focus:outline-none"
         />
       </section>
 
       {/* This area contains both the user's solution visual and the level solution visual */}
       <section className="relative">
         <iframe
-          className="h-64 w-full rounded-md bg-white"
+          className="userSolutionUI h-64 w-full rounded-md bg-white"
           srcDoc={header + userSolution}
         />
 
