@@ -59,7 +59,7 @@ export default function Editor({
           Docs
         </p>
         <p
-          className="rounded-lg bg-green-700 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
+          className="levelSolutionButton rounded-lg bg-green-700 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
           onClick={() => changelevelSolutionVisualOpen()}
         >
           See Design
