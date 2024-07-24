@@ -1,5 +1,5 @@
 const express = require("express");
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const cors = require("cors");
 const puppeteer = require("puppeteer");
 const bodyParser = require("body-parser");
@@ -78,25 +78,24 @@ app.post("/editLeaderboard", (req, res) => {
     });
 });
 
-let imageCount = 0;
-
-// not literally images but the collectection stores the index of images that are taken
-// let imageCollection = client
-//   .db(process.env.MONGODB_DATABASE)
-//   .collection("images");
+// MongoDB doesn't literally store images but the collection stores the index of images that are taken
+let imageCollection = client
+  .db(process.env.MONGODB_DATABASE)
+  .collection(process.env.MONGODB_COLLECTION_IMAGES);
 
 // tailwindAccuracy route takes the user's tailwindCode and compares how the result looks to the solution result
 // tailwindData.level (http) the page of the level that the user is on
 // tailwindData.userSolution (string) the code that the user wrote
 app.post("/tailwindAccuracy", (req, res) => {
   const { level, userSolution } = req.body;
-  // let imageCount;
+  let imageCount;
 
-  // imageCollection.find({}).toArray().then((result) => {
-  //   imageCount = result.imageCount;
-  // });
-
-  // console.log("imageCount: " + imageCount);
+  imageCollection
+    .find({})
+    .toArray()
+    .then((result) => {
+      imageCount = result[0].imageCount;
+    });
 
   puppeteer.launch().then(async (browser) => {
     let page = await browser.newPage();
@@ -134,8 +133,11 @@ app.post("/tailwindAccuracy", (req, res) => {
         accuracy = 100 - data.misMatchPercentage;
       });
 
-    // when the server reopens, purge all images and reset imageCount to 0 (saving space)
-    imageCount++;
+    // we convert the id string to an object id using the ObjectId class and match the id to the imageCount key and value, then updating it
+    imageCollection.updateOne(
+      { _id: new ObjectId(process.env.MONGODB_COLLECTION_IMAGES_OBJECTID) },
+      { $set: { imageCount: imageCount + 1 } }
+    );
 
     await browser.close();
     res.send(accuracy.toString());
@@ -146,6 +148,13 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(3000, () => {
-  console.log("Server listening on port 3000");
+app.listen(5000, () => {
+  console.log("Server listening on port 5000");
+
+  // when the server reopens, purge all images and reset imageCount to 0 (saving space)
+  // keep in mind that because the imageCount value is updated AFTER the image is taken, the value stored in mongoDB will always be one ahead of the actual image count
+  imageCollection.updateOne(
+    { _id: new ObjectId(process.env.MONGODB_COLLECTION_IMAGES_OBJECTID) },
+    { $set: { imageCount: 0 } }
+  );
 });
