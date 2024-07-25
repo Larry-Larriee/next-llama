@@ -42,13 +42,12 @@ const tailwindCollection = client
 
 const app = express();
 // allow client to make requests to server (allowing all origins at the moment)
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*"); // Allow all origins (not recommended in production)
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-
-  next();
-});
+app.use(
+  cors({
+    origin: "http://127.0.0.1", // Replace with your frontend's origin
+    methods: "GET, POST, PUT, DELETE",
+  })
+);
 
 // Parse JSON bodies (content-type: application/json) required for POST requests
 app.use(bodyParser.json());
