@@ -139,6 +139,10 @@ app.post("/tailwindAccuracy", async (req, res) => {
 
     await browser.close();
 
+    res.header("Access-Control-Allow-Origin", "*"); // Replace with your frontend's origin
+    res.header("Access-Control-Allow-Methods", "POST"); // Allow POST method
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Allow specific headers
+
     // make sure to return JSON and not strings because the front-end is handling JSON
     res.send({ accuracy });
   });
