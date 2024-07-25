@@ -13,15 +13,17 @@ export default function Page() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          testValue: "Hello World.",
+          content: "Hello World.",
         }),
       });
       let data = await response.json();
       setTest(data);
+
+      console.log(data);
     }
 
     postTest();
   }, []);
 
-  return <div>{test && test.testValue}</div>;
+  return <div>{test && test.content}</div>;
 }
