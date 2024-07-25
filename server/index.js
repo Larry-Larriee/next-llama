@@ -42,13 +42,7 @@ const tailwindCollection = client
 
 const app = express();
 // allow client to make requests to server (allowing all origins at the moment)
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://next-llama.vercel.app/"],
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"],
-  })
-);
+app.use(cors({}));
 
 // Parse JSON bodies (content-type: application/json) required for POST requests
 app.use(bodyParser.json());
