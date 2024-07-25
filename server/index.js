@@ -42,7 +42,13 @@ const tailwindCollection = client
 
 const app = express();
 // allow client to make requests to server (allowing all origins at the moment)
-app.use(cors({}));
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://next-llama.vercel.app/"],
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 // Parse JSON bodies (content-type: application/json) required for POST requests
 app.use(bodyParser.json());
@@ -138,6 +144,8 @@ app.post("/tailwindAccuracy", async (req, res) => {
     );
 
     await browser.close();
+
+    // make sure to return JSON and not strings because the front-end is handling JSON
     res.send({ accuracy });
   });
 });
