@@ -289,6 +289,11 @@ export default function Page() {
               Leaderboards
             </p>
           </Link>
+          <Link href="https://www.patreon.com/LarryLe">
+            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
+              Patreon
+            </p>
+          </Link>
         </section>
       </div>
     </div>

@@ -38,7 +38,7 @@ connectToDB();
 // node.js runs top to bottom. Once the sever connects to mongoDB, locate the tailwind collection
 const tailwindCollection = client
   .db(process.env.MONGODB_DATABASE)
-  .collection(process.env.MONGODB_COLLECTION);
+  .collection(process.env.MONGODB_COLLECTION_LEADERBOARD);
 
 const app = express();
 // allow client to make requests to server (allowing all origins at the moment)

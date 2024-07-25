@@ -9,7 +9,7 @@ export default function Page() {
 
   async function getLeaderboard() {
     const response = await fetch(
-      "https://next-llama-server.onrender.com/leaderboard",
+      "https://next-llama-4s1x.onrender.com/leaderboard",
     ).catch((error) => console.error(error));
     let data = await response.json();
 
