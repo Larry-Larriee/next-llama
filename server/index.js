@@ -88,10 +88,6 @@ let imageCollection = client
 // tailwindData.level (http) the page of the level that the user is on
 // tailwindData.userSolution (string) the code that the user wrote
 app.post("/tailwindAccuracy", async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*"); // Replace with your frontend's origin
-  res.header("Access-Control-Allow-Methods", "POST"); // Allow POST method
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Allow specific headers
-
   const { level, userSolution } = req.body;
 
   let [imageCount] = await imageCollection.find({}).toArray();
@@ -146,6 +142,13 @@ app.post("/tailwindAccuracy", async (req, res) => {
     // make sure to return JSON and not strings because the front-end is handling JSON
     res.send({ accuracy });
   });
+});
+
+// this test is going to take the content from the POST request body and send it back to the client
+app.post("/test", async (req, res) => {
+  const { content } = req.body;
+
+  res.send({ content });
 });
 
 app.get("/", (req, res) => {
