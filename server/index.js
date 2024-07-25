@@ -138,7 +138,7 @@ app.post("/tailwindAccuracy", async (req, res) => {
     );
 
     await browser.close();
-    res.send(accuracy.toString());
+    res.send({ accuracy });
   });
 });
 
