@@ -34,9 +34,11 @@ export default function SubmitModal({
     setCompareSolution(!compareSolution);
   };
 
+  let accuracy;
+
   async function getAccuracy() {
     const response = await fetch(
-      "https://next-llama-server.onrender.com/accuracy",
+      "https://next-llama-4s1x.onrender.com/tailwindAccuracy",
       {
         method: "POST",
         headers: {
@@ -49,8 +51,7 @@ export default function SubmitModal({
       },
     ).catch((error) => console.error(error));
 
-    let data = await response.json();
-    return data.accuracy;
+    accuracy = await response.json();
   }
 
   return (
@@ -88,7 +89,7 @@ export default function SubmitModal({
                   <section className="flex w-1/4 flex-col gap-8">
                     <div className="flex flex-col gap-2">
                       <p className="text-xl text-white">Time taken: {time}s</p>
-                      <p className="text-xl text-white">Accuracy: 99.8%</p>
+                      <p className="text-xl text-white">Accuracy: {accuracy}</p>
                     </div>
 
                     <p
