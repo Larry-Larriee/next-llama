@@ -5,6 +5,7 @@ const puppeteer = require("puppeteer");
 const bodyParser = require("body-parser");
 const resemble = require("resemblejs");
 const fs = require("fs");
+const timeout = require("connect-timeout");
 
 const backspaceAll = require("./helper/backspaceAll");
 
@@ -46,6 +47,9 @@ app.use(cors({}));
 
 // Parse JSON bodies (content-type: application/json) required for POST requests
 app.use(bodyParser.json());
+
+// timeout middleware to prevent the server from hanging if the client takes too long to respond
+app.use(timeout("100s"));
 
 // leaderboard route returns an array of objects
 // each object contains the object ID, username, date, tailwind level, tailwind data, and time of level completion (seconds)
@@ -132,31 +136,30 @@ app.post("/tailwindAccuracy", async (req, res) => {
 
       console.log("puppeteer has finished screenshotting");
 
-      // let accuracy = 0;
+      let accuracy = 0;
 
-      // // console logging diff gives functions for diff. the data argument in onComplete gives the accuracy percentage
-      // const diff = resemble(`results/user${imageCount}.png`)
-      //   .compareTo(`results/solution${imageCount}.png`)
-      //   .ignoreColors()
-      //   .onComplete((data) => {
-      //     accuracy = 100 - data.misMatchPercentage;
-      //   });
+      // console logging diff gives functions for diff. the data argument in onComplete gives the accuracy percentage
+      const diff = resemble(`results/user${imageCount}.png`)
+        .compareTo(`results/solution${imageCount}.png`)
+        .ignoreColors()
+        .onComplete((data) => {
+          accuracy = 100 - data.misMatchPercentage;
+        });
 
-      // console.log("resemble has finished comparing");
+      console.log("resemble has finished comparing");
 
-      // // we convert the id string to an object id using the ObjectId class and match the id to the imageCount key and value, then updating it
-      // imageCollection.updateOne(
-      //   {
-      //     _id: new ObjectId(process.env.MONGODB_COLLECTION_IMAGES_OBJECTID),
-      //   },
-      //   { $inc: { imageCount: 1 } }
-      // );
+      // we convert the id string to an object id using the ObjectId class and match the id to the imageCount key and value, then updating it
+      imageCollection.updateOne(
+        {
+          _id: new ObjectId(process.env.MONGODB_COLLECTION_IMAGES_OBJECTID),
+        },
+        { $inc: { imageCount: 1 } }
+      );
 
-      // await browser.close();
+      await browser.close();
 
       // make sure to return JSON and not strings because the front-end is handling JSON
-      // res.send({ accuracy });
-      res.send({ accuracy: 100 });
+      res.send({ accuracy });
     });
 });
 
