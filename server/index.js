@@ -3,7 +3,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const cors = require("cors");
 const puppeteer = require("puppeteer");
 const bodyParser = require("body-parser");
-// const resemble = require("resemblejs");
+const resemble = require("resemblejs");
 const fs = require("fs");
 
 const backspaceAll = require("./helper/backspaceAll");
