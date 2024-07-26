@@ -107,7 +107,7 @@ app.post("/tailwindAccuracy", async (req, res) => {
     })
     .then(async (browser) => {
       let page = await browser.newPage();
-
+      await page.setBypassCSP(true);
       await page.goto(
         "https://next-llama.vercel.app/levels/level" + level.toString()
       );
