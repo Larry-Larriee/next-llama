@@ -25,6 +25,9 @@ jobs:
         run: |
           cd server && npm install
 
+      - run: cd server && npm cache clean --force
+      - run: cd server && npm install canvas
+
       - name: Zip artifact for deployment
         run: cd server && zip release.zip ./* -r
 
