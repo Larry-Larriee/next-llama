@@ -69,4 +69,6 @@ jobs:
         with:
           app-name: "next-llama"
           slot-name: "Production"
-          package: server/.
+          package: .
+
+      - run: cd server && npm run start
