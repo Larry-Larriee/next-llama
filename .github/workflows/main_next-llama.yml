@@ -27,6 +27,7 @@ jobs:
 
       - run: cd server && npm cache clean --force
       - run: cd server && npm install canvas
+      - run: cd server && npm install dotenv
 
       - name: Zip artifact for deployment
         run: cd server && zip -r release.zip ./*
