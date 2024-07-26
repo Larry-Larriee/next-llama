@@ -116,21 +116,21 @@ app.post("/tailwindAccuracy", async (req, res) => {
 
       console.log("puppeteer is on the page");
 
-      // await backspaceAll(page, textEditor);
-      // await page.type(".textEditor", userSolution);
+      await backspaceAll(page, textEditor);
+      await page.type(".textEditor", userSolution);
 
-      // await userSolutionUI.screenshot({
-      //   path: `results/user${imageCount}.png`,
-      // });
+      await userSolutionUI.screenshot({
+        path: `results/user${imageCount}.png`,
+      });
 
-      // await levelSolutionButton.click();
-      // const levelSolutionUI = await page.waitForSelector(".levelSolutionUI");
+      await levelSolutionButton.click();
+      const levelSolutionUI = await page.waitForSelector(".levelSolutionUI");
 
-      // await levelSolutionUI.screenshot({
-      //   path: `results/solution${imageCount}.png`,
-      // });
+      await levelSolutionUI.screenshot({
+        path: `results/solution${imageCount}.png`,
+      });
 
-      // console.log("puppeteer has finished screenshotting");
+      console.log("puppeteer has finished screenshotting");
 
       // let accuracy = 0;
 
