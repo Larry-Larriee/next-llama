@@ -26,7 +26,7 @@ export default function SquareBackground() {
 
   return (
     <article
-      className="-z-5 absolute top-0 h-1/4 w-10/12"
+      className="-z-5 absolute top-0 h-1/4 md:w-8/12 lg:w-10/12"
       onMouseMove={(event) => moveSquare(event)}
       ref={squareContainer}
     >

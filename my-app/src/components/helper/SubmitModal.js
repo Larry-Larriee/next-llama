@@ -38,19 +38,16 @@ export default function SubmitModal({
 
   useEffect(() => {
     async function fetchAccuracy() {
-      let response = await fetch(
-        "https://next-llama-4s1x.onrender.com/tailwindAccuracy",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            level: parseInt(nextLevel) - 1,
-            userSolution: userSolution,
-          }),
+      let response = await fetch("http://127.0.0.1:5000/tailwindAccuracy", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({
+          level: parseInt(nextLevel) - 1,
+          userSolution: userSolution,
+        }),
+      });
       let data = await response.json();
       setAccuracy(data);
 
@@ -93,9 +90,11 @@ export default function SubmitModal({
 
                   <section className="flex w-1/4 flex-col gap-8">
                     <div className="flex flex-col gap-2">
-                      <p className="text-xl text-white">Time taken: {time}s</p>
+                      <p className="text-wrap text-xl text-white">
+                        Time: {Math.floor(time / 60)} min {time % 60} sec
+                      </p>
                       <p className="text-xl text-white">
-                        Accuracy: {accuracy && accuracy.accuracy}%
+                        Accuracy: {accuracy && accuracy.accuracy.toFixed(2)}%
                       </p>
                     </div>
 
