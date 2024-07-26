@@ -25,5 +25,9 @@ export default function Page() {
     postTest();
   }, []);
 
-  return <div>{test && test.content}</div>;
+  return (
+    <div>
+      <p className="text-2xl text-white">{test && test.content}</p>
+    </div>
+  );
 }
