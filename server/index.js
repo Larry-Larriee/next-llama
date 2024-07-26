@@ -13,16 +13,13 @@ const backspaceAll = require("./helper/backspaceAll");
 require("dotenv").config();
 
 // Create a MongoClient to access the database
-const client = new MongoClient(
-  "mongodb+srv://larryle704:KRchUpF69HGJZ71F@tailwind-cluster.vxowyt0.mongodb.net/?retryWrites=true&w=majority&appName=tailwind-cluster",
-  {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    },
-  }
-);
+const client = new MongoClient(process.env.MONGODB_URI, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
 
 // Connects to the database without closing the connection (doing so would be redundant for everyone making HTTP requests to server)
 async function connectToDB() {
@@ -41,8 +38,8 @@ connectToDB();
 
 // node.js runs top to bottom. Once the sever connects to mongoDB, locate the tailwind collection
 const tailwindCollection = client
-  .db("tailwind-practice")
-  .collection("leaderboard");
+  .db(process.env.MONGODB_DATABASE)
+  .collection(process.env.MONGODB_COLLECTION_LEADERBOARD);
 
 const app = express();
 // allow client to make requests to server (allowing all origins at the moment)
@@ -87,7 +84,9 @@ app.post("/editLeaderboard", (req, res) => {
 });
 
 // MongoDB doesn't literally store images but the collection stores the index of images that are taken
-let imageCollection = client.db("tailwind-practice").collection("images");
+let imageCollection = client
+  .db(process.env.MONGODB_DATABASE)
+  .collection(process.env.MONGODB_COLLECTION_IMAGES);
 
 // tailwindAccuracy route takes the user's tailwindCode and compares how the result looks to the solution result
 // tailwindData.level (http) the page of the level that the user is on
@@ -152,7 +151,7 @@ app.post("/tailwindAccuracy", async (req, res) => {
       // we convert the id string to an object id using the ObjectId class and match the id to the imageCount key and value, then updating it
       imageCollection.updateOne(
         {
-          _id: new ObjectId("66a00a8b057213c70081707c"),
+          _id: new ObjectId(process.env.MONGODB_COLLECTION_IMAGES_OBJECTID),
         },
         { $inc: { imageCount: 1 } }
       );
@@ -202,7 +201,7 @@ app.listen(5000, async () => {
   // when the server reopens, purge all images and reset imageCount to 0 (saving space)
   // keep in mind that because the imageCount value is updated AFTER the image is taken, the value stored in mongoDB will always be one ahead of the actual image count
   imageCollection.updateOne(
-    { _id: new ObjectId("66a00a8b057213c70081707c") },
+    { _id: new ObjectId(process.env.MONGODB_COLLECTION_IMAGES_OBJECTID) },
     { $set: { imageCount: 0 } }
   );
 });
