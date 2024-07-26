@@ -3,7 +3,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const cors = require("cors");
 const puppeteer = require("puppeteer");
 const bodyParser = require("body-parser");
-const resemble = require("resemblejs");
+// const resemble = require("resemblejs");
 const fs = require("fs");
 
 const backspaceAll = require("./helper/backspaceAll");
@@ -126,14 +126,14 @@ app.post("/tailwindAccuracy", async (req, res) => {
     let accuracy = 0;
 
     // console logging diff gives functions for diff. the data argument in onComplete gives the accuracy percentage
-    const diff = resemble(`results/user${imageCount}.png`)
-      .compareTo(`results/solution${imageCount}.png`)
-      .ignoreColors()
-      .onComplete((data) => {
-        accuracy = 100 - data.misMatchPercentage;
-      });
+    // const diff = resemble(`results/user${imageCount}.png`)
+    //   .compareTo(`results/solution${imageCount}.png`)
+    //   .ignoreColors()
+    //   .onComplete((data) => {
+    //     accuracy = 100 - data.misMatchPercentage;
+    //   });
 
-    console.log("resemble has finished comparing");
+    // console.log("resemble has finished comparing");
 
     // we convert the id string to an object id using the ObjectId class and match the id to the imageCount key and value, then updating it
     imageCollection.updateOne(
