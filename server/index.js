@@ -100,7 +100,6 @@ app.post("/tailwindAccuracy", async (req, res) => {
         "--disable-features=IsolateOrigins",
         "--disable-site-isolation-trials",
       ],
-      headless: false,
     })
     .then(async (browser) => {
       let page = await browser.newPage();
