@@ -36,48 +36,28 @@ export default function SubmitModal({
 
   const [accuracy, setAccuracy] = useState();
 
-  // useEffect(() => {
-  //   async function fetchAccuracy() {
-  //     let response = await fetch(
-  //       "https://next-llama-4s1x.onrender.com/tailwindAccuracy",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           level: parseInt(nextLevel) - 1,
-  //           userSolution: userSolution,
-  //         }),
-  //       },
-  //     );
-  //     let data = await response.json();
-  //     setAccuracy(data);
-
-  //     console.log(data);
-  //   }
-  //   fetchAccuracy();
-  // }, [userSolution, nextLevel]);
-
   useEffect(() => {
-    async function fetchTest() {
-      let response = await fetch("https://next-llama-4s1x.onrender.com/test", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    async function fetchAccuracy() {
+      let response = await fetch(
+        "https://next-llama-4s1x.onrender.com/tailwindAccuracy",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            level: parseInt(nextLevel) - 1,
+            userSolution: userSolution,
+          }),
         },
-        body: JSON.stringify({
-          content: userSolution,
-        }),
-      });
+      );
       let data = await response.json();
       setAccuracy(data);
 
       console.log(data);
     }
-
-    fetchTest();
-  }, [userSolution]);
+    fetchAccuracy();
+  }, [userSolution, nextLevel]);
 
   return (
     <>
