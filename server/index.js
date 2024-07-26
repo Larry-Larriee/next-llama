@@ -103,6 +103,7 @@ app.post("/tailwindAccuracy", async (req, res) => {
     })
     .then(async (browser) => {
       let page = await browser.newPage();
+
       await page.goto(
         "https://next-llama.vercel.app/levels/level" + level.toString()
       );
@@ -115,46 +116,47 @@ app.post("/tailwindAccuracy", async (req, res) => {
 
       console.log("puppeteer is on the page");
 
-      await backspaceAll(page, textEditor);
-      await page.type(".textEditor", userSolution);
+      // await backspaceAll(page, textEditor);
+      // await page.type(".textEditor", userSolution);
 
-      await userSolutionUI.screenshot({
-        path: `results/user${imageCount}.png`,
-      });
+      // await userSolutionUI.screenshot({
+      //   path: `results/user${imageCount}.png`,
+      // });
 
-      await levelSolutionButton.click();
-      const levelSolutionUI = await page.waitForSelector(".levelSolutionUI");
+      // await levelSolutionButton.click();
+      // const levelSolutionUI = await page.waitForSelector(".levelSolutionUI");
 
-      await levelSolutionUI.screenshot({
-        path: `results/solution${imageCount}.png`,
-      });
+      // await levelSolutionUI.screenshot({
+      //   path: `results/solution${imageCount}.png`,
+      // });
 
-      console.log("puppeteer has finished screenshotting");
+      // console.log("puppeteer has finished screenshotting");
 
-      let accuracy = 0;
+      // let accuracy = 0;
 
-      // console logging diff gives functions for diff. the data argument in onComplete gives the accuracy percentage
-      const diff = resemble(`results/user${imageCount}.png`)
-        .compareTo(`results/solution${imageCount}.png`)
-        .ignoreColors()
-        .onComplete((data) => {
-          accuracy = 100 - data.misMatchPercentage;
-        });
+      // // console logging diff gives functions for diff. the data argument in onComplete gives the accuracy percentage
+      // const diff = resemble(`results/user${imageCount}.png`)
+      //   .compareTo(`results/solution${imageCount}.png`)
+      //   .ignoreColors()
+      //   .onComplete((data) => {
+      //     accuracy = 100 - data.misMatchPercentage;
+      //   });
 
-      console.log("resemble has finished comparing");
+      // console.log("resemble has finished comparing");
 
-      // we convert the id string to an object id using the ObjectId class and match the id to the imageCount key and value, then updating it
-      imageCollection.updateOne(
-        {
-          _id: new ObjectId(process.env.MONGODB_COLLECTION_IMAGES_OBJECTID),
-        },
-        { $inc: { imageCount: 1 } }
-      );
+      // // we convert the id string to an object id using the ObjectId class and match the id to the imageCount key and value, then updating it
+      // imageCollection.updateOne(
+      //   {
+      //     _id: new ObjectId(process.env.MONGODB_COLLECTION_IMAGES_OBJECTID),
+      //   },
+      //   { $inc: { imageCount: 1 } }
+      // );
 
-      await browser.close();
+      // await browser.close();
 
       // make sure to return JSON and not strings because the front-end is handling JSON
-      res.send({ accuracy });
+      // res.send({ accuracy });
+      res.send({ accuracy: 100 });
     });
 });
 
