@@ -55,16 +55,16 @@ export default function Page() {
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center gap-40 sm:gap-28">
       {/* radial gradient background for hero */}
-      <div className="radial-gradient-absolute radial-gradient-height radial-gradient-width" />
+      <div className="radial-gradient-absolute radial-gradient-height radial-gradient-width sm:h-96 sm:w-full xl:top-0 xl:h-96 xl:w-5/6" />
 
       <SquareBackground />
 
-      <header className="mb-4 mt-36 flex w-9/12 flex-col items-center gap-10 sm:mt-20 sm:w-11/12">
-        <p className="w-5/6 text-center text-6xl font-bold text-white sm:text-4xl">
+      <header className="mb-4 mt-36 flex w-9/12 flex-col items-center gap-10 sm:mt-20 sm:w-11/12 lg:w-9/12">
+        <p className="w-5/6 text-center text-6xl font-bold text-white sm:text-4xl xl:text-5xl">
           Getting The Hang of Tailwind Starts Today.
         </p>
 
-        <p className="w-3/4 text-center text-3xl text-white sm:text-lg">
+        <p className="w-3/4 text-center text-3xl text-white sm:text-lg xl:w-2/3 xl:text-xl">
           Tailwind Practice is the most hands-on experience to learning tailwind
           you could ever ask for.
         </p>
@@ -73,7 +73,7 @@ export default function Page() {
         <section className="flex items-center justify-center gap-10 sm:flex-col lg:flex-row">
           <Link
             href="/levels/level1"
-            className="flex items-center justify-center rounded-md bg-blue-500 lg:h-16 lg:w-48"
+            className="flex items-center justify-center rounded-md bg-blue-500 lg:h-16 lg:w-48 xl:h-12 xl:w-40"
           >
             <p className="relative z-10 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105 sm:px-5 sm:py-3 sm:text-base sm:font-medium lg:px-0 lg:py-0 lg:text-center">
               Get Started
@@ -82,7 +82,7 @@ export default function Page() {
 
           <Link
             href="https://www.patreon.com/LarryLe"
-            className="flex items-center justify-center rounded-md bg-orange-500 lg:h-16 lg:w-48"
+            className="flex items-center justify-center rounded-md bg-orange-500 lg:h-16 lg:w-48 xl:h-12 xl:w-64"
           >
             <p className="relative z-10 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105 sm:px-5 sm:py-3 sm:text-base sm:font-medium lg:px-0 lg:py-0 lg:text-center">
               Support my project on Patreon
@@ -102,76 +102,86 @@ export default function Page() {
           <p className="text-2xl text-white">Level Five</p>
 
           <section className="fat-width-2 flex h-80 flex-col gap-8 rounded-lg bg-yellow-400 p-5 sm:h-full sm:w-full sm:gap-5">
-            <h1 className="text-2xl text-red-700 sm:text-2xl">
+            <h1 className="text-2xl text-red-700 sm:text-2xl lg:text-xl">
               Chinese Restaurant Menu
             </h1>
 
             <div className="flex gap-10 sm:flex-col sm:gap-5">
               <section className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
-                  <h2 className="text-2xl text-red-700 sm:text-lg">
+                  <h2 className="text-2xl text-red-700 sm:text-lg lg:text-base">
                     Main Course
                   </h2>
                   <hr className="rounded-md border-2 border-red-700" />
                 </div>
 
-                <article className="flex sm:gap-3">
+                <article className="flex sm:gap-3 lg:justify-between">
                   <div>
-                    <p className="text-xl text-red-700 sm:text-lg">
+                    <p className="text-xl text-red-700 sm:text-lg lg:text-base">
                       Char Siu Ricebowl
                     </p>
-                    <p className="text-sm text-red-700 sm:text-sm">
+                    <p className="text-sm text-red-700 sm:text-sm lg:text-xs">
                       Char Siu with delicious mushroom topping
                     </p>
                   </div>
 
-                  <p className="text-xl text-red-700 sm:text-lg">$6.99</p>
+                  <p className="text-xl text-red-700 sm:text-lg lg:text-base">
+                    $6.99
+                  </p>
                 </article>
 
-                <article className="space-between flex sm:gap-3">
+                <article className="space-between flex sm:gap-3 lg:justify-between">
                   <div>
-                    <p className="text-xl text-red-700 sm:text-lg">
+                    <p className="text-xl text-red-700 sm:text-lg lg:text-base">
                       Fried Kwetiauw
                     </p>
-                    <p className="text-sm text-red-700">
+                    <p className="text-sm text-red-700 sm:text-sm lg:text-xs">
                       Fried Kwetiauw, served with special spices and fried eggs
                     </p>
                   </div>
 
-                  <p className="text-xl text-red-700 sm:text-lg">$9.99</p>
+                  <p className="text-xl text-red-700 sm:text-lg lg:text-base">
+                    $9.99
+                  </p>
                 </article>
               </section>
 
               <section className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
-                  <h2 className="text-2xl text-red-700 sm:text-lg">
+                  <h2 className="text-2xl text-red-700 sm:text-lg lg:text-base">
                     Special Menu
                   </h2>
                   <hr className="rounded-md border-2 border-red-700" />
                 </div>
 
-                <article className="space-between flex sm:gap-3">
+                <article className="space-between flex sm:gap-3 lg:justify-between">
                   <div>
-                    <p className="text-xl text-red-700 sm:text-lg">Dimsum</p>
-                    <p className="text-sm text-red-700">
+                    <p className="text-xl text-red-700 sm:text-lg lg:text-base">
+                      Dimsum
+                    </p>
+                    <p className="text-sm text-red-700 sm:text-sm lg:text-xs">
                       Dim sum containing fresh and tasty seafood
                     </p>
                   </div>
 
-                  <p className="text-xl text-red-700 sm:text-lg">$7.99</p>
+                  <p className="text-xl text-red-700 sm:text-lg lg:text-base">
+                    $7.99
+                  </p>
                 </article>
 
-                <article className="space-between flex sm:gap-3">
+                <article className="space-between flex sm:gap-3 lg:justify-between">
                   <div>
-                    <p className="text-2xl text-red-700 sm:text-lg">
+                    <p className="text-2xl text-red-700 sm:text-lg lg:text-base">
                       Spring Rolls
                     </p>
-                    <p className="text-sm text-red-700">
+                    <p className="text-sm text-red-700 sm:text-sm lg:text-xs">
                       Spring rolls with our fresh toppings and savory seasoning
                     </p>
                   </div>
 
-                  <p className="text-xl text-red-700 sm:text-lg">$7.99</p>
+                  <p className="text-xl text-red-700 sm:text-lg lg:text-base">
+                    $7.99
+                  </p>
                 </article>
               </section>
             </div>
@@ -194,10 +204,10 @@ export default function Page() {
           Level Up. Review Quickly.
         </p>
 
-        <section className="primary-color-4 ml-32 flex w-9/12 flex-col gap-6 rounded-2xl border-2 border-white pb-20 pl-10 pt-10 sm:ml-0 sm:w-10/12 sm:items-center sm:justify-center sm:p-0 sm:pb-5 sm:pt-5">
+        <section className="primary-color-4 ml-32 flex w-9/12 flex-col gap-6 rounded-2xl border-2 border-white pb-20 pl-10 pt-10 sm:ml-0 sm:w-10/12 sm:items-center sm:justify-center sm:p-0 sm:pb-5 sm:pt-5 lg:h-80">
           <p className="text-2xl text-white sm:w-10/12 sm:text-lg">Level 5</p>
 
-          <div className="flex gap-48 sm:w-10/12 sm:flex-col sm:gap-12">
+          <div className="flex gap-48 sm:w-10/12 sm:flex-col sm:gap-12 lg:flex-row">
             <section
               className="flex flex-col gap-5 opacity-0"
               ref={exampTwoPrtTwoRef}
@@ -235,11 +245,11 @@ export default function Page() {
                 </ul>
               </div>
 
-              <div className="flex flex-col gap-5 sm:flex-row sm:justify-between sm:gap-0">
-                <p className="w-56 cursor-default rounded-lg border-2 border-white bg-blue-500 px-5 py-4 text-center text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105 sm:w-28 sm:px-3 sm:py-2 sm:text-base sm:font-medium">
+              <div className="flex flex-col gap-5 sm:flex-row sm:justify-between sm:gap-0 lg:flex-col lg:gap-5">
+                <p className="w-56 cursor-default rounded-lg border-2 border-white bg-blue-500 px-5 py-4 text-center text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105 sm:w-28 sm:px-3 sm:py-2 sm:text-base sm:font-medium lg:w-40 lg:border lg:font-semibold">
                   Your Code
                 </p>
-                <p className="w-56 cursor-default rounded-lg border-2 border-white bg-orange-500 px-5 py-4 text-center text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105 sm:w-28 sm:px-3 sm:py-2 sm:text-base sm:font-medium">
+                <p className="w-56 cursor-default rounded-lg border-2 border-white bg-orange-500 px-5 py-4 text-center text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105 sm:w-28 sm:px-3 sm:py-2 sm:text-base sm:font-medium lg:w-40 lg:border lg:font-semibold">
                   Sample Solution
                 </p>
               </div>
@@ -261,13 +271,13 @@ export default function Page() {
           </p>
         </section>
 
-        <section className="flex w-10/12 justify-between sm:flex-col sm:gap-10 md:gap-16">
+        <section className="flex w-10/12 justify-between sm:flex-col sm:gap-10 md:gap-16 lg:flex-row lg:gap-12">
           <div className="flex w-full flex-col gap-5">
             <section
-              className="primary-color-2 h-72 w-full rounded-xl border-2 border-white pl-10 pt-10 opacity-0 sm:h-48 sm:pl-8 sm:pt-8 md:pl-5 md:pt-5"
+              className="primary-color-2 h-72 w-full rounded-xl border-2 border-white pl-10 pt-10 opacity-0 sm:h-48 sm:w-full sm:pl-8 sm:pt-8 md:pl-5 md:pt-5 lg:w-80"
               ref={exampThrPrtOneRef}
             >
-              <p className="h-48 text-xl text-white">
+              <p className="h-48 text-xl text-white lg:h-28 lg:text-lg">
                 &lt;p class=&quot;
                 <span className="text-blue-400">was-it-width-10?</span>
                 &quot;&gt;Hello World&lt;/p&gt;
@@ -275,10 +285,10 @@ export default function Page() {
             </section>
 
             <section className="flex gap-5">
-              <p className="w-40 cursor-default rounded-xl bg-blue-500 px-5 py-3 text-center text-xl text-white transition duration-200 ease-in-out hover:scale-105">
+              <p className="w-40 cursor-default rounded-xl bg-blue-500 px-5 py-3 text-center text-xl text-white transition duration-200 ease-in-out hover:scale-105 lg:w-36 lg:px-3 lg:py-2 lg:text-lg">
                 Docs
               </p>
-              <p className="w-40 cursor-default rounded-xl bg-orange-500 px-5 py-3 text-center text-xl text-white transition duration-200 ease-in-out hover:scale-105">
+              <p className="w-40 cursor-default rounded-xl bg-orange-500 px-5 py-3 text-center text-xl text-white transition duration-200 ease-in-out hover:scale-105 lg:w-36 lg:px-3 lg:py-2 lg:text-lg">
                 Submit
               </p>
             </section>
@@ -295,12 +305,12 @@ export default function Page() {
         </section>
       </div>
 
-      <div className="mb-5 flex w-10/12 justify-between sm:gap-1 md:gap-2">
+      <div className="mb-5 flex w-10/12 justify-between sm:gap-1 md:gap-2 lg:justify-between">
         <p className="text-lg text-white">
           ©2024 Larry Le All Rights Reserved
         </p>
 
-        <section className="flex gap-10 sm:flex-col sm:gap-3">
+        <section className="flex gap-10 sm:flex-col sm:gap-3 lg:grid lg:grid-cols-2 lg:justify-end">
           <Link href="/levels/level1">
             <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
               Get Started

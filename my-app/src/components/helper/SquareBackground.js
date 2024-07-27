@@ -30,15 +30,15 @@ export default function SquareBackground() {
       onMouseMove={(event) => moveSquare(event)}
       ref={squareContainer}
     >
-      <div className="absolute bottom-36 left-48 h-16 w-28 rounded-md bg-blue-500/25 p-8 backdrop-blur-2xl sm:hidden xl:block" />
+      <div className="absolute bottom-36 left-48 h-16 w-28 rounded-md bg-blue-500/25 p-8 backdrop-blur-2xl sm:hidden xl:left-40 xl:block" />
       <div className="absolute bottom-56 left-0 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
-      <div className="absolute bottom-48 left-1/3 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
-      <div className="absolute bottom-64 left-1/2 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
-      <div className="absolute bottom-48 right-1/4 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
+      <div className="absolute bottom-48 left-1/3 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:bottom-32 xl:block" />
+      <div className="absolute bottom-64 right-96 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:bottom-32 xl:right-96 xl:block 3xl:left-1/2" />
+      <div className="absolute bottom-48 right-1/4 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:right-48 xl:block" />
       <div className="absolute bottom-48 right-0 h-36 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
-      <div className="absolute left-56 top-1/3 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
-      <div className="absolute left-40 top-16 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
-      <div className="absolute right-40 top-28 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
+      <div className="absolute left-56 top-1/3 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:left-36 xl:block" />
+      <div className="absolute left-40 top-16 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:left-28 xl:block" />
+      <div className="absolute right-40 top-28 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:right-28 xl:block" />
     </article>
   );
 }
