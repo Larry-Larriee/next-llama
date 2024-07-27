@@ -36,9 +36,9 @@ export default function SquareBackground() {
       <div className="absolute bottom-64 left-1/2 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
       <div className="absolute bottom-48 right-1/4 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
       <div className="absolute bottom-48 right-0 h-36 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
-      <div className="absolute left-56 top-1/3 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
+      <div className="blockage-square-1 absolute left-56 top-1/3 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
       <div className="absolute left-40 top-16 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
-      <div className="absolute right-40 top-28 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
+      <div className="blockage-square-2 absolute right-40 top-28 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
     </article>
   );
 }

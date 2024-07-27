@@ -94,17 +94,17 @@ export default function Page() {
         <div className="mt-10 flex flex-col gap-3">
           <p className="text-2xl text-white">Level Five</p>
 
-          <section className="fat-width-2 flex h-80 flex-col gap-8 rounded-lg bg-yellow-400 p-5">
-            <p className="text-4xl text-red-700">Chinese Restaurant Menu</p>
+          <section className="chinese-menu fat-width-2 flex h-80 flex-col gap-8 rounded-lg bg-yellow-400 p-5">
+            <h1 className="text-4xl text-red-700">Chinese Restaurant Menu</h1>
 
             <div className="flex gap-10">
               <section className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
-                  <p className="text-2xl text-red-700">Main Course</p>
+                  <h2 className="text-2xl text-red-700">Main Course</h2>
                   <hr className="rounded-md border-2 border-red-700" />
                 </div>
 
-                <article className="flex">
+                <article className="chinese-menu-left flex">
                   <div>
                     <p className="text-xl text-red-700">Char Siu Ricebowl</p>
                     <p className="text-sm text-red-700">
@@ -115,7 +115,7 @@ export default function Page() {
                   <p className="text-xl text-red-700">$6.99</p>
                 </article>
 
-                <article className="space-between flex">
+                <article className="chinese-menu-right space-between flex">
                   <div>
                     <p className="text-xl text-red-700">Fried Kwetiauw</p>
                     <p className="text-sm text-red-700">
@@ -129,7 +129,7 @@ export default function Page() {
 
               <section className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
-                  <p className="text-2xl text-red-700">Special Menu</p>
+                  <h2 className="text-2xl text-red-700">Special Menu</h2>
                   <hr className="rounded-md border-2 border-red-700" />
                 </div>
 

@@ -231,6 +231,41 @@ p {
   width: 47.4rem;
 }
 
+@media (min-width: 1280px) and (max-width: 1335px) {
+  .fat-width-2 {
+    width: 30rem;
+  }
+
+  .chinese-menu {
+    gap: 0.5rem;
+  }
+  .chinese-menu p {
+    font-size: 0.95rem;
+  }
+  .chinese-menu h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  /* children will inherit property unless overwritten in the child */
+  .chinese-menu h2 {
+    font-size: 1.1rem;
+  }
+
+  .blockage-square-1 {
+    left: 6rem;
+  }
+}
+@media (min-width: 1336px) {
+  .blockage-square-2 {
+    right: 3rem;
+  }
+}
+@media (min-width: 1440px) {
+  .blockage-square-2 {
+    right: 7rem;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
