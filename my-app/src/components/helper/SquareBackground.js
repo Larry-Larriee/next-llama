@@ -30,15 +30,15 @@ export default function SquareBackground() {
       onMouseMove={(event) => moveSquare(event)}
       ref={squareContainer}
     >
-      <div className="absolute bottom-36 left-48 h-16 w-28 rounded-md bg-blue-500/25 p-8 backdrop-blur-2xl" />
-      <div className="absolute bottom-56 left-0 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
-      <div className="absolute bottom-48 left-1/3 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
-      <div className="absolute bottom-64 left-1/2 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
-      <div className="absolute bottom-48 right-1/4 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
-      <div className="absolute bottom-48 right-0 h-36 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
-      <div className="blockage-square-1 absolute left-56 top-1/3 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
-      <div className="absolute left-40 top-16 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
-      <div className="blockage-square-2 absolute right-40 top-28 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl" />
+      <div className="absolute bottom-36 left-48 h-16 w-28 rounded-md bg-blue-500/25 p-8 backdrop-blur-2xl sm:hidden xl:block" />
+      <div className="absolute bottom-56 left-0 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
+      <div className="absolute bottom-48 left-1/3 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
+      <div className="absolute bottom-64 left-1/2 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
+      <div className="absolute bottom-48 right-1/4 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
+      <div className="absolute bottom-48 right-0 h-36 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
+      <div className="absolute left-56 top-1/3 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
+      <div className="absolute left-40 top-16 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
+      <div className="absolute right-40 top-28 h-16 w-16 rounded-md bg-blue-500/25 backdrop-blur-2xl sm:hidden xl:block" />
     </article>
   );
 }

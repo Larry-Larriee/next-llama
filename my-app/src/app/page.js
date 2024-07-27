@@ -53,106 +53,118 @@ export default function Page() {
   // Puppeteer();
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col items-center gap-40">
+    <div className="relative flex min-h-screen w-full flex-col items-center gap-40 sm:gap-28">
       {/* radial gradient background for hero */}
       <div className="radial-gradient-absolute radial-gradient-height radial-gradient-width" />
 
       <SquareBackground />
 
-      <header className="mb-4 mt-36 flex w-9/12 flex-col items-center gap-10">
-        <p className="w-5/6 text-center text-6xl font-bold text-white">
+      <header className="mb-4 mt-36 flex w-9/12 flex-col items-center gap-10 sm:mt-20 sm:w-11/12">
+        <p className="w-5/6 text-center text-6xl font-bold text-white sm:text-4xl">
           Getting The Hang of Tailwind Starts Today.
         </p>
 
-        <p className="w-3/4 text-center text-3xl text-white">
+        <p className="w-3/4 text-center text-3xl text-white sm:text-lg">
           Tailwind Practice is the most hands-on experience to learning tailwind
           you could ever ask for.
         </p>
 
-        <section className="flex items-center justify-center gap-10">
+        <section className="flex items-center justify-center gap-10 sm:flex-col">
           <Link href="/levels/level1">
-            <p className="relative z-10 rounded-md bg-blue-500 px-8 py-4 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105">
+            <p className="relative z-10 rounded-md bg-blue-500 px-8 py-4 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105 sm:px-5 sm:py-3 sm:text-base sm:font-medium">
               Get Started
             </p>
           </Link>
 
           <Link href="https://www.patreon.com/LarryLe">
-            <p className="relative z-10 rounded-md bg-orange-500 px-6 py-4 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105">
+            <p className="relative z-10 rounded-md bg-orange-500 px-6 py-4 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105 sm:px-5 sm:py-3 sm:text-base sm:font-medium">
               Support my project on Patreon
             </p>
           </Link>
         </section>
       </header>
 
-      <div className="relative flex w-10/12 flex-wrap justify-between">
-        <div className="primary-color-2 fat-width h-56 rounded-lg border-2 border-white">
+      <div className="relative flex w-10/12 flex-wrap justify-between sm:gap-10">
+        <div className="primary-color-2 fat-width h-56 rounded-lg border-2 border-white sm:h-40 sm:w-full">
           <p className="px-8 py-6 text-xl text-white">
             Your Tailwind Code Goes Here.
           </p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3">
+        <div className="mt-10 flex flex-col gap-3 sm:mt-0">
           <p className="text-2xl text-white">Level Five</p>
 
-          <section className="chinese-menu fat-width-2 flex h-80 flex-col gap-8 rounded-lg bg-yellow-400 p-5">
-            <h1 className="text-4xl text-red-700">Chinese Restaurant Menu</h1>
+          <section className="fat-width-2 flex h-80 flex-col gap-8 rounded-lg bg-yellow-400 p-5 sm:h-full sm:w-full sm:gap-5">
+            <h1 className="text-2xl text-red-700 sm:text-2xl">
+              Chinese Restaurant Menu
+            </h1>
 
-            <div className="flex gap-10">
+            <div className="flex gap-10 sm:flex-col sm:gap-5">
               <section className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
-                  <h2 className="text-2xl text-red-700">Main Course</h2>
+                  <h2 className="text-2xl text-red-700 sm:text-lg">
+                    Main Course
+                  </h2>
                   <hr className="rounded-md border-2 border-red-700" />
                 </div>
 
-                <article className="chinese-menu-left flex">
+                <article className="flex sm:gap-3">
                   <div>
-                    <p className="text-xl text-red-700">Char Siu Ricebowl</p>
-                    <p className="text-sm text-red-700">
+                    <p className="text-xl text-red-700 sm:text-lg">
+                      Char Siu Ricebowl
+                    </p>
+                    <p className="text-sm text-red-700 sm:text-sm">
                       Char Siu with delicious mushroom topping
                     </p>
                   </div>
 
-                  <p className="text-xl text-red-700">$6.99</p>
+                  <p className="text-xl text-red-700 sm:text-lg">$6.99</p>
                 </article>
 
-                <article className="chinese-menu-right space-between flex">
+                <article className="space-between flex sm:gap-3">
                   <div>
-                    <p className="text-xl text-red-700">Fried Kwetiauw</p>
+                    <p className="text-xl text-red-700 sm:text-lg">
+                      Fried Kwetiauw
+                    </p>
                     <p className="text-sm text-red-700">
                       Fried Kwetiauw, served with special spices and fried eggs
                     </p>
                   </div>
 
-                  <p className="text-xl text-red-700">$9.99</p>
+                  <p className="text-xl text-red-700 sm:text-lg">$9.99</p>
                 </article>
               </section>
 
               <section className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
-                  <h2 className="text-2xl text-red-700">Special Menu</h2>
+                  <h2 className="text-2xl text-red-700 sm:text-lg">
+                    Special Menu
+                  </h2>
                   <hr className="rounded-md border-2 border-red-700" />
                 </div>
 
-                <article className="space-between flex">
+                <article className="space-between flex sm:gap-3">
                   <div>
-                    <p className="text-xl text-red-700">Dimsum</p>
+                    <p className="text-xl text-red-700 sm:text-lg">Dimsum</p>
                     <p className="text-sm text-red-700">
                       Dim sum containing fresh and tasty seafood
                     </p>
                   </div>
 
-                  <p className="text-xl text-red-700">$7.99</p>
+                  <p className="text-xl text-red-700 sm:text-lg">$7.99</p>
                 </article>
 
-                <article className="space-between flex">
+                <article className="space-between flex sm:gap-3">
                   <div>
-                    <p className="text-2xl text-red-700">Spring Rolls</p>
+                    <p className="text-2xl text-red-700 sm:text-lg">
+                      Spring Rolls
+                    </p>
                     <p className="text-sm text-red-700">
                       Spring rolls with our fresh toppings and savory seasoning
                     </p>
                   </div>
 
-                  <p className="text-xl text-red-700">$7.99</p>
+                  <p className="text-xl text-red-700 sm:text-lg">$7.99</p>
                 </article>
               </section>
             </div>
@@ -160,22 +172,22 @@ export default function Page() {
         </div>
 
         <p
-          className="absolute bottom-20 max-w-96 text-3xl text-white opacity-0"
+          className="absolute bottom-20 max-w-96 text-3xl text-white opacity-0 sm:static"
           ref={exampOneRef}
         >
           Recreate designs. Practice and perfect tailwind.
         </p>
       </div>
 
-      <div className="primary-color-3 flex w-full flex-col justify-center gap-10 py-24">
+      <div className="primary-color-3 flex w-full flex-col items-center justify-center gap-10 py-24">
         <p
-          className="ml-32 text-4xl text-white opacity-0"
+          className="ml-32 text-4xl text-white opacity-0 sm:ml-0 sm:text-2xl"
           ref={exampTwoPrtOneRef}
         >
           Level Up. Review Quickly.
         </p>
 
-        <section className="primary-color-4 ml-32 flex w-9/12 flex-col gap-6 rounded-2xl border-2 border-white pb-20 pl-10 pt-10">
+        <section className="primary-color-4 ml-32 flex w-9/12 flex-col gap-6 rounded-2xl border-2 border-white pb-20 pl-10 pt-10 sm:ml-0 sm:w-10/12">
           <p className="text-2xl text-white">Level 5</p>
 
           <div className="flex gap-48">

@@ -231,7 +231,7 @@ p {
   width: 47.4rem;
 }
 
-@media (min-width: 1280px) and (max-width: 1335px) {
+/* @media (min-width: 1280px) and (max-width: 1335px) {
   .fat-width-2 {
     width: 30rem;
   }
@@ -246,7 +246,6 @@ p {
     font-size: 1.5rem;
     font-weight: 500;
   }
-  /* children will inherit property unless overwritten in the child */
   .chinese-menu h2 {
     font-size: 1.1rem;
   }
@@ -264,7 +263,7 @@ p {
   .blockage-square-2 {
     right: 7rem;
   }
-}
+} */
 
 @layer utilities {
   .text-balance {
