@@ -60,11 +60,11 @@ export default function Page() {
       <SquareBackground />
 
       <header className="mb-4 mt-36 flex w-9/12 flex-col items-center gap-10 sm:mt-20 sm:w-11/12 lg:w-9/12">
-        <p className="w-5/6 text-center text-6xl font-bold text-white sm:text-4xl xl:text-5xl">
+        <p className="w-5/6 text-center text-6xl font-bold text-white sm:text-4xl xl:text-5xl 2xl:font-extrabold 2xl:leading-tight">
           Getting The Hang of Tailwind Starts Today.
         </p>
 
-        <p className="w-3/4 text-center text-3xl text-white sm:text-lg xl:w-2/3 xl:text-xl">
+        <p className="w-3/4 text-center text-3xl text-white sm:text-lg xl:w-2/3 xl:text-xl 2xl:text-3xl">
           Tailwind Practice is the most hands-on experience to learning tailwind
           you could ever ask for.
         </p>
@@ -73,43 +73,43 @@ export default function Page() {
         <section className="flex items-center justify-center gap-10 sm:flex-col lg:flex-row">
           <Link
             href="/levels/level1"
-            className="flex items-center justify-center rounded-md bg-blue-500 lg:h-16 lg:w-48 xl:h-12 xl:w-40"
+            className="2xl:h-18 flex items-center justify-center rounded-md bg-blue-500 lg:h-16 lg:w-48 xl:h-12 xl:w-40"
           >
-            <p className="relative z-10 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105 sm:px-5 sm:py-3 sm:text-base sm:font-medium lg:px-0 lg:py-0 lg:text-center">
+            <p className="relative z-10 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105 sm:px-5 sm:py-3 sm:text-base sm:font-medium lg:px-0 lg:py-0 lg:text-center 2xl:text-lg">
               Get Started
             </p>
           </Link>
 
           <Link
             href="https://www.patreon.com/LarryLe"
-            className="flex items-center justify-center rounded-md bg-orange-500 lg:h-16 lg:w-48 xl:h-12 xl:w-64"
+            className="2xl:h-18 flex items-center justify-center rounded-md bg-orange-500 lg:h-16 lg:w-48 xl:h-12 xl:w-64 2xl:w-72"
           >
-            <p className="relative z-10 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105 sm:px-5 sm:py-3 sm:text-base sm:font-medium lg:px-0 lg:py-0 lg:text-center">
+            <p className="relative z-10 text-xl font-bold text-white transition duration-200 ease-in-out hover:scale-105 sm:px-5 sm:py-3 sm:text-base sm:font-medium lg:px-0 lg:py-0 lg:text-center 2xl:text-lg">
               Support my project on Patreon
             </p>
           </Link>
         </section>
       </header>
 
-      <div className="lg:space-between relative flex w-10/12 flex-wrap justify-between sm:gap-10 lg:flex-row lg:gap-0">
-        <div className="primary-color-2 fat-width h-56 rounded-lg border-2 border-white sm:h-40 sm:w-full lg:w-64">
+      <div className="lg:space-between relative flex w-10/12 flex-wrap justify-between sm:gap-10 lg:flex-row lg:gap-0 xl:mt-8">
+        <div className="primary-color-2 fat-width 2xl:fat-width-1 h-56 rounded-lg border-2 border-white sm:h-40 sm:w-full lg:w-64 xl:w-96 2xl:h-56">
           <p className="px-8 py-6 text-xl text-white">
             Your Tailwind Code Goes Here.
           </p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 sm:mt-0 lg:w-1/2">
+        <div className="mt-10 flex flex-col gap-3 sm:mt-0 lg:w-1/2 xl:mt-5">
           <p className="text-2xl text-white">Level Five</p>
 
-          <section className="fat-width-2 flex h-80 flex-col gap-8 rounded-lg bg-yellow-400 p-5 sm:h-full sm:w-full sm:gap-5">
-            <h1 className="text-2xl text-red-700 sm:text-2xl lg:text-xl">
+          <section className="fat-width-2 flex h-80 flex-col gap-8 rounded-lg bg-yellow-400 p-5 sm:h-full sm:w-full sm:gap-5 xl:h-72">
+            <h1 className="text-2xl text-red-700 sm:text-2xl lg:text-xl 2xl:text-2xl">
               Chinese Restaurant Menu
             </h1>
 
-            <div className="flex gap-10 sm:flex-col sm:gap-5">
+            <div className="flex gap-10 sm:flex-col sm:gap-5 xl:flex-row 2xl:gap-10">
               <section className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
-                  <h2 className="text-2xl text-red-700 sm:text-lg lg:text-base">
+                  <h2 className="text-2xl text-red-700 sm:text-lg lg:text-base 2xl:text-lg">
                     Main Course
                   </h2>
                   <hr className="rounded-md border-2 border-red-700" />
@@ -117,7 +117,7 @@ export default function Page() {
 
                 <article className="flex sm:gap-3 lg:justify-between">
                   <div>
-                    <p className="text-xl text-red-700 sm:text-lg lg:text-base">
+                    <p className="text-xl text-red-700 sm:text-lg lg:text-base 2xl:text-lg">
                       Char Siu Ricebowl
                     </p>
                     <p className="text-sm text-red-700 sm:text-sm lg:text-xs">
@@ -125,14 +125,14 @@ export default function Page() {
                     </p>
                   </div>
 
-                  <p className="text-xl text-red-700 sm:text-lg lg:text-base">
+                  <p className="text-xl text-red-700 sm:text-lg lg:text-base 2xl:text-lg">
                     $6.99
                   </p>
                 </article>
 
                 <article className="space-between flex sm:gap-3 lg:justify-between">
                   <div>
-                    <p className="text-xl text-red-700 sm:text-lg lg:text-base">
+                    <p className="text-xl text-red-700 sm:text-lg lg:text-base 2xl:text-lg">
                       Fried Kwetiauw
                     </p>
                     <p className="text-sm text-red-700 sm:text-sm lg:text-xs">
@@ -140,7 +140,7 @@ export default function Page() {
                     </p>
                   </div>
 
-                  <p className="text-xl text-red-700 sm:text-lg lg:text-base">
+                  <p className="text-xl text-red-700 sm:text-lg lg:text-base 2xl:text-lg">
                     $9.99
                   </p>
                 </article>
@@ -148,7 +148,7 @@ export default function Page() {
 
               <section className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
-                  <h2 className="text-2xl text-red-700 sm:text-lg lg:text-base">
+                  <h2 className="text-2xl text-red-700 sm:text-lg lg:text-base 2xl:text-lg">
                     Special Menu
                   </h2>
                   <hr className="rounded-md border-2 border-red-700" />
@@ -156,7 +156,7 @@ export default function Page() {
 
                 <article className="space-between flex sm:gap-3 lg:justify-between">
                   <div>
-                    <p className="text-xl text-red-700 sm:text-lg lg:text-base">
+                    <p className="text-xl text-red-700 sm:text-lg lg:text-base 2xl:text-lg">
                       Dimsum
                     </p>
                     <p className="text-sm text-red-700 sm:text-sm lg:text-xs">
@@ -164,14 +164,14 @@ export default function Page() {
                     </p>
                   </div>
 
-                  <p className="text-xl text-red-700 sm:text-lg lg:text-base">
+                  <p className="text-xl text-red-700 sm:text-lg lg:text-base 2xl:text-lg">
                     $7.99
                   </p>
                 </article>
 
                 <article className="space-between flex sm:gap-3 lg:justify-between">
                   <div>
-                    <p className="text-2xl text-red-700 sm:text-lg lg:text-base">
+                    <p className="text-2xl text-red-700 sm:text-lg lg:text-base 2xl:text-lg">
                       Spring Rolls
                     </p>
                     <p className="text-sm text-red-700 sm:text-sm lg:text-xs">
@@ -179,7 +179,7 @@ export default function Page() {
                     </p>
                   </div>
 
-                  <p className="text-xl text-red-700 sm:text-lg lg:text-base">
+                  <p className="text-xl text-red-700 sm:text-lg lg:text-base 2xl:text-lg">
                     $7.99
                   </p>
                 </article>
@@ -189,25 +189,25 @@ export default function Page() {
         </div>
 
         <p
-          className="absolute bottom-20 max-w-96 text-3xl text-white opacity-0 sm:static lg:absolute lg:bottom-36 lg:w-64 lg:text-2xl"
+          className="absolute bottom-20 max-w-96 text-3xl text-white opacity-0 sm:static lg:absolute lg:bottom-36 lg:w-64 lg:text-2xl xl:bottom-16 2xl:bottom-0"
           ref={exampOneRef}
         >
           Recreate designs. Practice and perfect tailwind.
         </p>
       </div>
 
-      <div className="primary-color-3 flex w-full flex-col items-center justify-center gap-10 py-24">
+      <div className="primary-color-3 flex w-full flex-col justify-center gap-10 py-24 sm:items-center xl:items-start">
         <p
-          className="ml-32 text-4xl text-white opacity-0 sm:ml-0 sm:text-2xl"
+          className="ml-32 text-4xl text-white opacity-0 sm:ml-0 sm:text-2xl xl:ml-28"
           ref={exampTwoPrtOneRef}
         >
           Level Up. Review Quickly.
         </p>
 
-        <section className="primary-color-4 ml-32 flex w-9/12 flex-col gap-6 rounded-2xl border-2 border-white pb-20 pl-10 pt-10 sm:ml-0 sm:w-10/12 sm:items-center sm:justify-center sm:p-0 sm:pb-5 sm:pt-5 lg:h-80">
+        <section className="primary-color-4 ml-32 flex w-9/12 flex-col gap-6 rounded-2xl border-2 border-white pb-20 pl-10 pt-10 sm:ml-0 sm:w-10/12 sm:items-center sm:justify-center sm:p-0 sm:pb-5 sm:pt-5 lg:h-80 xl:ml-28 xl:w-8/12">
           <p className="text-2xl text-white sm:w-10/12 sm:text-lg">Level 5</p>
 
-          <div className="flex gap-48 sm:w-10/12 sm:flex-col sm:gap-12 lg:flex-row">
+          <div className="flex gap-48 sm:w-10/12 sm:flex-col sm:gap-12 lg:flex-row xl:gap-48">
             <section
               className="flex flex-col gap-5 opacity-0"
               ref={exampTwoPrtTwoRef}
@@ -263,7 +263,7 @@ export default function Page() {
         <section className="radial-gradient-absolute-2 radial-gradient-height radial-gradient-width" />
 
         <section className="flex flex-col gap-5 sm:w-10/12 md:items-center">
-          <p className="text-center text-5xl text-white sm:text-3xl">
+          <p className="xl:text-4-5xl text-center text-5xl text-white sm:text-3xl">
             Documentation on file
           </p>
           <p className="text-center text-2xl text-white sm:text-xl md:w-10/12">
@@ -271,10 +271,10 @@ export default function Page() {
           </p>
         </section>
 
-        <section className="flex w-10/12 justify-between sm:flex-col sm:gap-10 md:gap-16 lg:flex-row lg:gap-12">
-          <div className="flex w-full flex-col gap-5">
+        <section className="flex w-10/12 justify-between sm:flex-col sm:gap-10 md:gap-16 lg:flex-row lg:gap-12 xl:gap-28">
+          <div className="flex w-full flex-col gap-5 xl:gap-8">
             <section
-              className="primary-color-2 h-72 w-full rounded-xl border-2 border-white pl-10 pt-10 opacity-0 sm:h-48 sm:w-full sm:pl-8 sm:pt-8 md:pl-5 md:pt-5 lg:w-80"
+              className="primary-color-2 h-72 w-full rounded-xl border-2 border-white pl-10 pt-10 opacity-0 sm:h-48 sm:w-full sm:pl-8 sm:pt-8 md:pl-5 md:pt-5 lg:w-80 xl:w-full"
               ref={exampThrPrtOneRef}
             >
               <p className="h-48 text-xl text-white lg:h-28 lg:text-lg">
@@ -305,12 +305,12 @@ export default function Page() {
         </section>
       </div>
 
-      <div className="mb-5 flex w-10/12 justify-between sm:gap-1 md:gap-2 lg:justify-between">
+      <div className="mb-5 flex w-10/12 justify-between sm:gap-1 md:gap-2 lg:justify-between xl:mb-0">
         <p className="text-lg text-white">
           ©2024 Larry Le All Rights Reserved
         </p>
 
-        <section className="flex gap-10 sm:flex-col sm:gap-3 lg:grid lg:grid-cols-2 lg:justify-end">
+        <section className="flex gap-10 sm:flex-col sm:gap-3 lg:grid lg:grid-cols-2 lg:justify-end xl:flex xl:flex-row xl:gap-10">
           <Link href="/levels/level1">
             <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
               Get Started

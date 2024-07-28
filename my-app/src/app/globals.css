@@ -158,112 +158,92 @@ p {
   width: 50rem;
 }
 
-.fat-width {
-  width: 33rem;
-}
-.fat-width-2 {
-  width: 36rem;
-}
-
-.padding-tiny {
-  padding: 0.1rem;
-}
-
-.level-height {
-  height: 32rem;
-}
-.level-radial-gradient-background-blue {
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    rgba(58, 84, 151, 0.75) 0%,
-    rgba(58, 84, 151, 0) 100%
-  );
-}
-.level-radial-gradient-background-orange {
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    #f56116 0%,
-    rgba(245, 97, 22, 0) 100%
-  );
-}
-
-.rotate-80 {
-  transform: rotate(80deg);
-}
-.-rotate-80 {
-  transform: rotate(-80deg);
-}
-.rotate-8 {
-  transform: rotate(8deg);
-}
-.-rotate-8 {
-  transform: rotate(-8deg);
-}
-.left-128 {
-  left: 26rem;
-}
-.left-144 {
-  left: 30rem;
-}
-.left-156 {
-  left: 32rem;
-}
-.left-169 {
-  left: 34rem;
-}
-.left-172 {
-  left: 38rem;
-}
-.left-181 {
-  left: 40rem;
-}
-.right-85 {
-  right: 23rem;
-}
-.right-144 {
-  right: 29rem;
-}
-.bottom-18 {
-  bottom: 4.5rem;
-}
-
-.docs-width {
-  width: 47.4rem;
-}
-
-/* @media (min-width: 1280px) and (max-width: 1335px) {
-  .fat-width-2 {
+@layer utilities {
+  .fat-width {
+    width: 33rem;
+  }
+  .fat-width-1 {
     width: 30rem;
   }
-
-  .chinese-menu {
-    gap: 0.5rem;
+  .fat-width-2 {
+    width: 36rem;
   }
-  .chinese-menu p {
-    font-size: 0.95rem;
-  }
-  .chinese-menu h1 {
-    font-size: 1.5rem;
-    font-weight: 500;
-  }
-  .chinese-menu h2 {
-    font-size: 1.1rem;
+  .text-4-5xl {
+    font-size: 2.5rem;
   }
 
-  .blockage-square-1 {
-    left: 6rem;
+  .padding-tiny {
+    padding: 0.1rem;
+  }
+
+  .level-height {
+    height: 32rem;
+  }
+  .level-radial-gradient-background-blue {
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(58, 84, 151, 0.75) 0%,
+      rgba(58, 84, 151, 0) 100%
+    );
+  }
+  .level-radial-gradient-background-orange {
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      #f56116 0%,
+      rgba(245, 97, 22, 0) 100%
+    );
+  }
+
+  .rotate-80 {
+    transform: rotate(80deg);
+  }
+  .-rotate-80 {
+    transform: rotate(-80deg);
+  }
+  .rotate-8 {
+    transform: rotate(8deg);
+  }
+  .-rotate-8 {
+    transform: rotate(-8deg);
+  }
+  .left-128 {
+    left: 26rem;
+  }
+  .left-144 {
+    left: 30rem;
+  }
+  .left-156 {
+    left: 32rem;
+  }
+  .left-169 {
+    left: 34rem;
+  }
+  .left-172 {
+    left: 38rem;
+  }
+  .left-181 {
+    left: 40rem;
+  }
+  .right-85 {
+    right: 23rem;
+  }
+  .right-144 {
+    right: 29rem;
+  }
+  .bottom-18 {
+    bottom: 4.5rem;
+  }
+
+  .docs-width {
+    width: 47.4rem;
   }
 }
-@media (min-width: 1336px) {
-  .blockage-square-2 {
-    right: 3rem;
+
+@layer utilities {
+  .h-18 {
+    height: 3.75rem;
   }
 }
-@media (min-width: 1440px) {
-  .blockage-square-2 {
-    right: 7rem;
-  }
-} */
 
 @layer utilities {
   .text-balance {
