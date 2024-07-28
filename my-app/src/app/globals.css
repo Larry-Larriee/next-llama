@@ -129,33 +129,35 @@ p {
   animation: appearFromBottom 750ms linear forwards;
 }
 
-.radial-gradient-absolute {
-  position: absolute;
-  z-index: -1;
-  top: 0rem;
+@layer utilities {
+  .radial-gradient-absolute {
+    position: absolute;
+    z-index: -1;
+    top: 0rem;
 
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    rgba(58, 84, 151, 0.75) 0%,
-    rgba(58, 84, 151, 0) 100%
-  );
-}
-.radial-gradient-absolute-2 {
-  position: absolute;
-  z-index: -1;
-  top: 0rem;
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(58, 84, 151, 0.75) 0%,
+      rgba(58, 84, 151, 0) 100%
+    );
+  }
+  .radial-gradient-absolute-2 {
+    position: absolute;
+    z-index: -1;
+    top: 0rem;
 
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    rgba(43, 43, 124, 0.75) 0%,
-    rgba(43, 43, 124, 0) 100%
-  );
-}
-.radial-gradient-height {
-  height: 40rem;
-}
-.radial-gradient-width {
-  width: 50rem;
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(43, 43, 124, 0.75) 0%,
+      rgba(43, 43, 124, 0) 100%
+    );
+  }
+  .radial-gradient-height {
+    height: 40rem;
+  }
+  .radial-gradient-width {
+    width: 40rem;
+  }
 }
 
 @layer utilities {
@@ -248,5 +250,14 @@ p {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .leading-moderate-loose {
+    line-height: 3rem;
+  }
+  .leading-very-loose {
+    line-height: 4rem;
   }
 }
