@@ -4,10 +4,11 @@ const cors = require("cors");
 const puppeteer = require("puppeteer");
 const bodyParser = require("body-parser");
 const resemble = require("resemblejs");
-const fs = require("fs");
 const timeout = require("connect-timeout");
 
 const backspaceAll = require("./helper/backspaceAll");
+const removeImage = require("./helper/removeImage");
+const randomChar = require("./helper/randomChar");
 
 // config() loads environment variables in process.env object (object built into node.js)
 require("dotenv").config();
@@ -83,19 +84,13 @@ app.post("/editLeaderboard", (req, res) => {
     });
 });
 
-// MongoDB doesn't literally store images but the collection stores the index of images that are taken
-let imageCollection = client
-  .db(process.env.MONGODB_DATABASE)
-  .collection(process.env.MONGODB_COLLECTION_IMAGES);
-
 // tailwindAccuracy route takes the user's tailwindCode and compares how the result looks to the solution result
 // tailwindData.level (http) the page of the level that the user is on
 // tailwindData.userSolution (string) the code that the user wrote
 app.post("/tailwindAccuracy", async (req, res) => {
   const { level, userSolution } = req.body;
 
-  let [imageCount] = await imageCollection.find({}).toArray();
-  imageCount = imageCount.imageCount;
+  let randomCharacters = await randomChar();
 
   puppeteer
     .launch({
@@ -124,37 +119,36 @@ app.post("/tailwindAccuracy", async (req, res) => {
       await page.type(".textEditor", userSolution);
 
       await userSolutionUI.screenshot({
-        path: `results/user${imageCount}.png`,
+        path: `results/user${randomCharacters}.png`,
       });
 
       await levelSolutionButton.click();
       const levelSolutionUI = await page.waitForSelector(".levelSolutionUI");
 
       await levelSolutionUI.screenshot({
-        path: `results/solution${imageCount}.png`,
+        path: `results/solution${randomCharacters}.png`,
       });
 
       console.log("puppeteer has finished screenshotting");
 
       let accuracy = 0;
 
-      // console logging diff gives functions for diff. the data argument in onComplete gives the accuracy percentage
-      const diff = resemble(`results/user${imageCount}.png`)
-        .compareTo(`results/solution${imageCount}.png`)
-        .ignoreColors()
-        .onComplete((data) => {
-          accuracy = 100 - data.misMatchPercentage;
-        });
+      // Wait for the comparison to finish (assuming a promise-based wrapper for resemble)
+      await new Promise((resolve) => {
+        const diff = resemble(`results/user${randomCharacters}.png`)
+          .compareTo(`results/solution${randomCharacters}.png`)
+          .ignoreColors()
+          .onComplete((data) => {
+            accuracy = 100 - data.misMatchPercentage;
 
-      console.log("resemble has finished comparing");
+            // remove the user and solution image after usage
+            removeImage(`results/user${randomCharacters}.png`);
+            removeImage(`results/solution${randomCharacters}.png`);
+            resolve();
+          });
+      });
 
-      // we convert the id string to an object id using the ObjectId class and match the id to the imageCount key and value, then updating it
-      imageCollection.updateOne(
-        {
-          _id: new ObjectId(process.env.MONGODB_COLLECTION_IMAGES_OBJECTID),
-        },
-        { $inc: { imageCount: 1 } }
-      );
+      console.log("resemble has finished comparing", accuracy);
 
       await browser.close();
 
@@ -176,32 +170,4 @@ app.get("/", (req, res) => {
 
 app.listen(5000, async () => {
   console.log("Server listening on port 5000");
-
-  let [imageCount] = await imageCollection.find({}).toArray();
-  imageCount = imageCount.imageCount;
-
-  // we know that the imageCount value is one ahead of the actual image count
-  // we also know that two images are taken: the user and the solution
-  for (let i = 0; i < imageCount; i += 1) {
-    fs.unlink(`results/user${i}.png`, (err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-    });
-
-    fs.unlink(`results/solution${i}.png`, (err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-    });
-  }
-
-  // when the server reopens, purge all images and reset imageCount to 0 (saving space)
-  // keep in mind that because the imageCount value is updated AFTER the image is taken, the value stored in mongoDB will always be one ahead of the actual image count
-  imageCollection.updateOne(
-    { _id: new ObjectId(process.env.MONGODB_COLLECTION_IMAGES_OBJECTID) },
-    { $set: { imageCount: 0 } }
-  );
 });
