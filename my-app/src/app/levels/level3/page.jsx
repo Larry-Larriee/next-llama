@@ -57,7 +57,7 @@ export default function Level3() {
         )}
 
         <Navigation />
-        <section className="flex w-10/12 justify-center gap-5">
+        <section className="flex w-10/12 justify-center gap-5 sm:flex-col xl:flex-row">
           <LevelHero
             levelNumber={"Three"}
             levelTitle="Twitter Profile"

@@ -79,8 +79,8 @@ export default function SubmitModal({
                   Level One
                 </DialogTitle>
 
-                <div className="flex justify-between gap-10">
-                  <section className="flex w-3/4 flex-col gap-5">
+                <div className="flex justify-between">
+                  <section className="flex w-3/4 flex-col gap-5 xl:w-1/2">
                     <p className="text-xl text-white">Classes Used:</p>
 
                     <ul className="flex max-h-40 list-disc flex-col gap-3 overflow-scroll pl-4 text-white">
@@ -88,12 +88,12 @@ export default function SubmitModal({
                     </ul>
                   </section>
 
-                  <section className="flex w-1/4 flex-col gap-8">
+                  <section className="flex flex-col gap-8 sm:w-auto xl:w-1/3">
                     <div className="flex flex-col gap-2">
                       <p className="text-wrap text-xl text-white">
                         Time: {Math.floor(time / 60)} min {time % 60} sec
                       </p>
-                      <p className="text-xl text-white">
+                      <p className="text-wrap text-xl text-white">
                         Accuracy: {accuracy && accuracy.accuracy.toFixed(2)}%
                       </p>
                     </div>

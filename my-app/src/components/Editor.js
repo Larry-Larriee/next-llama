@@ -24,8 +24,8 @@ export default function Editor({
   };
 
   return (
-    <section className="flex w-1/2 flex-col gap-5">
-      <section className="primary-color-5 flex h-64 flex-col rounded-md border border-white">
+    <section className="flex w-1/2 flex-col gap-5 sm:w-full xl:w-1/2">
+      <section className="primary-color-5 flex h-64 w-full flex-col rounded-md border border-white">
         <p className="text-md primary-color-4 rounded-t-md border-b pl-3 text-white">
           Code
         </p>
@@ -35,7 +35,7 @@ export default function Editor({
           ref={userSolutionRef}
           onChange={changeUserSolution}
           value={userSolution}
-          className="textEditor primary-color-5 h-full w-full resize-none rounded-md p-3 text-white focus:outline-none"
+          className="textEditor primary-color-5 h-full w-full resize-none rounded-md p-3 text-white focus:outline-none xl:text-lg"
         />
       </section>
 
@@ -51,7 +51,7 @@ export default function Editor({
         )}
       </section>
 
-      <div className="flex gap-4">
+      <div className="flex gap-4 sm:flex-col xl:flex-row">
         <p
           className="rounded-lg bg-indigo-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
           onClick={() => changeDocsOpen()}

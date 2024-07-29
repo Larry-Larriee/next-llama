@@ -13,6 +13,7 @@ module.exports = {
       },
     },
     screens: {
+      // note that some people use devices as small as 320px.
       sm: "375px",
       md: "412px",
       lg: "768px",

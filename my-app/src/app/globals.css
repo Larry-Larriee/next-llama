@@ -236,8 +236,22 @@ p {
     bottom: 4.5rem;
   }
 
-  .docs-width {
+  .docs-width-xl {
+    width: 39.5rem;
+  }
+  .docs-width-2xl {
+    width: 44.5rem;
+  }
+  .docs-width-3xl {
     width: 47.4rem;
+  }
+
+  .docs-height-sm {
+    height: 23rem;
+  }
+
+  .docs-height-lg {
+    height: 18rem;
   }
 }
 

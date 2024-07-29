@@ -17,7 +17,7 @@ export default function Docs({ docsOpen }) {
     <>
       <iframe
         src="https://tailwindcss.com/"
-        className="slideIn docs-width absolute bottom-0 left-0 h-screen border-2 border-black"
+        className="slideIn xl:docs-width-xl 2xl:docs-width-2xl 3xl:docs-width-3xl sm:docs-height-sm lg:docs-height-lg absolute bottom-0 left-0 h-screen border-2 border-black sm:bottom-auto sm:top-28 sm:w-full xl:bottom-0 xl:top-auto xl:h-full"
         ref={iframe}
       ></iframe>
     </>
