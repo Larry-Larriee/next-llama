@@ -180,24 +180,6 @@ p {
     padding: 0.1rem;
   }
 
-  .level-height {
-    height: 32rem;
-  }
-  .level-radial-gradient-background-blue {
-    background: radial-gradient(
-      50% 50% at 50% 50%,
-      rgba(58, 84, 151, 0.75) 0%,
-      rgba(58, 84, 151, 0) 100%
-    );
-  }
-  .level-radial-gradient-background-orange {
-    background: radial-gradient(
-      50% 50% at 50% 50%,
-      #f56116 0%,
-      rgba(245, 97, 22, 0) 100%
-    );
-  }
-
   .rotate-80 {
     transform: rotate(80deg);
   }
@@ -209,6 +191,9 @@ p {
   }
   .-rotate-8 {
     transform: rotate(-8deg);
+  }
+  .left-100 {
+    left: 25rem;
   }
   .left-128 {
     left: 26rem;
@@ -231,11 +216,20 @@ p {
   .right-85 {
     right: 23rem;
   }
+  .right-136 {
+    right: 28rem;
+  }
   .right-144 {
     right: 29rem;
   }
   .bottom-18 {
     bottom: 4.5rem;
+  }
+  .bottom-21 {
+    bottom: 5.25rem;
+  }
+  .bottom-22 {
+    bottom: 5.5rem;
   }
 
   .docs-width-xl {
@@ -254,6 +248,26 @@ p {
 
   .docs-height-lg {
     height: 18rem;
+  }
+}
+
+@layer utilities {
+  .level-height {
+    height: 32rem;
+  }
+  .level-radial-gradient-background-blue {
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(58, 84, 151, 0.75) 0%,
+      rgba(58, 84, 151, 0) 100%
+    );
+  }
+  .level-radial-gradient-background-orange {
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      #f56116 0%,
+      rgba(245, 97, 22, 0) 100%
+    );
   }
 }
 
