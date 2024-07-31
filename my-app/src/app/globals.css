@@ -28,23 +28,25 @@ p {
   font-family: "League Spartan", sans-serif;
 }
 
-.custom-primary-color {
-  background-color: var(--primary-color);
-}
-.primary-color-2 {
-  background: var(--primary-color-2);
-}
-.primary-color-3 {
-  background: var(--primary-color-3);
-}
-.primary-color-4 {
-  background: var(--primary-color-4);
-}
-.primary-color-5 {
-  background: var(--primary-color-5);
-}
-.primary-color-6 {
-  background: var(--primary-color-6);
+@layer utilities {
+  .custom-primary-color {
+    background-color: var(--primary-color);
+  }
+  .primary-color-2 {
+    background: var(--primary-color-2);
+  }
+  .primary-color-3 {
+    background: var(--primary-color-3);
+  }
+  .primary-color-4 {
+    background: var(--primary-color-4);
+  }
+  .primary-color-5 {
+    background: var(--primary-color-5);
+  }
+  .primary-color-6 {
+    background: var(--primary-color-6);
+  }
 }
 
 @keyframes appear {

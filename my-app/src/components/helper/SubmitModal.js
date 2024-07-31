@@ -28,6 +28,11 @@ export default function SubmitModal({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submitOpen]);
 
+  // scrolls the user to the top of their device when the modal is open (because h-full on mobile is not h-full on desktop)
+  function scrollToTop() {
+    window.scrollTo(0, 0);
+  }
+
   const [compareSolution, setCompareSolution] = useState(false);
 
   let changeCompareSolution = () => {
@@ -56,6 +61,10 @@ export default function SubmitModal({
     fetchAccuracy();
   }, [userSolution, nextLevel]);
 
+  useEffect(() => {
+    if (submitOpen === true) scrollToTop();
+  }, [submitOpen]);
+
   return (
     <>
       {/* onClose changes the state when the user clicks outside the modal, like another way to close if the user does not click the close button */}
@@ -69,9 +78,9 @@ export default function SubmitModal({
         }}
       >
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-          <div className="flex min-h-full w-full items-center justify-center p-4">
+          <div className="flex min-h-full w-full items-center justify-center p-0 xl:p-4">
             {!compareSolution && (
-              <DialogPanel className="data-[closed]:transform-[scale(95%)] flex w-7/12 flex-col gap-5 rounded-xl bg-white/5 p-8 backdrop-blur-2xl duration-300 ease-out data-[closed]:opacity-0">
+              <DialogPanel className="data-[closed]:transform-[scale(95%)] primary-color-4 flex w-10/12 flex-col gap-5 rounded-xl p-4 backdrop-blur-2xl duration-300 ease-out data-[closed]:opacity-0 xl:w-7/12 xl:bg-white/5 xl:p-8">
                 <DialogTitle
                   as="h3"
                   className="text-3xl font-medium text-white"
@@ -79,16 +88,16 @@ export default function SubmitModal({
                   Level One
                 </DialogTitle>
 
-                <div className="flex justify-between">
-                  <section className="flex w-3/4 flex-col gap-5 xl:w-1/2">
+                <div className="flex flex-col justify-between gap-10 xl:flex-row">
+                  <section className="order-2 flex w-3/4 flex-col gap-5 xl:order-1 xl:w-1/2">
                     <p className="text-xl text-white">Classes Used:</p>
 
-                    <ul className="flex max-h-40 list-disc flex-col gap-3 overflow-scroll pl-4 text-white">
+                    <ul className="flex max-h-28 list-disc flex-col gap-3 overflow-scroll pl-4 text-white xl:max-h-40">
                       <AssessTailwind userSolution={userSolution} />
                     </ul>
                   </section>
 
-                  <section className="flex flex-col gap-8 sm:w-auto xl:w-1/3">
+                  <section className="order-1 flex flex-row flex-wrap gap-8 sm:w-auto xl:order-2 xl:w-1/3 xl:flex-col">
                     <div className="flex flex-col gap-2">
                       <p className="text-wrap text-xl text-white">
                         Time: {Math.floor(time / 60)} min {time % 60} sec
@@ -99,13 +108,13 @@ export default function SubmitModal({
                     </div>
 
                     <p
-                      className="text-md max-w-48 rounded-md border-2 border-white bg-blue-500 px-4 py-3 text-center font-bold text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
+                      className="xl:text-md max-w-48 rounded-md border-2 border-white bg-blue-500 px-3 py-2 text-center text-sm font-bold text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer lg:h-10 xl:h-auto xl:px-4 xl:py-3"
                       onClick={() => changeCompareSolution()}
                     >
                       Compare Solution
                     </p>
                     <Link href={"../levels/level" + nextLevel}>
-                      <p className="text-md max-w-48 rounded-md border-2 border-white bg-orange-500 px-4 py-3 text-center font-bold text-white transition duration-200 ease-in-out hover:scale-105">
+                      <p className="xl:text-md max-w-48 rounded-md border-2 border-white bg-orange-500 px-3 py-2 text-center text-sm font-bold text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer lg:h-10 xl:h-auto xl:px-4 xl:py-3">
                         Next Level
                       </p>
                     </Link>

@@ -63,7 +63,7 @@ export default function Page() {
         </p>
 
         <p className="w-3/4 text-center text-white sm:text-lg xl:w-2/3 xl:text-xl 2xl:text-3xl">
-          Tailwind Practice is the most hands-on experience to learning tailwind
+          Tailwind Llama is the most hands-on experience to learning tailwind
           you could ever ask for.
         </p>
 
