@@ -232,6 +232,13 @@ p {
     bottom: 5.5rem;
   }
 
+  .min-h-90 {
+    min-height: 23rem;
+  }
+  .h-90 {
+    height: 23rem;
+  }
+
   .docs-width-xl {
     width: 39.5rem;
   }

@@ -80,7 +80,7 @@ export default function SubmitModal({
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full w-full items-center justify-center p-0 xl:p-4">
             {!compareSolution && (
-              <DialogPanel className="data-[closed]:transform-[scale(95%)] primary-color-4 flex w-10/12 flex-col gap-5 rounded-xl p-4 backdrop-blur-2xl duration-300 ease-out data-[closed]:opacity-0 xl:w-7/12 xl:bg-white/5 xl:p-8">
+              <DialogPanel className="data-[closed]:transform-[scale(95%)] primary-color-4 min-h-90 flex w-10/12 flex-col gap-5 rounded-xl p-4 backdrop-blur-2xl duration-300 ease-out data-[closed]:opacity-0 xl:w-7/12 xl:p-8">
                 <DialogTitle
                   as="h3"
                   className="text-3xl font-medium text-white"
@@ -108,13 +108,13 @@ export default function SubmitModal({
                     </div>
 
                     <p
-                      className="xl:text-md max-w-48 rounded-md border-2 border-white bg-blue-500 px-3 py-2 text-center text-sm font-bold text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer lg:h-10 xl:h-auto xl:px-4 xl:py-3"
+                      className="max-w-48 rounded-md border-2 border-white bg-blue-500 px-3 py-2 text-center text-sm font-bold text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer lg:h-10 xl:h-auto xl:px-4 xl:py-3 xl:text-base"
                       onClick={() => changeCompareSolution()}
                     >
                       Compare Solution
                     </p>
                     <Link href={"../levels/level" + nextLevel}>
-                      <p className="xl:text-md max-w-48 rounded-md border-2 border-white bg-orange-500 px-3 py-2 text-center text-sm font-bold text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer lg:h-10 xl:h-auto xl:px-4 xl:py-3">
+                      <p className="max-w-48 rounded-md border-2 border-white bg-orange-500 px-3 py-2 text-center text-sm font-bold text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer lg:h-10 xl:h-auto xl:px-4 xl:py-3 xl:text-base">
                         Next Level
                       </p>
                     </Link>
@@ -124,33 +124,40 @@ export default function SubmitModal({
             )}
 
             {compareSolution && (
-              <DialogPanel className="data-[closed]:transform-[scale(95%)] flex w-7/12 flex-col rounded-xl border border-white/25 bg-gray-900/80 backdrop-blur-2xl data-[closed]:opacity-0">
-                <section className="flex items-center justify-between border-b border-white/25 px-3 py-2">
-                  <p className="text-xl text-white">
-                    Level {nextLevel - 1} - Compare Solution
+              <DialogPanel className="data-[closed]:transform-[scale(95%)] min-h-90 primary-color-4 flex w-10/12 flex-col gap-3 rounded-xl p-4 backdrop-blur-2xl duration-300 ease-out data-[closed]:opacity-0 xl:w-7/12 xl:p-8">
+                <section className="flex items-center justify-between">
+                  <p className="text-3xl font-medium text-white">
+                    Compare Solution
                   </p>
                   <p
-                    className="text-md rounded-lg border border-white/25 px-2 py-1 text-center text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer hover:border-red-600 hover:text-red-600"
+                    className="rounded-md bg-indigo-500 px-3 py-1 text-center text-base text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer hover:border-red-600 hover:text-red-600"
                     onClick={() => changeCompareSolution()}
                   >
                     Back
                   </p>
                 </section>
-                <section className="flex">
-                  <div className="flex h-80 w-1/2 flex-col justify-between border-r border-white/25 p-3">
-                    <p className="text-md max-h-64 overflow-auto text-white">
+                <section className="flex gap-10 sm:flex-col xl:flex-row xl:gap-5">
+                  <div className="flex flex-col gap-3 xl:h-64 xl:w-1/2">
+                    <article>
+                      <p className="text-base text-white">Your Code</p>
+                      <p className="text-base text-white">
+                        Characters Used: {userSolution.length}
+                      </p>
+                    </article>
+                    <p className="max-h-64 overflow-auto text-lg text-white">
                       {userSolution}
                     </p>
-                    <p className="text-md text-white">
-                      Characters Used: {userSolution.length}
-                    </p>
                   </div>
-                  <div className="flex h-80 w-1/2 flex-col justify-between gap-6 px-5 py-3">
-                    <p className="text-md overflow-auto text-white">
+                  <div className="flex flex-col gap-3 xl:h-64 xl:w-1/2">
+                    <article>
+                      <p className="text-base text-white">Solution Code</p>
+                      <p className="text-base text-white">
+                        Characters Used: {userSolution.length}
+                      </p>
+                    </article>
+
+                    <p className="overflow-auto text-lg text-white">
                       {levelSolution}
-                    </p>
-                    <p className="text-md text-white">
-                      Characters Used: {levelSolution.length}
                     </p>
                   </div>
                 </section>
