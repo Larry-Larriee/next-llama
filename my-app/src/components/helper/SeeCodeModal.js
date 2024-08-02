@@ -15,7 +15,7 @@ export default function SeeCodeModal({ modal, changeModalState, user, code }) {
       >
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full w-full items-center justify-center p-0 xl:p-4">
-            <DialogPanel className="primary-color-4 min-h-128 flex w-10/12 scale-110 flex-col gap-5 rounded-xl p-4 drop-shadow-lg xl:w-1/2 xl:p-12">
+            <DialogPanel className="primary-color-4 min-h-128 flex w-10/12 flex-col gap-5 rounded-xl p-4 drop-shadow-lg xl:w-1/2 xl:p-12">
               <DialogTitle as="h3" className="text-3xl font-medium text-white">
                 {user}
               </DialogTitle>

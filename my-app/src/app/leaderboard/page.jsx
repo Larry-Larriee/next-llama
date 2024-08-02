@@ -34,7 +34,7 @@ export default function Page() {
               <p className="min-w-24 text-center text-xl text-white">User</p>
             </section>
 
-            <section className="flex items-center gap-6">
+            <section className="flex items-center gap-6 xl:mr-5 2xl:mr-0">
               <p className="min-w-24 text-center text-xl text-white">Level</p>
               <p className="min-w-24 text-center text-xl text-white">Time</p>
               <p className="min-w-24 text-center text-xl text-white">
@@ -45,7 +45,7 @@ export default function Page() {
                 Characters
               </p>
 
-              <article className="flex items-center pl-20 pr-10">
+              <article className="flex items-center 2xl:pl-20 2xl:pr-10">
                 <p className="min-w-28 text-center text-xl text-white">Code</p>
               </article>
             </section>
