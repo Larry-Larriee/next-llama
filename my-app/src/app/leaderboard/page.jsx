@@ -8,9 +8,9 @@ export default function Page() {
   let [leaderboard, setLeaderboard] = useState();
 
   async function getLeaderboard() {
-    const response = await fetch(
-      "https://next-llama-4s1x.onrender.com/leaderboard",
-    ).catch((error) => console.error(error));
+    const response = await fetch("http://127.0.0.1:5000/leaderboard").catch(
+      (error) => console.error(error),
+    );
     let data = await response.json();
 
     setLeaderboard(data);
@@ -26,8 +26,8 @@ export default function Page() {
         <Navigation />
 
         <div className="flex w-10/12 flex-col gap-1">
-          <div className="primary-color-6 flex h-16 w-full justify-between rounded-lg">
-            <section className="flex items-center gap-6 pl-10">
+          <div className="primary-color-6 flex h-16 w-full justify-between overflow-x-scroll rounded-lg">
+            <section className="flex items-center gap-6 pl-2 xl:pl-10">
               <p className="min-w-24 text-center text-xl text-white">
                 Position
               </p>
@@ -51,13 +51,13 @@ export default function Page() {
             </section>
           </div>
 
-          <article className="flex w-full items-center justify-end pr-10">
+          <article className="flex w-full items-center justify-end xl:pr-10">
             <p className="text-md text-white/50 transition duration-200 ease-in-out hover:cursor-pointer hover:text-white">
               Sort By [Level]
             </p>
           </article>
 
-          <div className="primary-color-6 mt-2 flex min-h-96 w-full flex-col gap-1 rounded-lg">
+          <div className="primary-color-6 mt-2 flex w-full flex-col gap-1 rounded-lg">
             {/* the map method uses index as an argument, which is the index it is mapping in the array (i.e. 0,1,2) */}
             {leaderboard ? (
               leaderboard.map((leaderBoardRank, index) => {
@@ -82,7 +82,6 @@ export default function Page() {
                 <div className="primary-color-6 h-16 w-full animate-pulse" />
                 <div className="h-16 w-full animate-pulse bg-indigo-400/75" />
                 <div className="primary-color-6 h-16 w-full animate-pulse" />
-                {/* <div className="h-16 w-full animate-pulse rounded-b-md bg-indigo-400/75" /> */}
               </section>
             )}
           </div>

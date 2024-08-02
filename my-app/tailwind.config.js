@@ -11,6 +11,9 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      blur: {
+        md: "100px",
+      },
     },
     screens: {
       // note that some people use devices as small as 320px.

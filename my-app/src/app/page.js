@@ -325,7 +325,7 @@ export default function Page() {
               Level Select
             </p>
           </Link>
-          <Link href="#">
+          <Link href="/leaderboard">
             <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1 2xl:text-xl">
               Leaderboards
             </p>
