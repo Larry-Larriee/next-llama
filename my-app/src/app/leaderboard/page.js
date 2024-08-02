@@ -57,9 +57,9 @@ export default function Page() {
             </p>
           </article>
 
-          <div className="primary-color-6 flex min-h-96 w-full flex-col gap-1 rounded-lg pt-2">
+          <div className="primary-color-6 mt-2 flex min-h-96 w-full flex-col gap-1 rounded-lg">
             {/* the map method uses index as an argument, which is the index it is mapping in the array (i.e. 0,1,2) */}
-            {leaderboard &&
+            {leaderboard ? (
               leaderboard.map((leaderBoardRank, index) => {
                 return (
                   <LeaderboardRank
@@ -74,7 +74,17 @@ export default function Page() {
                     code={leaderBoardRank.tailwindCode}
                   />
                 );
-              })}
+              })
+            ) : (
+              <section className="flex flex-col gap-1">
+                <div className="primary-color-6 h-16 w-full animate-pulse rounded-t-md" />
+                <div className="h-16 w-full animate-pulse bg-indigo-400/75" />
+                <div className="primary-color-6 h-16 w-full animate-pulse" />
+                <div className="h-16 w-full animate-pulse bg-indigo-400/75" />
+                <div className="primary-color-6 h-16 w-full animate-pulse" />
+                {/* <div className="h-16 w-full animate-pulse rounded-b-md bg-indigo-400/75" /> */}
+              </section>
+            )}
           </div>
         </div>
       </div>

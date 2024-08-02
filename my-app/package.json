@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.1.0",
-    "@nextui-org/skeleton": "^2.0.31",
     "canvas-confetti": "^1.9.3",
     "next": "^14.2.5",
     "puppeteer": "^22.13.0",

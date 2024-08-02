@@ -51,7 +51,7 @@ export default function Editor({
         )}
       </section>
 
-      <div className="flex gap-4 sm:flex-col xl:flex-row">
+      <div className="flex justify-start gap-4 sm:flex-col xl:flex-row">
         <p
           className="rounded-lg bg-indigo-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
           onClick={() => changeDocsOpen()}

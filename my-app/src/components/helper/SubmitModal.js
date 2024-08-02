@@ -6,7 +6,6 @@ import Link from "next/link";
 import AssessTailwind from "./AssessTailwind";
 
 import confetti from "canvas-confetti";
-import { Skeleton } from "@nextui-org/skeleton";
 
 export default function SubmitModal({
   submitOpen,
@@ -103,9 +102,18 @@ export default function SubmitModal({
                       <p className="text-wrap text-xl text-white">
                         Time: {Math.floor(time / 60)} min {time % 60} sec
                       </p>
-                      <p className="text-wrap text-xl text-white">
-                        Accuracy: {accuracy && accuracy.accuracy.toFixed(2)}%
-                      </p>
+                      {accuracy ? (
+                        <p className="text-wrap text-xl text-white">
+                          Accuracy: {accuracy && accuracy.accuracy.toFixed(2)}%
+                        </p>
+                      ) : (
+                        <div className="flex items-center gap-2">
+                          <p className="text-wrap text-xl text-white">
+                            Accuracy:
+                          </p>
+                          <article className="primary-color-5 h-6 w-20 animate-pulse rounded-sm" />
+                        </div>
+                      )}
                     </div>
 
                     <article className="flex w-full justify-between gap-5 lg:flex-col">
