@@ -238,6 +238,19 @@ p {
   .h-90 {
     height: 23rem;
   }
+  .min-h-128 {
+    min-height: 30rem;
+  }
+  .h-128 {
+    height: 30rem;
+  }
+
+  .min-h-144 {
+    min-height: 36rem;
+  }
+  .h-144 {
+    height: 36rem;
+  }
 
   .docs-width-xl {
     width: 39.5rem;
