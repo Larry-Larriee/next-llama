@@ -104,7 +104,7 @@ app.post("/tailwindAccuracy", async (req, res) => {
       let page = await browser.newPage();
       await page.setBypassCSP(true);
       await page.goto(
-        "https://next-llama.vercel.app/levels/level" + level.toString()
+        "https://tailwind-llama.vercel.app/levels/level" + level.toString()
       );
 
       const textEditor = await page.waitForSelector(".textEditor");

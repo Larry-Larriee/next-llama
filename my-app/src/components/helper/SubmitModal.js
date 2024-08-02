@@ -6,6 +6,7 @@ import Link from "next/link";
 import AssessTailwind from "./AssessTailwind";
 
 import confetti from "canvas-confetti";
+import { Skeleton } from "@nextui-org/skeleton";
 
 export default function SubmitModal({
   submitOpen,
