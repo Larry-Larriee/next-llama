@@ -63,6 +63,39 @@ app.get("/leaderboard", (req, res) => {
     });
 });
 
+// leaderboardTimeSort route returns an array of object
+// leaderboardLevelSort route allows the client to sort the leaderboard by level
+app.get("/leaderboardLevelSort", (req, res) => {
+  let valueSwapped;
+
+  tailwindCollection
+    .find({})
+    .toArray()
+    .then((result) => {
+      // use a do-while loop to make at least one iteration
+      do {
+        valueSwapped = false;
+
+        for (let i = 0; i < result.length - 1; i++) {
+          // if the current tailwind level is greater than the next tailwind level, swap the two values
+          if (result[i].tailwindLevel > result[i + 1].tailwindLevel) {
+            // destructuring to change the existing values of the array indexes
+            [result[i].tailwindLevel, result[i + 1].tailwindLevel] = [
+              result[i + 1].tailwindLevel,
+              result[i].tailwindLevel,
+            ];
+
+            // in the context of the actual sorting, the valueSwapped is not going to constantly change to true or false
+            // it's a check to make sure the bubble sort keeps iterating until it doesn't need to anymore
+            valueSwapped = true;
+          }
+        }
+      } while (valueSwapped);
+
+      res.send(result);
+    });
+});
+
 // editLeaderboard route allows the client to edit the leaderboard by adding their information
 // the client can add their username, date, tailwind level, tailwind data, and time of level completion (seconds)
 app.post("/editLeaderboard", (req, res) => {
@@ -103,9 +136,16 @@ app.post("/tailwindAccuracy", async (req, res) => {
     .then(async (browser) => {
       let page = await browser.newPage();
       await page.setBypassCSP(true);
-      await page.goto(
-        "https://tailwind-llama.vercel.app/levels/level-" + level.toString()
-      );
+
+      if (level === null) {
+        await page.goto(
+          "https://tailwind-llama.vercel.app/levels/final-challenge"
+        );
+      } else {
+        await page.goto(
+          "https://tailwind-llama.vercel.app/levels/level-" + level.toString()
+        );
+      }
 
       const textEditor = await page.waitForSelector(".textEditor");
       const userSolutionUI = await page.waitForSelector(".userSolutionUI");

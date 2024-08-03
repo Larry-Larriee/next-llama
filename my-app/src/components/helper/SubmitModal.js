@@ -49,6 +49,7 @@ export default function SubmitModal({
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          // for the final-challenge, this is going to return NaN (sending it as JSON will conver it to null which JSON can handle)
           level: parseInt(nextLevel) - 1,
           userSolution: userSolution,
         }),
