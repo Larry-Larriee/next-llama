@@ -7,15 +7,15 @@ export default function page() {
       <div className="flex w-full flex-col items-center gap-16">
         <Navigation />
 
-        <section className="flex w-10/12 flex-col gap-10">
-          <div className="w-2/3">
+        <section className="flex w-10/12 flex-col gap-10 sm:mb-10 lg:mb-0">
+          <div className="w-full xl:w-2/3">
             <p className="text-4xl text-white">Congratulations!</p>
             <p className="text-xl text-white">
               You have successfully beat this difficult challenge.
             </p>
           </div>
 
-          <div className="w-2/3">
+          <div className="w-full xl:w-2/3">
             <p className="text-xl text-white">
               What&apos;s next is completely up to you. But remember that even
               tailwind gods can get rusty. Be sure to frequently practice your
@@ -23,7 +23,7 @@ export default function page() {
             </p>
           </div>
 
-          <div className="flex w-2/3 flex-col gap-3">
+          <div className="flex w-full flex-col gap-3 xl:w-2/3">
             <p className="text-xl text-white">
               Here&apos;s a list of some awesome things you can try:
             </p>
@@ -57,7 +57,7 @@ export default function page() {
             </ul>
           </div>
 
-          <div className="w-3/4">
+          <div className="w-full xl:w-2/3">
             <p className="text-xl text-white">
               Regardless, congratulations again. Tailwind is a great library
               that save a bunch of time.

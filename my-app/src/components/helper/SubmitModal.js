@@ -123,7 +123,15 @@ export default function SubmitModal({
                       >
                         Compare Solution
                       </p>
-                      <Link href={"../levels/level" + nextLevel}>
+                      <Link
+                        href={
+                          isNaN(nextLevel)
+                            ? nextLevel == "congrats"
+                              ? "/congrats"
+                              : "/levels/final-challenge"
+                            : `/levels/level-${nextLevel}`
+                        }
+                      >
                         <p className="max-w-48 rounded-md border-2 border-white bg-orange-500 px-3 py-2 text-center text-sm font-bold text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer lg:h-10 xl:h-auto xl:px-4 xl:py-3 xl:text-base">
                           Next Level
                         </p>

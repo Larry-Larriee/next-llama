@@ -10,10 +10,9 @@ import SubmitModal from "../../../components/helper/SubmitModal";
 import UseStopWatch from "../../../components/hooks/UseStopWatch";
 import UseAnimation from "../../../components/hooks/UseAnimation";
 
-export default function Level3() {
+export default function Page() {
   let levelSolution =
-    "<div class='flex justify-center items-center bg-black w-screen h-screen'><div class='bg-gray-900 flex justify-between items-center rounded-full w-96 h-32'><section class='ml-4 h-20 w-20 bg-white rounded-full'></section><article><p class='text-white text-lg'>Elon Musk (Parody)</p><p class='text-white text-lg'>@elonmusk</p></article><section class='h-20 w-20 flex gap-1 justify-center items-center'><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div></section></div></div>";
-  ("<div class='w-screen h-screen bg-red-500 flex justify-center items-center'><p class='text-3xl text-white'>Paint the Town Red</p></div>");
+    "<div class='overflow-hidden flex justify-center items-center flex-col bg-white w-screen h-screen gap-8'><p class='font-semibold text-7xl flex gap-1'><span class='text-red-500'>Z</span><span class='text-orange-500'>o</span><span class='text-blue-700'>m</span><span class='text-purple-500'>b</span><span class='text-cyan-500'>o</span><span class='text-blue-700'>.</span><span class='text-orange-500'>c</span><span class='text-green-400'>o</span><span class='text-blue-700'>m</span></p><section class='relative flex h-28 w-32 flex-col justify-center items-center  animate-spin'><div class=' h-8 inset-0 w-8 rounded-full bg-gray-500 opacity-50'></div><div class='absolute top-0 right-7 h-8 w-8 rounded-full bg-red-500 bg-opacity-50'></div><div class='absolute top-0 left-7 h-8 w-8 rounded-full bg-orange-500 bg-opacity-50'></div><div class='absolute right-0 h-8 w-8 rounded-full bg-purple-500 bg-opacity-50'></div><div class='absolute left-0 h-8 w-8 rounded-full bg-yellow-500 bg-opacity-50'></div><div class='absolute bottom-0 left-7 h-8 w-8 rounded-full bg-green-500 bg-opacity-50'></div><div class='absolute bottom-0 right-7 h-8 w-8 rounded-full bg-blue-700 bg-opacity-50'></div></section></div>";
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
 
@@ -24,7 +23,6 @@ export default function Level3() {
   let animation = UseAnimation(docsOpen, changeDocsOpen, setClosing);
 
   const [submitOpen, setSubmitOpen] = useState(false);
-
   let changeSubmitOpen = () => {
     setSubmitOpen(!submitOpen);
   };
@@ -48,7 +46,7 @@ export default function Level3() {
           <SubmitModal
             submitOpen={submitOpen}
             changeSubmitOpen={changeSubmitOpen}
-            nextLevel={"4"}
+            nextLevel={"5"}
             time={time}
             changeIsPaused={changeIsPaused}
             levelSolution={levelSolution}
@@ -59,10 +57,10 @@ export default function Level3() {
         <Navigation />
         <section className="flex w-10/12 justify-center gap-5 sm:flex-col xl:flex-row">
           <LevelHero
-            levelNumber={"Three"}
-            levelTitle="Twitter Profile"
-            levelDescriptionOne="Tailwind has a lot of real applications. You've made the right choice by choosing to learn this library."
-            levelDescriptionTwo="Create a twitter profile using tailwind. Not the whole thing; just that one cool part in the navigation menu (see design). Also WARNING: this level is the hardest one yet!!"
+            levelNumber={"Four"}
+            levelTitle="Zombo.com"
+            levelDescriptionOne="Zombo.com is a website that allows you to do anything. At least, that's what they claim. Your task is to recreate this masterpiece."
+            levelDescriptionTwo="By the way, this level took me half an hour to come up with a solution. Good luck! Also remember to take advantage of tailwind animations!"
           />
 
           <Editor

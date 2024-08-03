@@ -10,9 +10,10 @@ import SubmitModal from "../../../components/helper/SubmitModal";
 import UseStopWatch from "../../../components/hooks/UseStopWatch";
 import UseAnimation from "../../../components/hooks/UseAnimation";
 
-export default function Level5() {
+export default function Page() {
   let levelSolution =
-    '<section class="flex h-screen w-screen flex-col gap-2 rounded-lg bg-yellow-400 p-3"><p class="text-3xl text-red-700">Chinese Restaurant Menu</p><div class="flex gap-10"><section class="flex flex-col gap-2"><div class="flex flex-col gap-1"><p class="text-xl text-red-700">Main Course</p><hr class="rounded-md border-2 border-red-700"/></div><article class="flex justify-between"><div><p class="text-lg text-red-700">Char Siu Ricebowl</p><p class="text-sm text-red-700">Char Siu with delicious mushroom topping</p></div><p class="text-lg text-red-700">$6.99</p></article><article class="flex justify-between"><div><p class="text-lg text-red-700">Fried Kwetiauw</p><p class="text-sm text-red-700">Fried Kwetiauw, served with special spices and fried eggs</p></div><p class="text-lg text-red-700">$9.99</p></article></section><section class="flex flex-col gap-2"><div class="flex flex-col gap-1"><p class="text-xl text-red-700">Special Menu</p><hr class="rounded-md border-2 border-red-700"/></div><article class="flex justify-between"><div><p class="text-lg text-red-700">Dimsum</p><p class="text-sm text-red-700">Dim sum containing fresh and tasty seafood</p></div><p class="text-lg text-red-700">$7.99</p></article><article class="space-between flex w-full"><div><p class="text-lg text-red-700">Spring Rolls</p><p class="text-sm text-red-700">Spring rolls with our fresh toppings and savory seasoning</p></div><p class="text-lg text-red-700">$7.99</p></article></section></div></section>';
+    "<div class='flex justify-center items-center bg-black w-screen h-screen'><div class='bg-gray-900 flex justify-between items-center rounded-full w-96 h-32'><section class='ml-4 h-20 w-20 bg-white rounded-full'></section><article><p class='text-white text-lg'>Elon Musk (Parody)</p><p class='text-white text-lg'>@elonmusk</p></article><section class='h-20 w-20 flex gap-1 justify-center items-center'><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div></section></div></div>";
+  ("<div class='w-screen h-screen bg-red-500 flex justify-center items-center'><p class='text-3xl text-white'>Paint the Town Red</p></div>");
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
 
@@ -47,7 +48,7 @@ export default function Level5() {
           <SubmitModal
             submitOpen={submitOpen}
             changeSubmitOpen={changeSubmitOpen}
-            nextLevel={"6"}
+            nextLevel={"4"}
             time={time}
             changeIsPaused={changeIsPaused}
             levelSolution={levelSolution}
@@ -58,18 +59,18 @@ export default function Level5() {
         <Navigation />
         <section className="flex w-10/12 justify-center gap-5 sm:flex-col xl:flex-row">
           <LevelHero
-            levelNumber={"Five"}
-            levelTitle="Chinese Menu"
-            levelDescriptionOne="Now I'm not Chinese, but their menu is pretty tasty. I want you to make me hungry and recreate a Chinese menu for me."
-            levelDescriptionTwo="Remember that all the levels are possible! You can do it! Don't forget to check the docs for help."
+            levelNumber={"Three"}
+            levelTitle="Twitter Profile"
+            levelDescriptionOne="Tailwind has a lot of real applications. You've made the right choice by choosing to learn this library."
+            levelDescriptionTwo="Create a twitter profile using tailwind. Not the whole thing; just that one cool part in the navigation menu (see design). Also WARNING: this level is the hardest one yet!!"
           />
 
           <Editor
             changeDocsOpen={() => animation.useAnimation()}
             changeSubmitOpen={changeSubmitOpen}
             levelSolution={levelSolution}
-            userSolution={userSolution}
             userSolutionRef={userSolutionRef}
+            userSolution={userSolution}
             changeUserSolution={changeUserSolution}
           />
         </section>

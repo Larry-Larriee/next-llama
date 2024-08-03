@@ -70,7 +70,7 @@ export default function Page() {
         {/* note that the link in the ipad view is not clickable for the entire container */}
         <section className="flex items-center justify-center gap-10 sm:flex-col lg:flex-row">
           <Link
-            href="/levels/level1"
+            href="/levels/level-1"
             className="flex items-center justify-center rounded-md bg-blue-500 transition duration-200 ease-in-out hover:scale-105 sm:h-auto sm:w-auto lg:h-16 lg:w-48 xl:h-12 xl:w-40 2xl:h-auto 2xl:w-auto 3xl:h-auto 3xl:w-auto"
           >
             <p className="xl:leading-moderate-loose lg:leading-very-loose relative z-10 text-xl font-bold text-white sm:px-5 sm:py-3 sm:text-base sm:font-medium lg:h-full lg:w-full lg:px-0 lg:py-0 lg:text-center 2xl:px-6 2xl:py-5 2xl:text-lg 2xl:font-bold 2xl:leading-none 3xl:px-5 3xl:py-4 3xl:text-xl">
@@ -315,7 +315,7 @@ export default function Page() {
         </p>
 
         <section className="flex gap-10 sm:flex-col sm:gap-3 lg:grid lg:grid-cols-2 lg:justify-end xl:flex xl:flex-row xl:gap-10 2xl:gap-8">
-          <Link href="/levels/level1">
+          <Link href="/levels/level-1">
             <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1 2xl:text-xl">
               Get Started
             </p>
