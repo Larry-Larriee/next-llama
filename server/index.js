@@ -52,48 +52,103 @@ app.use(bodyParser.json());
 // timeout middleware to prevent the server from hanging if the client takes too long to respond
 app.use(timeout("100s"));
 
-// leaderboard route returns an array of objects
-// each object contains the object ID, username, date, tailwind level, tailwind data, and time of level completion (seconds)
-app.get("/leaderboard", (req, res) => {
-  tailwindCollection
-    .find({})
-    .toArray()
-    .then((result) => {
-      res.send(result);
-    });
+// leaderboardTimeSort route returns an array of object
+// leaderboardLevelSort route allows the client to sort the leaderboard by level (from greatest to least)
+app.get("/leaderboardLevelSort", async (req, res) => {
+  let valueSwapped;
+  let leaderboard = await tailwindCollection.find({}).toArray();
+
+  // do-while allows the loop to run at least once
+  do {
+    valueSwapped = false;
+
+    // compare two values in the array at a time and swap them if the first value is less than the second
+    for (let i = 0; i < leaderboard.length - 1; i++) {
+      if (leaderboard[i].tailwindLevel < leaderboard[i + 1].tailwindLevel) {
+        // destructuring to change the existing values of the in the array that holds all the objects
+        // kind of like grabbing both index values in this case, not making new variables
+        [leaderboard[i], leaderboard[i + 1]] = [
+          leaderboard[i + 1],
+          leaderboard[i],
+        ];
+
+        // in the context of the actual sorting, the valueSwapped is not going to constantly change to true or false
+        // it's a check to make sure the bubble sort keeps iterating until it doesn't need to anymore
+        valueSwapped = true;
+      }
+    }
+  } while (valueSwapped);
+
+  res.send(leaderboard);
 });
 
 // leaderboardTimeSort route returns an array of object
-// leaderboardLevelSort route allows the client to sort the leaderboard by level
-app.get("/leaderboardLevelSort", (req, res) => {
+// leaderboardTimeSort route allows the client to sort the leaderboard by level (from greatest to least)
+app.get("/leaderboardTimeSort", async (req, res) => {
   let valueSwapped;
+  let leaderboard = await tailwindCollection.find({}).toArray();
 
-  tailwindCollection
-    .find({})
-    .toArray()
-    .then((result) => {
-      // use a do-while loop to make at least one iteration
-      do {
-        valueSwapped = false;
+  do {
+    valueSwapped = false;
+    for (let i = 0; i < leaderboard.length - 1; i++) {
+      if (leaderboard[i].time < leaderboard[i + 1].time) {
+        [leaderboard[i], leaderboard[i + 1]] = [
+          leaderboard[i + 1],
+          leaderboard[i],
+        ];
 
-        for (let i = 0; i < result.length - 1; i++) {
-          // if the current tailwind level is greater than the next tailwind level, swap the two values
-          if (result[i].tailwindLevel > result[i + 1].tailwindLevel) {
-            // destructuring to change the existing values of the array indexes
-            [result[i].tailwindLevel, result[i + 1].tailwindLevel] = [
-              result[i + 1].tailwindLevel,
-              result[i].tailwindLevel,
-            ];
+        valueSwapped = true;
+      }
+    }
+  } while (valueSwapped);
 
-            // in the context of the actual sorting, the valueSwapped is not going to constantly change to true or false
-            // it's a check to make sure the bubble sort keeps iterating until it doesn't need to anymore
-            valueSwapped = true;
-          }
-        }
-      } while (valueSwapped);
+  res.send(leaderboard);
+});
 
-      res.send(result);
-    });
+// leaderboardAccurarySort route returns an array of object
+// leaderboardAccurarySort route allows the client to sort the leaderboard by level (from greatest to least)
+app.get("/leaderboardAccuracySort", async (req, res) => {
+  let valueSwapped;
+  let leaderboard = await tailwindCollection.find({}).toArray();
+
+  do {
+    valueSwapped = false;
+    for (let i = 0; i < leaderboard.length - 1; i++) {
+      if (leaderboard[i].accuracy < leaderboard[i + 1].accuracy) {
+        [leaderboard[i], leaderboard[i + 1]] = [
+          leaderboard[i + 1],
+          leaderboard[i],
+        ];
+
+        valueSwapped = true;
+      }
+    }
+  } while (valueSwapped);
+
+  res.send(leaderboard);
+});
+
+// leaderboardCharactersSort route returns an array of object
+// leaderboardCharactersSort route allows the client to sort the leaderboard by level (from greatest to least)
+app.get("/leaderboardCharactersSort", async (req, res) => {
+  let valueSwapped;
+  let leaderboard = await tailwindCollection.find({}).toArray();
+
+  do {
+    valueSwapped = false;
+    for (let i = 0; i < leaderboard.length - 1; i++) {
+      if (leaderboard[i].characters < leaderboard[i + 1].characters) {
+        [leaderboard[i], leaderboard[i + 1]] = [
+          leaderboard[i + 1],
+          leaderboard[i],
+        ];
+
+        valueSwapped = true;
+      }
+    }
+  } while (valueSwapped);
+
+  res.send(leaderboard);
 });
 
 // editLeaderboard route allows the client to edit the leaderboard by adding their information

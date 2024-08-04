@@ -6,19 +6,57 @@ import LeaderboardRank from "../../components/LeaderboardRank";
 
 export default function Page() {
   let [leaderboard, setLeaderboard] = useState();
+  let [sortBy, setSortBy] = useState("Level");
 
-  async function getLeaderboard() {
-    const response = await fetch("http://127.0.0.1:5000/leaderboard").catch(
-      (error) => console.error(error),
-    );
-    let data = await response.json();
-
-    setLeaderboard(data);
-  }
+  let changeSortBy = () => {
+    if (sortBy === "Level") {
+      setSortBy("Time");
+    }
+    if (sortBy === "Time") {
+      setSortBy("Accuracy");
+    }
+    if (sortBy === "Accuracy") {
+      setSortBy("Characters");
+    }
+    if (sortBy === "Characters") {
+      setSortBy("Level");
+    }
+  };
 
   useEffect(() => {
+    function getLeaderboard() {
+      if (sortBy === "Level") {
+        fetch("http://127.0.0.1:5000/leaderboardLevelSort")
+          .then((response) => response.json())
+          .then((data) => {
+            setLeaderboard(data);
+          });
+      }
+      if (sortBy === "Time") {
+        fetch("http://127.0.0.1:5000/leaderboardTimeSort")
+          .then((response) => response.json())
+          .then((data) => {
+            setLeaderboard(data);
+          });
+      }
+      if (sortBy === "Accuracy") {
+        fetch("http://127.0.0.1:5000/leaderboardAccuracySort")
+          .then((response) => response.json())
+          .then((data) => {
+            setLeaderboard(data);
+          });
+      }
+      if (sortBy === "Characters") {
+        fetch("http://127.0.0.1:5000/leaderboardCharactersSort")
+          .then((response) => response.json())
+          .then((data) => {
+            setLeaderboard(data);
+          });
+      }
+    }
+
     getLeaderboard();
-  }, []);
+  }, [sortBy]);
 
   return (
     <>
@@ -52,8 +90,11 @@ export default function Page() {
           </div>
 
           <article className="flex w-full items-center justify-end xl:pr-10">
-            <p className="text-md text-white/50 transition duration-200 ease-in-out hover:cursor-pointer hover:text-white">
-              Sort By [Level]
+            <p
+              className="text-md text-white/50 transition duration-200 ease-in-out hover:cursor-pointer hover:text-white"
+              onClick={() => changeSortBy()}
+            >
+              Sort By [{sortBy}]
             </p>
           </article>
 

@@ -45,7 +45,7 @@ export default function LeaderboardRank({
               {time} sec
             </p>
             <p className="min-w-24 text-center text-xl text-white">
-              {accuracy}
+              {accuracy}%
             </p>
             <p className="min-w-24 text-center text-xl text-white">{date}</p>
             <p className="min-w-24 text-center text-xl text-white">
@@ -80,7 +80,7 @@ export default function LeaderboardRank({
               {time} sec
             </p>
             <p className="min-w-24 text-center text-xl text-white">
-              {accuracy}
+              {accuracy}%
             </p>
             <p className="min-w-24 text-center text-xl text-white">{date}</p>
             <p className="min-w-24 text-center text-xl text-white">

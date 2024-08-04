@@ -21,7 +21,7 @@ export default function Page() {
 
                 <Link
                   className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900 transition duration-200 ease-in-out hover:scale-105"
-                  href="/levels/level1"
+                  href="/levels/level-1"
                 >
                   <p className="text-2xl font-bold text-white">1</p>
                 </Link>
@@ -38,7 +38,7 @@ export default function Page() {
 
                 <Link
                   className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900 transition duration-200 ease-in-out hover:scale-105"
-                  href="/levels/level2"
+                  href="/levels/level-2"
                 >
                   <p className="text-2xl font-bold text-white">2</p>
                 </Link>
@@ -55,7 +55,7 @@ export default function Page() {
 
                 <Link
                   className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900 transition duration-200 ease-in-out hover:scale-105"
-                  href="/levels/level3"
+                  href="/levels/level-3"
                 >
                   <p className="text-2xl font-bold text-white">3</p>
                 </Link>
@@ -72,7 +72,7 @@ export default function Page() {
 
                 <Link
                   className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900 transition duration-200 ease-in-out hover:scale-105"
-                  href="/levels/level4"
+                  href="/levels/level-4"
                 >
                   <p className="text-2xl font-bold text-white">4</p>
                 </Link>
@@ -89,7 +89,7 @@ export default function Page() {
 
                 <Link
                   className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-blue-900 transition duration-200 ease-in-out hover:scale-105"
-                  href="/levels/level5"
+                  href="/levels/level-5"
                 >
                   <p className="text-2xl font-bold text-white">5</p>
                 </Link>
@@ -105,7 +105,7 @@ export default function Page() {
 
                 <Link
                   className="flex h-full w-full items-center justify-center rounded-lg border-4 border-white bg-orange-500 transition duration-200 ease-in-out hover:scale-105"
-                  href="/levels/level6"
+                  href="/levels/final-challenge"
                 >
                   <p className="text-2xl font-bold text-white">👑</p>
                 </Link>
