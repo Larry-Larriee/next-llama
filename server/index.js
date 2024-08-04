@@ -76,6 +76,18 @@ app.get("/leaderboardLevelSort", async (req, res) => {
         // it's a check to make sure the bubble sort keeps iterating until it doesn't need to anymore
         valueSwapped = true;
       }
+
+      // if the levels are equal to each other, also sort by accuracy
+      if (leaderboard[i].tailwindLevel === leaderboard[i + 1].tailwindLevel) {
+        if (leaderboard[i].accuracy < leaderboard[i + 1].accuracy) {
+          [leaderboard[i], leaderboard[i + 1]] = [
+            leaderboard[i + 1],
+            leaderboard[i],
+          ];
+
+          valueSwapped = true;
+        }
+      }
     }
   } while (valueSwapped);
 
@@ -98,6 +110,18 @@ app.get("/leaderboardTimeSort", async (req, res) => {
         ];
 
         valueSwapped = true;
+      }
+
+      // if the times are equal to each other, also sort by accuracy
+      if (leaderboard[i].time === leaderboard[i + 1].time) {
+        if (leaderboard[i].accuracy < leaderboard[i + 1].accuracy) {
+          [leaderboard[i], leaderboard[i + 1]] = [
+            leaderboard[i + 1],
+            leaderboard[i],
+          ];
+
+          valueSwapped = true;
+        }
       }
     }
   } while (valueSwapped);
@@ -122,6 +146,18 @@ app.get("/leaderboardAccuracySort", async (req, res) => {
 
         valueSwapped = true;
       }
+
+      // if the accuraries are equal to each other, also sort by time
+      if (leaderboard[i].accuracy === leaderboard[i + 1].accuracy) {
+        if (leaderboard[i].time < leaderboard[i + 1].time) {
+          [leaderboard[i], leaderboard[i + 1]] = [
+            leaderboard[i + 1],
+            leaderboard[i],
+          ];
+
+          valueSwapped = true;
+        }
+      }
     }
   } while (valueSwapped);
 
@@ -144,6 +180,18 @@ app.get("/leaderboardCharactersSort", async (req, res) => {
         ];
 
         valueSwapped = true;
+      }
+
+      // if the characters are equal to each other, also sort by accuracy
+      if (leaderboard[i].characters === leaderboard[i + 1].characters) {
+        if (leaderboard[i].accuracy < leaderboard[i + 1].accuracy) {
+          [leaderboard[i], leaderboard[i + 1]] = [
+            leaderboard[i + 1],
+            leaderboard[i],
+          ];
+
+          valueSwapped = true;
+        }
       }
     }
   } while (valueSwapped);
