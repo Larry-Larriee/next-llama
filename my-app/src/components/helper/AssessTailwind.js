@@ -179,23 +179,27 @@ export default function AssessTailwind({ userSolution }) {
 
   let included = [];
 
-  // for...in allows you to iterate over js objects
-  // includes returns a boolean and does not allow regex
-  // search returns an integer and allows regex
+  // use lookbehind and lookahead to get content between the class property as an array. The array will have one element
+  // use split method to get the individual classes from the regex array
+  let keywords = userSolution.match(/(?<=class=['"])(.*?)(?=['"])/g);
+  let keyWordsArray = keywords[0].split(" ");
+
+  // a for...in loop is used to iterate over an object
   for (let tailwindKeyword in tailwindKeywords) {
-    if (
-      typeof tailwindKeywords[tailwindKeyword] === "string" &&
-      userSolution.includes(tailwindKeywords[tailwindKeyword])
-    ) {
-      included.push(tailwindKeyword);
-    }
-    // check if the tailwind keyword is regex
-    // In your code, if the if condition was true and the code within it executed, the else if condition wouldn't be evaluated at all. However, if the first condition in the if was false but the typeof part was true, the else if would be evaluated because the if block didn't execute fully.
-    if (
-      typeof tailwindKeywords[tailwindKeyword] === "object" &&
-      userSolution.search(tailwindKeywords[tailwindKeyword]) !== -1
-    ) {
-      included.push(tailwindKeyword);
+    // a for...of loop is used to iterate over the elements of an array like a forEach but you can use break and continue
+    for (let keyWord of keyWordsArray) {
+      if (
+        typeof tailwindKeywords[tailwindKeyword] === "string" &&
+        keyWord.includes(tailwindKeywords[tailwindKeyword])
+      ) {
+        included.push(`${tailwindKeyword} (${keyWord})`);
+      }
+      if (
+        typeof tailwindKeywords[tailwindKeyword] === "object" &&
+        keyWord.search(tailwindKeywords[tailwindKeyword]) !== -1
+      ) {
+        included.push(`${tailwindKeyword} (${keyWord})`);
+      }
     }
   }
 
