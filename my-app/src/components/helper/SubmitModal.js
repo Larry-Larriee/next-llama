@@ -6,6 +6,7 @@ import Link from "next/link";
 import AssessTailwind from "./AssessTailwind";
 
 import confetti from "canvas-confetti";
+import UseNumberConversion from "../hooks/UseNumConversion";
 
 export default function SubmitModal({
   submitOpen,
@@ -86,7 +87,10 @@ export default function SubmitModal({
                   as="h3"
                   className="text-3xl font-medium text-white"
                 >
-                  Level One
+                  Level{" "}
+                  {isNaN(parseInt(nextLevel))
+                    ? UseNumberConversion(nextLevel)
+                    : UseNumberConversion(parseInt(nextLevel) - 1)}
                 </DialogTitle>
 
                 <div className="flex flex-col justify-between gap-10 xl:flex-row">

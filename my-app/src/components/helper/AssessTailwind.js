@@ -182,7 +182,7 @@ export default function AssessTailwind({ userSolution }) {
   // use lookbehind and lookahead to get content between the class property as an array. The array will have one element
   // use split method to get the individual classes from the regex array
   let keywords = userSolution.match(/(?<=class=['"])(.*?)(?=['"])/g);
-  let keyWordsArray = keywords[0].split(" ");
+  let keyWordsArray = keywords[0].replace(/\s+/g," ").split(" ");
 
   // a for...in loop is used to iterate over an object
   for (let tailwindKeyword in tailwindKeywords) {

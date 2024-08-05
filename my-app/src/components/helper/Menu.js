@@ -50,7 +50,7 @@ export default function Menu() {
             ref={menuContainer}
           >
             <DialogTitle className="text-lg font-bold text-white">
-              Tailwind Practice Menu
+              Tailwind Llama Menu
             </DialogTitle>
             {/* <Description className="text-white"></Description> */}
 
@@ -63,6 +63,12 @@ export default function Menu() {
               <li>
                 <Link href="/levels/level-select">
                   <p className="text-white">Level Select</p>
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/account">
+                  <p className="text-white">Account</p>
                 </Link>
               </li>
               <li>
