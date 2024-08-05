@@ -17,7 +17,7 @@ export default function Page() {
     setPassword(passwordInput.current.value);
   }
 
-  function createUser(userName, password) {
+  function createUser() {
     fetch("http://127.0.0.1:5000/createAccount", {
       method: "POST",
       headers: {
@@ -28,7 +28,17 @@ export default function Page() {
         password: password,
       }),
     }).then((response) => {
-      console.log("working");
+      response.json().then((data) => {
+        if (data.success === false) {
+          alert("bad username");
+        }
+
+        if (data.success === true) {
+          // window.location.href = "/account-success";
+
+          console.log("success");
+        }
+      });
     });
   }
   function loginUser(userName, password) {}

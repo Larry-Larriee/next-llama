@@ -5,6 +5,7 @@ const puppeteer = require("puppeteer");
 const bodyParser = require("body-parser");
 const resemble = require("resemblejs");
 const timeout = require("connect-timeout");
+const cookieParser = require("cookie-parser");
 
 const backspaceAll = require("./helper/backspaceAll");
 const removeImage = require("./helper/removeImage");
@@ -49,10 +50,13 @@ const accountsCollection = client
 
 const app = express();
 // allow client to make requests to server (allowing all origins at the moment)
-app.use(cors({}));
+app.use(cors({ origin: "*", credentials: true }));
 
 // Parse JSON bodies (content-type: application/json) required for POST requests
 app.use(bodyParser.json());
+
+// Handle cookies by creating them in the server and sending them to the client to store
+app.use(cookieParser());
 
 // timeout middleware to prevent the server from hanging if the client takes too long to respond
 app.use(timeout("100s"));
@@ -312,7 +316,7 @@ app.post("/createAccount", async (req, res) => {
   const { userName, password } = req.body;
 
   const check = await userNameCheck(userName, accountsCollection);
-  if (check !== true) return res.send(check);
+  if (check !== true) return res.send({ success: false, userError: check });
 
   await accountsCollection
     .insertOne({
@@ -320,10 +324,18 @@ app.post("/createAccount", async (req, res) => {
       password: password,
     })
     .catch((error) => {
-      return res.send("Database error: " + error);
+      return res.send({ success: false, databaseError: error });
     });
 
-  return res.send("success");
+  res.cookie("user_auth", JSON.stringify({ userName, password }), {
+    httpOnly: false,
+    secure: false,
+    maxAge: 60 * 60 * 24, // 24 hours
+  });
+
+  return res.send({
+    success: true,
+  });
 });
 
 // this test is going to take the content from the POST request body and send it back to the client
