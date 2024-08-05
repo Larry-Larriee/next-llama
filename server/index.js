@@ -9,6 +9,7 @@ const timeout = require("connect-timeout");
 const backspaceAll = require("./helper/backspaceAll");
 const removeImage = require("./helper/removeImage");
 const randomChar = require("./helper/randomChar");
+const userNameCheck = require("./helper/userNameCheck");
 
 // config() loads environment variables in process.env object (object built into node.js)
 require("dotenv").config();
@@ -38,9 +39,13 @@ async function connectToDB() {
 connectToDB();
 
 // node.js runs top to bottom. Once the sever connects to mongoDB, locate the tailwind collection
-const tailwindCollection = client
+const leaderboardCollection = client
   .db(process.env.MONGODB_DATABASE)
   .collection(process.env.MONGODB_COLLECTION_LEADERBOARD);
+
+const accountsCollection = client
+  .db(process.env.MONGODB_DATABASE)
+  .collection(process.env.MONGODB_COLLECTION_ACCOUNTS);
 
 const app = express();
 // allow client to make requests to server (allowing all origins at the moment)
@@ -56,7 +61,7 @@ app.use(timeout("100s"));
 // leaderboardLevelSort route allows the client to sort the leaderboard by level (from greatest to least)
 app.get("/leaderboardLevelSort", async (req, res) => {
   let valueSwapped;
-  let leaderboard = await tailwindCollection.find({}).toArray();
+  let leaderboard = await leaderboardCollection.find({}).toArray();
 
   // do-while allows the loop to run at least once
   do {
@@ -91,14 +96,14 @@ app.get("/leaderboardLevelSort", async (req, res) => {
     }
   } while (valueSwapped);
 
-  res.send(leaderboard);
+  return res.send(leaderboard);
 });
 
 // leaderboardTimeSort route returns an array of object
 // leaderboardTimeSort route allows the client to sort the leaderboard by level (from greatest to least)
 app.get("/leaderboardTimeSort", async (req, res) => {
   let valueSwapped;
-  let leaderboard = await tailwindCollection.find({}).toArray();
+  let leaderboard = await leaderboardCollection.find({}).toArray();
 
   do {
     valueSwapped = false;
@@ -126,14 +131,14 @@ app.get("/leaderboardTimeSort", async (req, res) => {
     }
   } while (valueSwapped);
 
-  res.send(leaderboard);
+  return res.send(leaderboard);
 });
 
 // leaderboardAccurarySort route returns an array of object
 // leaderboardAccurarySort route allows the client to sort the leaderboard by level (from greatest to least)
 app.get("/leaderboardAccuracySort", async (req, res) => {
   let valueSwapped;
-  let leaderboard = await tailwindCollection.find({}).toArray();
+  let leaderboard = await leaderboardCollection.find({}).toArray();
 
   do {
     valueSwapped = false;
@@ -161,14 +166,14 @@ app.get("/leaderboardAccuracySort", async (req, res) => {
     }
   } while (valueSwapped);
 
-  res.send(leaderboard);
+  return res.send(leaderboard);
 });
 
 // leaderboardCharactersSort route returns an array of object
 // leaderboardCharactersSort route allows the client to sort the leaderboard by level (from greatest to least)
 app.get("/leaderboardCharactersSort", async (req, res) => {
   let valueSwapped;
-  let leaderboard = await tailwindCollection.find({}).toArray();
+  let leaderboard = await leaderboardCollection.find({}).toArray();
 
   do {
     valueSwapped = false;
@@ -196,7 +201,7 @@ app.get("/leaderboardCharactersSort", async (req, res) => {
     }
   } while (valueSwapped);
 
-  res.send(leaderboard);
+  return res.send(leaderboard);
 });
 
 // editLeaderboard route allows the client to edit the leaderboard by adding their information
@@ -204,7 +209,7 @@ app.get("/leaderboardCharactersSort", async (req, res) => {
 app.post("/editLeaderboard", (req, res) => {
   const { username, date, tailwindLevel, tailwindData, time } = req.body;
 
-  tailwindCollection
+  leaderboardCollection
     .insertOne({
       username,
       date,
@@ -213,10 +218,10 @@ app.post("/editLeaderboard", (req, res) => {
       time,
     })
     .then(() => {
-      res.send("Successfully added to the leaderboard!");
+      return res.send("Successfully added to the leaderboard!");
     })
     .catch((error) => {
-      res.send("Error: " + error);
+      return res.send("Error: " + error);
     });
 });
 
@@ -296,19 +301,40 @@ app.post("/tailwindAccuracy", async (req, res) => {
       await browser.close();
 
       // make sure to return JSON and not strings because the front-end is handling JSON
-      res.send({ accuracy });
+      return res.send({ accuracy });
     });
+});
+
+// createAccount route allows the client to create a new account that they can use for leaderboards by inserting data into database
+// username (string) the username of the client. string must not be ridiculous or already exist
+// password (string) the password of the client
+app.post("/createAccount", async (req, res) => {
+  const { userName, password } = req.body;
+
+  const check = await userNameCheck(userName, accountsCollection);
+  if (check !== true) return res.send(check);
+
+  await accountsCollection
+    .insertOne({
+      userName: userName,
+      password: password,
+    })
+    .catch((error) => {
+      return res.send("Database error: " + error);
+    });
+
+  return res.send("success");
 });
 
 // this test is going to take the content from the POST request body and send it back to the client
 app.post("/test", async (req, res) => {
   const { content } = req.body;
 
-  res.send({ content });
+  return res.send({ content });
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  return res.send("Hello World!");
 });
 
 app.listen(5000, async () => {

@@ -1,13 +1,44 @@
-import Navigation from "@/components/Navigation";
-import React from "react";
+"use client";
 
-export default function page() {
+import Navigation from "@/components/Navigation";
+import React, { useState, useRef } from "react";
+
+export default function Page() {
+  const userNameInput = useRef();
+  const passwordInput = useRef();
+
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
+  function changeUserName() {
+    setUserName(userNameInput.current.value);
+  }
+  function changePassword() {
+    setPassword(passwordInput.current.value);
+  }
+
+  function createUser(userName, password) {
+    fetch("http://127.0.0.1:5000/createAccount", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userName: userName,
+        password: password,
+      }),
+    }).then((response) => {
+      console.log("working");
+    });
+  }
+  function loginUser(userName, password) {}
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-16">
         <Navigation />
 
-        <div className="flex w-10/12 flex-col items-center gap-20">
+        <div className="flex w-10/12 flex-col items-center gap-16">
           <article className="flex w-full flex-col gap-5">
             <p className="text-xl text-white">
               Having an account allows you to put yourself on the leaderboards,
@@ -35,28 +66,43 @@ export default function page() {
             </p>
           </article>
 
-          <div className="primary-color-4 flex h-96 w-96 flex-col justify-center gap-10 rounded-lg">
-            <section className="ml-3 flex flex-col">
+          <div className="primary-color-4 mb-10 flex h-96 w-1/3 flex-col justify-center gap-10 rounded-lg p-6">
+            <section className="flex flex-col gap-1">
               <p className="text-lg text-gray-300">
                 Username (something memorable)
               </p>
               <input
-                className="h-10 w-11/12 rounded-lg"
+                className="h-10 w-11/12 rounded-md pl-2 focus:outline-none"
                 type="text"
-                placeholder="Username"
+                onChange={() => changeUserName()}
+                value={userName}
+                ref={userNameInput}
               />
             </section>
 
-            <section className="ml-3 flex flex-col">
+            <section className="flex flex-col gap-1">
               <p className="text-lg text-gray-300">Password</p>
               <input
-                className="h-10 w-11/12 rounded-lg"
+                className="h-10 w-11/12 rounded-md pl-2 focus:outline-none"
                 type="text"
-                placeholder="Username"
+                onChange={() => changePassword()}
+                value={password}
+                ref={passwordInput}
               />
             </section>
 
-            {/* buttons */}
+            <section className="flex gap-8">
+              <p className="rounded-lg bg-indigo-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer">
+                Login
+              </p>
+
+              <p
+                className="rounded-lg bg-orange-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
+                onClick={() => createUser()}
+              >
+                Sign Up
+              </p>
+            </section>
           </div>
         </div>
       </div>
