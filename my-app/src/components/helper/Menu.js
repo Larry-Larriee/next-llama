@@ -68,7 +68,7 @@ export default function Menu() {
 
               <li>
                 <Link href="/account">
-                  <p className="text-white">Account</p>
+                  <p className="animate-pulse text-white">Account</p>
                 </Link>
               </li>
               <li>
