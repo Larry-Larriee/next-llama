@@ -1,6 +1,6 @@
 "use client";
 
-import Navigation from "@/components/Navigation";
+import Navigation from "@/components/Navigation.jsx";
 import React, { useState, useRef } from "react";
 
 export default function Page() {

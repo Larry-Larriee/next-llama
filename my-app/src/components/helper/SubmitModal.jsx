@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import Link from "next/link";
-import AssessTailwind from "./AssessTailwind";
+import AssessTailwind from "./AssessTailwind.jsx";
 
 import confetti from "canvas-confetti";
 import UseNumberConversion from "../hooks/UseNumConversion";

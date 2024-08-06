@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Navigation from "../../components/Navigation";
-import LeaderboardRank from "../../components/LeaderboardRank";
+import Navigation from "../../components/Navigation.jsx";
+import LeaderboardRank from "../../components/LeaderboardRank.jsx";
 
 export default function Page() {
   let [leaderboard, setLeaderboard] = useState();

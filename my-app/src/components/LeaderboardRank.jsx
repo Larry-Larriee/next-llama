@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import SeeCodeModal from "./helper/SeeCodeModal";
+import SeeCodeModal from "./helper/SeeCodeModal.jsx";
 
 export default function LeaderboardRank({
   position,

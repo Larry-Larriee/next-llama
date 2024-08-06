@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import Navigation from "../../../components/Navigation";
-import LevelHero from "../../../components/helper/LevelHero";
-import Editor from "../../../components/Editor";
-import Docs from "../../../components/Docs";
-import SubmitModal from "../../../components/helper/SubmitModal";
+import Navigation from "../../../components/Navigation.jsx";
+import LevelHero from "../../../components/helper/LevelHero.jsx";
+import Editor from "../../../components/Editor.jsx";
+import Docs from "../../../components/Docs.jsx";
+import SubmitModal from "../../../components/helper/SubmitModal.jsx";
 
 import UseStopWatch from "../../../components/hooks/UseStopWatch";
 import UseAnimation from "../../../components/hooks/UseAnimation";

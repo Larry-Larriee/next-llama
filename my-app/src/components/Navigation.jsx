@@ -1,5 +1,5 @@
 import React from "react";
-import Menu from "./helper/Menu";
+import Menu from "./helper/Menu.jsx";
 import Link from "next/link";
 import Image from "next/image";
 import nextLlama from "../assets/next-llama.png";

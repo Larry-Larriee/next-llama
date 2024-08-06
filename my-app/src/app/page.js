@@ -2,10 +2,9 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import UseInView from "../components/hooks/UseInView.js";
+import UseInView from "../components/hooks/UseInView";
 
-import SquareBackground from "../components/helper/SquareBackground";
-// import Puppeteer from "./Puppeteer.js";
+import SquareBackground from "../components/helper/SquareBackground.jsx";
 
 export default function Page() {
   // Recreate designs. Practice and perfect tailwind.
