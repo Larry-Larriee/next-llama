@@ -1,6 +1,6 @@
 "use client"; // by default, files are treated like they're in a server environment
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import LevelVisual from "./helper/LevelVisual";
 
 // changeDocsOpen (setState) determines whether to open or close the tailwind docs

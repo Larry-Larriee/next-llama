@@ -1,5 +1,5 @@
 require("dotenv").config();
-const badWords = ["fuck", "shit", "ass", "butt", "boobs"];
+const invalidWords = ["", "fuck", "shit", "ass", "butt", "boobs"];
 
 // checks if the userName meets the requirements to make a new account
 // userName (string) the userName to check
@@ -8,7 +8,7 @@ async function userNameCheck(userName, accountsCollection) {
   const user = await accountsCollection.findOne({ userName });
 
   return new Promise((resolve, reject) => {
-    for (let word of badWords) {
+    for (let word of invalidWords) {
       if (userName.includes(word)) {
         resolve("please choose a better name");
       }

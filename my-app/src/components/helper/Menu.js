@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Description,
   Dialog,
@@ -15,9 +15,34 @@ export default function Menu() {
   let [menuOpen, setMenuOpen] = useState(false);
   let menuContainer = useRef();
 
+  let accountHyperLink = useRef();
+
   let changeMenuOpen = () => {
     setMenuOpen(!menuOpen);
   };
+
+  useEffect(() => {
+    // once the account hyperlink renders, we remove the pulse animation
+    async function removePulse() {
+      await new Promise((resolve, reject) => setTimeout(resolve, 200));
+
+      if (accountHyperLink.current)
+        accountHyperLink.current.classList.remove("animate-pulse");
+    }
+
+    fetch("http://127.0.0.1:5000/checkCookie", {
+      method: "GET",
+      credentials: "include",
+    }).then((response) => {
+      response.json().then((data) => {
+        console.log(data);
+
+        if (data.success === true) {
+          removePulse();
+        }
+      });
+    });
+  }, [menuOpen]);
 
   return (
     <>
@@ -25,7 +50,7 @@ export default function Menu() {
         className="text-5xl text-white hover:cursor-pointer"
         // Including parentheses in the function() executes the it immediately during render. This can cause unexpected behavior, especially when the function has side effects (like state updates).
         // But removing parentheses, while preventing the firing, is also bad since React will create new references on each rerender. This is why you use arrow functions as they only render when the reference to the function changes.
-        onClick={changeMenuOpen}
+        onClick={() => changeMenuOpen()}
       >
         ☰
       </p>
@@ -68,7 +93,12 @@ export default function Menu() {
 
               <li>
                 <Link href="/account">
-                  <p className="animate-pulse text-white">Account</p>
+                  <p
+                    className="animate-pulse text-white"
+                    ref={accountHyperLink}
+                  >
+                    Account
+                  </p>
                 </Link>
               </li>
               <li>

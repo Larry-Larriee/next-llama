@@ -10,12 +10,18 @@ export default function Page() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  function changeUserName() {
+  const [accountFailReason, setAccountFailReason] = useState();
+
+  let changeaccountFailReason = (reason) => {
+    setAccountFailReason(reason);
+  };
+
+  let changeUserName = () => {
     setUserName(userNameInput.current.value);
-  }
-  function changePassword() {
+  };
+  let changePassword = () => {
     setPassword(passwordInput.current.value);
-  }
+  };
 
   // keep in mind that the cookie stored is in JSON string format
   function createUser() {
@@ -32,9 +38,7 @@ export default function Page() {
       credentials: "include",
     }).then((response) => {
       response.json().then((data) => {
-        if (data.success === false) {
-          alert("bad username");
-        }
+        if (data.success === false) changeaccountFailReason(data.reason);
 
         if (data.success === true) {
           window.location.href = "/account-success";
@@ -56,9 +60,7 @@ export default function Page() {
       credentials: "include",
     }).then((response) =>
       response.json().then((data) => {
-        if (data.success === false) {
-          alert(data.reason);
-        }
+        if (data.success === false) changeaccountFailReason(data.reason);
 
         if (data.success === true) {
           window.location.href = "/account-success";
@@ -100,7 +102,7 @@ export default function Page() {
             </p>
           </article>
 
-          <div className="primary-color-4 mb-10 flex w-full flex-col justify-center gap-8 rounded-lg p-6 xl:w-96">
+          <div className="primary-color-4 relative flex w-full flex-col justify-center gap-8 rounded-lg p-6 pb-10 xl:w-96">
             <section className="flex flex-col gap-1">
               <p className="text-lg text-gray-300">Username</p>
               <input
@@ -138,6 +140,12 @@ export default function Page() {
                 Sign Up
               </p>
             </section>
+
+            {accountFailReason && (
+              <p className="absolute bottom-1 text-base text-red-500">
+                {accountFailReason}
+              </p>
+            )}
           </div>
         </div>
       </div>

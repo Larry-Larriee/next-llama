@@ -359,13 +359,24 @@ app.post("/loginAccount", async (req, res) => {
       {
         httpOnly: false,
         secure: false,
-        maxAge: 60 * 60 * 24, // 24 hours
+        maxAge: 60 * 60 * 24000,
         sameSite: "lax",
       }
     );
 
     return res.send({ success: true });
   });
+});
+
+// check if a cookie exists in the client. cookies are automatically sent to the backend from the client
+app.get("/checkCookie", async (req, res) => {
+  const userAuth = req.cookies.user_auth;
+
+  if (userAuth) {
+    return res.send({ success: true });
+  } else {
+    return res.send({ success: false });
+  }
 });
 
 // this test is going to take the content from the POST request body and send it back to the client
