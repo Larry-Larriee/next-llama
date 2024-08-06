@@ -49,10 +49,11 @@ const accountsCollection = client
   .collection(process.env.MONGODB_COLLECTION_ACCOUNTS);
 
 const app = express();
-// allow client to make requests to server (allowing all origins at the moment)
-app.use(cors({ origin: "*", credentials: true }));
+// allow client to make requests to server (allowing localhost at the moment)
+// credentials set to true so front-end can send cookies to the server (for authentication purposes)
+app.use(cors({ origin: "http://127.0.0.1:3000", credentials: true }));
 
-// Parse JSON bodies (content-type: application/json) required for POST requests
+// Parse JSON bodies (content-type: application/json) req uired for POST requests
 app.use(bodyParser.json());
 
 // Handle cookies by creating them in the server and sending them to the client to store
@@ -315,8 +316,9 @@ app.post("/tailwindAccuracy", async (req, res) => {
 app.post("/createAccount", async (req, res) => {
   const { userName, password } = req.body;
 
+  // check if the username passes requirements to create an account
   const check = await userNameCheck(userName, accountsCollection);
-  if (check !== true) return res.send({ success: false, userError: check });
+  if (check !== true) return res.send({ success: false, reason: check });
 
   await accountsCollection
     .insertOne({
@@ -324,17 +326,45 @@ app.post("/createAccount", async (req, res) => {
       password: password,
     })
     .catch((error) => {
-      return res.send({ success: false, databaseError: error });
+      return res.send({ success: false, reason: error });
     });
 
-  res.cookie("user_auth", JSON.stringify({ userName, password }), {
-    httpOnly: false,
-    secure: false,
-    maxAge: 60 * 60 * 24, // 24 hours
-  });
+  res.cookie(
+    "user_auth",
+    JSON.stringify({ userName: userName, password: password }),
+    {
+      httpOnly: false,
+      secure: false,
+      maxAge: 60 * 60 * 24, // 24 hours
+      sameSite: "lax",
+    }
+  );
 
   return res.send({
     success: true,
+  });
+});
+
+app.post("/loginAccount", async (req, res) => {
+  const { userName, password } = req.body;
+
+  await accountsCollection.findOne({ userName, password }).then((user) => {
+    if (user === null) {
+      return res.send({ success: false, reason: "bad username or password" });
+    }
+
+    res.cookie(
+      "user_auth",
+      JSON.stringify({ userName: userName, password: password }),
+      {
+        httpOnly: false,
+        secure: false,
+        maxAge: 60 * 60 * 24, // 24 hours
+        sameSite: "lax",
+      }
+    );
+
+    return res.send({ success: true });
   });
 });
 

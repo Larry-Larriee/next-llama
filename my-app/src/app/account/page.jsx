@@ -17,6 +17,7 @@ export default function Page() {
     setPassword(passwordInput.current.value);
   }
 
+  // keep in mind that the cookie stored is in JSON string format
   function createUser() {
     fetch("http://127.0.0.1:5000/createAccount", {
       method: "POST",
@@ -27,6 +28,8 @@ export default function Page() {
         userName: userName,
         password: password,
       }),
+      // credientials need to be included to accept response cookies from the server
+      credentials: "include",
     }).then((response) => {
       response.json().then((data) => {
         if (data.success === false) {
@@ -34,14 +37,35 @@ export default function Page() {
         }
 
         if (data.success === true) {
-          // window.location.href = "/account-success";
-
-          console.log("success");
+          window.location.href = "/account-success";
         }
       });
     });
   }
-  function loginUser(userName, password) {}
+
+  function loginUser() {
+    fetch("http://127.0.0.1:5000/loginAccount", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userName: userName,
+        password: password,
+      }),
+      credentials: "include",
+    }).then((response) =>
+      response.json().then((data) => {
+        if (data.success === false) {
+          alert(data.reason);
+        }
+
+        if (data.success === true) {
+          window.location.href = "/account-success";
+        }
+      }),
+    );
+  }
 
   return (
     <>
@@ -76,13 +100,11 @@ export default function Page() {
             </p>
           </article>
 
-          <div className="primary-color-4 mb-10 flex h-96 w-1/3 flex-col justify-center gap-10 rounded-lg p-6">
+          <div className="primary-color-4 mb-10 flex w-full flex-col justify-center gap-8 rounded-lg p-6 xl:w-96">
             <section className="flex flex-col gap-1">
-              <p className="text-lg text-gray-300">
-                Username (something memorable)
-              </p>
+              <p className="text-lg text-gray-300">Username</p>
               <input
-                className="h-10 w-11/12 rounded-md pl-2 focus:outline-none"
+                className="h-9 w-11/12 rounded-md pl-2 focus:outline-none"
                 type="text"
                 onChange={() => changeUserName()}
                 value={userName}
@@ -93,7 +115,7 @@ export default function Page() {
             <section className="flex flex-col gap-1">
               <p className="text-lg text-gray-300">Password</p>
               <input
-                className="h-10 w-11/12 rounded-md pl-2 focus:outline-none"
+                className="h-9 w-11/12 rounded-md pl-2 focus:outline-none"
                 type="text"
                 onChange={() => changePassword()}
                 value={password}
@@ -102,12 +124,15 @@ export default function Page() {
             </section>
 
             <section className="flex gap-8">
-              <p className="rounded-lg bg-indigo-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer">
+              <p
+                className="w-1/3 rounded-lg bg-indigo-500 py-1 text-center text-base text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer xl:w-auto xl:px-8 xl:py-2 xl:text-left xl:text-xl"
+                onClick={() => loginUser()}
+              >
                 Login
               </p>
 
               <p
-                className="rounded-lg bg-orange-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
+                className="w-1/3 rounded-lg bg-orange-500 py-1 text-center text-base text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer xl:w-auto xl:px-8 xl:py-2 xl:text-left xl:text-xl"
                 onClick={() => createUser()}
               >
                 Sign Up
