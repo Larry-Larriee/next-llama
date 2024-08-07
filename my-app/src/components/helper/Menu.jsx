@@ -30,7 +30,7 @@ export default function Menu() {
         accountHyperLink.current.classList.remove("animate-pulse");
     }
 
-    fetch("http://127.0.0.1:5000/checkCookie", {
+    fetch("https://next-llama-4s1x.onrender.com/checkCookie", {
       method: "GET",
       credentials: "include",
     }).then((response) => {

@@ -51,7 +51,12 @@ const accountsCollection = client
 const app = express();
 // allow client to make requests to server (allowing localhost at the moment)
 // credentials set to true so front-end can send cookies to the server (for authentication purposes)
-app.use(cors({ origin: "http://127.0.0.1:3000", credentials: true }));
+app.use(
+  cors({
+    origin: ["http://127.0.0.1:3000", "https://tailwind-llama.vercel.app/"],
+    credentials: true,
+  })
+);
 
 // Parse JSON bodies (content-type: application/json) req uired for POST requests
 app.use(bodyParser.json());

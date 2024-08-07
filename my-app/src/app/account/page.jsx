@@ -25,7 +25,7 @@ export default function Page() {
 
   // keep in mind that the cookie stored is in JSON string format
   function createUser() {
-    fetch("http://127.0.0.1:5000/createAccount", {
+    fetch("https://next-llama-4s1x.onrender.com/createAccount", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ export default function Page() {
   }
 
   function loginUser() {
-    fetch("http://127.0.0.1:5000/loginAccount", {
+    fetch("https://next-llama-4s1x.onrender.com/loginAccount", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

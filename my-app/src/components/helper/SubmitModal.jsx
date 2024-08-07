@@ -44,17 +44,20 @@ export default function SubmitModal({
 
   useEffect(() => {
     async function fetchAccuracy() {
-      let response = await fetch("http://127.0.0.1:5000/tailwindAccuracy", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      let response = await fetch(
+        "https://next-llama-4s1x.onrender.com/tailwindAccuracy",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            // for the final-challenge, this is going to return NaN (sending it as JSON will conver it to null which JSON can handle)
+            level: parseInt(nextLevel) - 1,
+            userSolution: userSolution,
+          }),
         },
-        body: JSON.stringify({
-          // for the final-challenge, this is going to return NaN (sending it as JSON will conver it to null which JSON can handle)
-          level: parseInt(nextLevel) - 1,
-          userSolution: userSolution,
-        }),
-      });
+      );
       let data = await response.json();
       setAccuracy(data);
 
@@ -68,7 +71,7 @@ export default function SubmitModal({
     if (submitOpen === true) {
       scrollToTop();
 
-      fetch("http://127.0.0.1:5000/editLeaderboard", {
+      fetch("https://next-llama-4s1x.onrender.com/editLeaderboard", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
