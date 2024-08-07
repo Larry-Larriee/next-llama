@@ -76,6 +76,7 @@ export default function SubmitModal({
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({
           tailwindLevel: parseInt(nextLevel) - 1,
           time: time,
