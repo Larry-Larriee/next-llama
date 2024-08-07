@@ -379,8 +379,7 @@ app.post("/loginAccount", async (req, res) => {
       "user_auth",
       JSON.stringify({ userName: userName, password: password }),
       {
-        httpOnly: false,
-        secure: false,
+        httpOnly: true,
         maxAge: 60 * 60 * 24000,
         sameSite: "none",
         secure: true,
