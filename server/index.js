@@ -221,12 +221,10 @@ app.post("/editLeaderboard", (req, res) => {
     req.body;
   const userAuth = req.cookies.user_auth;
 
-  console.log(req.cookies);
-
   console.log(userAuth);
 
   if (userAuth) {
-    const { userName } = JSON.parse(userAuth);
+    const userName = JSON.parse(userAuth).userName;
 
     leaderboardCollection
       .insertOne({
