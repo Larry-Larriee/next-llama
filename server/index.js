@@ -381,7 +381,7 @@ app.post("/loginAccount", async (req, res) => {
       {
         httpOnly: true,
         maxAge: 60 * 60 * 24000,
-        sameSite: "none",
+        sameSite: "None",
         secure: true,
       }
     );
