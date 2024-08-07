@@ -221,6 +221,8 @@ app.post("/editLeaderboard", (req, res) => {
     req.body;
   const userAuth = req.cookies.user_auth;
 
+  console.log(req.cookies);
+
   console.log(userAuth);
 
   if (userAuth) {
@@ -355,9 +357,9 @@ app.post("/createAccount", async (req, res) => {
     "user_auth",
     JSON.stringify({ userName: userName, password: password }),
     {
-      httpOnly: true,
-      maxAge: 60 * 60 * 24000,
-      sameSite: "None",
+      httpOnly: false,
+      maxAge: 900000,
+      sameSite: "none",
       secure: true,
     }
   );
@@ -379,9 +381,9 @@ app.post("/loginAccount", async (req, res) => {
       "user_auth",
       JSON.stringify({ userName: userName, password: password }),
       {
-        httpOnly: true,
-        maxAge: 60 * 60 * 24000,
-        sameSite: "None",
+        httpOnly: false,
+        maxAge: 900000,
+        sameSite: "none",
         secure: true,
       }
     );

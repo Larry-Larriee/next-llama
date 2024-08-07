@@ -1,5 +1,5 @@
 require("dotenv").config();
-const invalidWords = ["", "fuck", "shit", "ass", "butt", "boobs"];
+const invalidWords = ["fuck", "shit", "ass", "butt", "boobs"];
 
 // checks if the userName meets the requirements to make a new account
 // userName (string) the userName to check
