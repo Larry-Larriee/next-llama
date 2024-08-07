@@ -35,8 +35,6 @@ export default function Menu() {
       credentials: "include",
     }).then((response) => {
       response.json().then((data) => {
-        console.log(data);
-
         if (data.success === true) {
           removePulse();
         }

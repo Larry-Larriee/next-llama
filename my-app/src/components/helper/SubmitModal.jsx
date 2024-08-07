@@ -60,12 +60,31 @@ export default function SubmitModal({
 
       console.log(data);
     }
-    fetchAccuracy();
+    // commented out to test account leaderboard feature
+    // fetchAccuracy();
   }, [userSolution, nextLevel]);
 
   useEffect(() => {
-    if (submitOpen === true) scrollToTop();
-  }, [submitOpen]);
+    if (submitOpen === true) {
+      scrollToTop();
+
+      fetch("http://127.0.0.1:5000/editLeaderboard", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          tailwindLevel: parseInt(nextLevel) - 1,
+          time: time,
+          tailwindCode: userSolution,
+          date: new Date().toLocaleDateString(),
+          // accuracy is -1 for testing purposes
+          accuracy: -1,
+          characters: userSolution.length,
+        }),
+      }).then((response) => response.json().then((data) => console.log(data)));
+    }
+  }, [submitOpen, nextLevel, time, userSolution]);
 
   return (
     <>

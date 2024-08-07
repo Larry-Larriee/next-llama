@@ -210,24 +210,41 @@ app.get("/leaderboardCharactersSort", async (req, res) => {
 });
 
 // editLeaderboard route allows the client to edit the leaderboard by adding their information
-// the client can add their username, date, tailwind level, tailwind data, and time of level completion (seconds)
+// the client can add their date, tailwind level, tailwind data, and time of level completion (seconds)
 app.post("/editLeaderboard", (req, res) => {
-  const { username, date, tailwindLevel, tailwindData, time } = req.body;
+  const { tailwindLevel, time, tailwindCode, date, accuracy, characters } =
+    req.body;
+  const userAuth = req.cookies.user_auth;
 
-  leaderboardCollection
-    .insertOne({
-      username,
-      date,
-      tailwindLevel,
-      tailwindData,
-      time,
-    })
-    .then(() => {
-      return res.send("Successfully added to the leaderboard!");
-    })
-    .catch((error) => {
-      return res.send("Error: " + error);
-    });
+  console.log(userAuth);
+
+  if (userAuth) {
+    const { userName } = JSON.parse(userAuth);
+
+    leaderboardCollection
+      .insertOne({
+        metaData: {
+          userName: userName,
+          date: date,
+        },
+        tailwindLevel: tailwindLevel,
+        tailwindCode: tailwindCode,
+        time: time,
+        accuracy: accuracy,
+        characters: characters,
+      })
+      .then(() => {
+        return res.send({
+          success: true,
+          reason: "Successfully added to the leaderboard!",
+        });
+      })
+      .catch((error) => {
+        return res.send({ success: false, reason: error });
+      });
+  } else {
+    return res.send({ success: false, reason: "You are not logged in" });
+  }
 });
 
 // tailwindAccuracy route takes the user's tailwindCode and compares how the result looks to the solution result
@@ -360,7 +377,8 @@ app.post("/loginAccount", async (req, res) => {
         httpOnly: false,
         secure: false,
         maxAge: 60 * 60 * 24000,
-        sameSite: "lax",
+        sameSite: "none",
+        secure: true,
       }
     );
 
