@@ -228,7 +228,7 @@ app.post("/editLeaderboard", (req, res) => {
 
     leaderboardCollection
       .insertOne({
-        metaData: {
+        metadata: {
           userName: userName,
           date: date,
         },
