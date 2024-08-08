@@ -10,6 +10,7 @@ const cookieParser = require("cookie-parser");
 const backspaceAll = require("./helper/backspaceAll");
 const removeImage = require("./helper/removeImage");
 const randomChar = require("./helper/randomChar");
+const pasteText = require("./helper/pasteText");
 const userNameCheck = require("./helper/userNameCheck");
 const dateConverter = require("./helper/dateConverter");
 
@@ -263,6 +264,7 @@ app.post("/tailwindAccuracy", async (req, res) => {
 
   puppeteer
     .launch({
+      headless: false,
       args: [
         "--disable-web-security",
         "--disable-features=IsolateOrigins",
@@ -285,24 +287,14 @@ app.post("/tailwindAccuracy", async (req, res) => {
 
       const textEditor = await page.waitForSelector(".textEditor");
       const userSolutionUI = await page.waitForSelector(".userSolutionUI");
-      const levelSolutionButton = await page.waitForSelector(
-        ".levelSolutionButton"
-      );
 
       console.log("puppeteer is on the page");
 
       await backspaceAll(page, textEditor);
-      await page.type(".textEditor", userSolution);
+      await pasteText(page, ".textEditor", userSolution);
 
       await userSolutionUI.screenshot({
         path: `results/user${randomCharacters}.png`,
-      });
-
-      await levelSolutionButton.click();
-      const levelSolutionUI = await page.waitForSelector(".levelSolutionUI");
-
-      await levelSolutionUI.screenshot({
-        path: `results/solution${randomCharacters}.png`,
       });
 
       console.log("puppeteer has finished screenshotting");
@@ -311,15 +303,20 @@ app.post("/tailwindAccuracy", async (req, res) => {
 
       // Wait for the comparison to finish (assuming a promise-based wrapper for resemble)
       await new Promise((resolve) => {
+        let realLevel = level;
+
+        // created realLevel local variable because the level parameter gives only integers or null
+        if (realLevel === null) {
+          realLevel = "final-challenge";
+        }
         const diff = resemble(`results/user${randomCharacters}.png`)
-          .compareTo(`results/solution${randomCharacters}.png`)
+          .compareTo(`answers/solution-${realLevel}.png`)
           .ignoreColors()
           .onComplete((data) => {
             accuracy = 100 - data.misMatchPercentage;
 
             // remove the user and solution image after usage
             removeImage(`results/user${randomCharacters}.png`);
-            removeImage(`results/solution${randomCharacters}.png`);
             resolve();
           });
       });
