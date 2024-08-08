@@ -309,28 +309,33 @@ export default function Page() {
       </div>
 
       <div className="mb-5 flex w-10/12 justify-between sm:gap-1 md:gap-2 lg:justify-between xl:mb-0 2xl:mb-5">
-        <p className="text-lg text-white 2xl:text-xl">
+        <p className="text-lg text-white">
           ©2024 Larry Le All Rights Reserved
         </p>
 
         <section className="flex gap-10 sm:flex-col sm:gap-3 lg:grid lg:grid-cols-2 lg:justify-end xl:flex xl:flex-row xl:gap-10 2xl:gap-8">
           <Link href="/levels/level-1">
-            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1 2xl:text-xl">
+            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
               Get Started
             </p>
           </Link>
+          <Link href="/account">
+            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
+              Account
+            </p>
+          </Link>
           <Link href="/levels/level-select">
-            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1 2xl:text-xl">
+            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
               Level Select
             </p>
           </Link>
           <Link href="/leaderboard">
-            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1 2xl:text-xl">
+            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
               Leaderboards
             </p>
           </Link>
           <Link href="https://www.patreon.com/LarryLe">
-            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1 2xl:text-xl">
+            <p className="text-lg text-white transition duration-200 ease-in-out hover:-translate-y-1">
               Patreon
             </p>
           </Link>

@@ -11,6 +11,7 @@ const backspaceAll = require("./helper/backspaceAll");
 const removeImage = require("./helper/removeImage");
 const randomChar = require("./helper/randomChar");
 const userNameCheck = require("./helper/userNameCheck");
+const dateConverter = require("./helper/dateConverter");
 
 // config() loads environment variables in process.env object (object built into node.js)
 require("dotenv").config();
@@ -230,7 +231,7 @@ app.post("/editLeaderboard", (req, res) => {
       .insertOne({
         metadata: {
           userName: userName,
-          date: date,
+          date: dateConverter(date),
         },
         tailwindLevel: tailwindLevel,
         tailwindCode: tailwindCode,
