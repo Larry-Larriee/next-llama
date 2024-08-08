@@ -25,4 +25,4 @@ function dateConverter(date) {
   return date;
 }
 
-export default dateConverter;
+module.exports = randomChar;
