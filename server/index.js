@@ -264,7 +264,6 @@ app.post("/tailwindAccuracy", async (req, res) => {
 
   puppeteer
     .launch({
-      headless: false,
       args: [
         "--disable-web-security",
         "--disable-features=IsolateOrigins",
