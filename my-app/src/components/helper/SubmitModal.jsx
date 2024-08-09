@@ -61,6 +61,7 @@ export default function SubmitModal({
 
       let data = await response.json();
       setAccuracy(data.accuracy);
+
       return new Promise((resolve) => resolve(data.accuracy));
     }
 
@@ -133,7 +134,7 @@ export default function SubmitModal({
                       </p>
                       {accuracy ? (
                         <p className="text-wrap text-xl text-white">
-                          Accuracy: {accuracy && accuracy.accuracy.toFixed(2)}%
+                          Accuracy: {accuracy && accuracy.toFixed(2)}%
                         </p>
                       ) : (
                         <div className="flex items-center gap-2">
