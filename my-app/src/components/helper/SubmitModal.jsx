@@ -60,8 +60,8 @@ export default function SubmitModal({
       );
 
       let data = await response.json();
-      setAccuracy(data);
-      return new Promise((resolve) => resolve(data));
+      setAccuracy(data.accuracy);
+      return new Promise((resolve) => resolve(data.accuracy));
     }
 
     async function updateLeaderboard() {
