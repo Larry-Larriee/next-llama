@@ -61,11 +61,12 @@ export default function SubmitModal({
 
       let data = await response.json();
       setAccuracy(data);
-      return new Promise((resolve) => resolve());
+      return new Promise((resolve) => resolve(data));
     }
 
     async function updateLeaderboard() {
-      await fetchAccuracy();
+      // local variable for accuracy so I don't need to add it as a dependency
+      let accuracy = await fetchAccuracy();
 
       fetch("https://next-llama-4s1x.onrender.com/editLeaderboard", {
         method: "POST",
@@ -78,8 +79,7 @@ export default function SubmitModal({
           time: time,
           tailwindCode: userSolution,
           date: new Date().toLocaleDateString(),
-          // accuracy is -1 for testing purposes
-          accuracy: -1,
+          accuracy: accuracy,
           characters: userSolution.length,
         }),
       }).then((response) => response.json().then((data) => console.log(data)));
