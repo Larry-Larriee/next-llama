@@ -58,18 +58,14 @@ export default function SubmitModal({
           }),
         },
       );
+
       let data = await response.json();
       setAccuracy(data);
-
-      console.log(data);
+      return new Promise((resolve) => resolve());
     }
-    // commented out to test account leaderboard feature
-    // fetchAccuracy();
-  }, [userSolution, nextLevel]);
 
-  useEffect(() => {
-    if (submitOpen === true) {
-      scrollToTop();
+    async function updateLeaderboard() {
+      await fetchAccuracy();
 
       fetch("https://next-llama-4s1x.onrender.com/editLeaderboard", {
         method: "POST",
@@ -87,6 +83,11 @@ export default function SubmitModal({
           characters: userSolution.length,
         }),
       }).then((response) => response.json().then((data) => console.log(data)));
+    }
+
+    if (submitOpen === true) {
+      scrollToTop();
+      updateLeaderboard();
     }
   }, [submitOpen, nextLevel, time, userSolution]);
 
