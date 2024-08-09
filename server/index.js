@@ -353,7 +353,7 @@ app.post("/createAccount", async (req, res) => {
     JSON.stringify({ userName: userName, password: password }),
     {
       httpOnly: false,
-      maxAge: 900000,
+      maxAge: 90000000,
       sameSite: "none",
       secure: true,
     }

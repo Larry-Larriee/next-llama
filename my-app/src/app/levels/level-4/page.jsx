@@ -20,7 +20,11 @@ export default function Page() {
     setDocsOpen(!docsOpen);
   };
 
-  let animation = UseAnimation(docsOpen, changeDocsOpen, setClosing);
+  let changeClosing = (arg) => {
+    setClosing(arg);
+  };
+
+  let animation = UseAnimation(docsOpen, changeDocsOpen, changeClosing);
 
   const [submitOpen, setSubmitOpen] = useState(false);
   let changeSubmitOpen = () => {

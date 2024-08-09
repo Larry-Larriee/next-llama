@@ -80,7 +80,7 @@ export default function LeaderboardRank({
               {time} sec
             </p>
             <p className="min-w-24 text-center text-xl text-white">
-              {accuracy}%
+              {accuracy.toFixed(2)}%
             </p>
             <p className="min-w-24 text-center text-xl text-white">{date}</p>
             <p className="min-w-24 text-center text-xl text-white">
