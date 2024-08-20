@@ -64,7 +64,7 @@ export default function Page() {
         <Navigation />
 
         <div className="flex w-10/12 flex-col gap-1">
-          <div className="primary-color-6 flex h-16 w-full justify-between overflow-x-scroll rounded-lg">
+          <div className="primary-color-6 flex h-16 w-full justify-between overflow-x-auto rounded-lg">
             <section className="flex items-center gap-6 pl-2 xl:pl-10">
               <p className="min-w-24 text-center text-xl text-white">
                 Position

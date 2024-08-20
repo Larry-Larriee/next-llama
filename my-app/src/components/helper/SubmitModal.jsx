@@ -122,7 +122,7 @@ export default function SubmitModal({
                   <section className="order-2 flex flex-col gap-5 xl:order-1 xl:w-1/2">
                     <p className="text-xl text-white">Classes Used:</p>
 
-                    <ul className="flex max-h-28 list-disc flex-col gap-3 overflow-scroll pl-4 text-white xl:max-h-40">
+                    <ul className="flex max-h-28 list-disc flex-col gap-3 overflow-auto pl-4 text-white xl:max-h-40">
                       <AssessTailwind userSolution={userSolution} />
                     </ul>
                   </section>

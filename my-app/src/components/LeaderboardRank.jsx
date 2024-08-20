@@ -31,7 +31,7 @@ export default function LeaderboardRank({
 
       {/* even numbers recieve no background change (remember that position starts at #1) */}
       {position % 2 === 1 && (
-        <div className="flex h-16 w-full items-center justify-between overflow-x-scroll">
+        <div className="flex h-16 w-full items-center justify-between overflow-x-auto">
           <section className="flex items-center gap-6 pl-2 xl:pl-10">
             <p className="min-w-24 text-center text-xl text-white">
               #{position}
@@ -66,7 +66,7 @@ export default function LeaderboardRank({
 
       {/* odd numbers receive a special background change */}
       {position % 2 === 0 && (
-        <div className="flex h-16 w-full items-center justify-between overflow-x-scroll bg-indigo-400/75">
+        <div className="flex h-16 w-full items-center justify-between overflow-x-auto bg-indigo-400/75">
           <section className="flex items-center gap-6 pl-2 xl:pl-10">
             <p className="min-w-24 text-center text-xl text-white">
               #{position}
