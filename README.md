@@ -8,6 +8,12 @@ Inspired by CSSBattles, Tailwind Llama tasks you to replicate cool designs, whic
 
 Get good at Tailwind. Go to <a href="https://tailwind-llama.vercel.app/" target="_blank">Tailwind Llama</a> today!
 
+## Demonstration
+
+![image](https://github.com/user-attachments/assets/fefd9965-89dd-4f8a-8a0d-7dd54756ccaa)
+![image](https://github.com/user-attachments/assets/160702fc-e0ba-4af1-bac2-2668c56b3622)
+![image](https://github.com/user-attachments/assets/1df38712-6be4-4698-97ad-dc055abd41a7)
+
 <br>
 For any future updates on Tailwind Llama, feel free to follow my Patreon (https://www.patreon.com/LarryLe)
 
