@@ -26,28 +26,28 @@ export default function Page() {
   useEffect(() => {
     function getLeaderboard() {
       if (sortBy === "Level") {
-        fetch("https://next-llama-4s1x.onrender.com/leaderboardLevelSort")
+        fetch(`${process.env.SERVER}/leaderboardLevelSort`)
           .then((response) => response.json())
           .then((data) => {
             setLeaderboard(data);
           });
       }
       if (sortBy === "Time") {
-        fetch("https://next-llama-4s1x.onrender.com/leaderboardTimeSort")
+        fetch(`${process.env.SERVER}/leaderboardTimeSort`)
           .then((response) => response.json())
           .then((data) => {
             setLeaderboard(data);
           });
       }
       if (sortBy === "Accuracy") {
-        fetch("https://next-llama-4s1x.onrender.com/leaderboardAccuracySort")
+        fetch(`${process.env.SERVER}/leaderboardAccuracySort`)
           .then((response) => response.json())
           .then((data) => {
             setLeaderboard(data);
           });
       }
       if (sortBy === "Characters") {
-        fetch("https://next-llama-4s1x.onrender.com/leaderboardCharactersSort")
+        fetch(`${process.env.SERVER}/leaderboardCharactersSort`)
           .then((response) => response.json())
           .then((data) => {
             setLeaderboard(data);
