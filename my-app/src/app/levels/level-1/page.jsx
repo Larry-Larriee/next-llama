@@ -31,16 +31,14 @@ export default function Page() {
 
   let { time, changeIsPaused } = UseStopWatch();
 
-  // userSolutionRef is not defined in the parent component; it is passed into the editor component where the editor defines the textarea
-  // where the user types
-  const userSolutionRef = useRef();
   let [userSolution, setUserSolution] = useState(
     "<p class='text-2xl text-black'>Hello World</p>",
   );
 
   // when the user types, use the value of the input
-  let changeUserSolution = () => {
-    setUserSolution(userSolutionRef.current.value);
+  // in this case, CodeMirror happens to pass the text value on the event that it changes
+  let changeUserSolution = (code) => {
+    setUserSolution(code);
   };
 
   return (
@@ -77,7 +75,6 @@ export default function Page() {
             changeSubmitOpen={changeSubmitOpen}
             // editor uses level solution to display the solution code as a visual
             levelSolution={levelSolution}
-            userSolutionRef={userSolutionRef}
             userSolution={userSolution}
             changeUserSolution={changeUserSolution}
           />

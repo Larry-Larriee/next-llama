@@ -33,13 +33,14 @@ export default function Page() {
 
   let { time, changeIsPaused } = UseStopWatch();
 
-  const userSolutionRef = useRef();
   let [userSolution, setUserSolution] = useState(
     "<p class='text-2xl text-black'>Hello World</p>",
   );
 
-  let changeUserSolution = () => {
-    setUserSolution(userSolutionRef.current.value);
+  // when the user types, use the value of the input
+  // in this case, CodeMirror happens to pass the text value on the event that it changes
+  let changeUserSolution = (code) => {
+    setUserSolution(code);
   };
 
   return (
@@ -71,7 +72,6 @@ export default function Page() {
             changeDocsOpen={() => animation.useAnimation()}
             changeSubmitOpen={changeSubmitOpen}
             levelSolution={levelSolution}
-            userSolutionRef={userSolutionRef}
             userSolution={userSolution}
             changeUserSolution={changeUserSolution}
           />
