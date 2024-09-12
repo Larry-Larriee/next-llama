@@ -163,6 +163,12 @@ p {
 }
 
 @layer utilities {
+  .w-121 {
+    width: 30rem;
+  }
+}
+
+@layer utilities {
   .fat-width {
     width: 33rem;
   }
@@ -319,3 +325,12 @@ p {
     line-height: 4rem;
   }
 }
+
+.cm-focused {
+  outline: none !important;
+}
+/* .cm-theme,
+.cm-editor,
+.cm-scroller {
+  max-height: 100% !important;
+} */

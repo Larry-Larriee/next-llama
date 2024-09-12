@@ -31,15 +31,16 @@ export default function Editor({
     settings: {
       background: "#11192f",
       backgroundImage: "",
-      foreground: "#4D4D4C",
-      caret: "#AEAFAD",
+      foreground: "#FFFFFF",
+      caret: "#FFFFFF",
       selection: "#D6D6D6",
       selectionMatch: "#D6D6D6",
-      gutterBackground: "#FFFFFF",
-      gutterForeground: "#4D4D4C",
+      gutterBackground: "#11192f",
+      gutterForeground: "#FFFFFF",
       gutterBorder: "#dddddd",
       gutterActiveForeground: "",
-      lineHighlight: "#EFEFEF",
+      lineHighlight: "#1ed2eb",
+      fontFamily: "Monospace",
     },
     styles: [
       { tag: t.comment, color: "#787b80" },
@@ -57,12 +58,14 @@ export default function Editor({
           Code
         </p>
 
+        {/* a height of 90% is not a perfect solution for codemirror */}
         <CodeMirror
           value={userSolution}
           extensions={[javascript({ jsx: true })]}
           onChange={(e) => changeUserSolution(e)}
           theme={tailwindLlamaTheme}
-          height="13rem"
+          height="90%"
+          className="h-full"
         />
       </section>
 

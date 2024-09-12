@@ -56,7 +56,7 @@ export default function Page() {
 
       <SquareBackground />
 
-      <header className="mb-4 flex flex-col items-center gap-10 sm:mt-20 sm:w-11/12 lg:w-9/12">
+      <header className="mb-4 flex flex-col items-center gap-10 sm:mt-28 sm:w-11/12 lg:w-9/12">
         <p className="w-5/6 text-center font-bold text-white sm:text-4xl xl:text-5xl 2xl:font-extrabold 2xl:leading-tight 3xl:w-9/12 3xl:text-6xl">
           Getting The Hang of Tailwind Starts Today.
         </p>
@@ -67,10 +67,10 @@ export default function Page() {
         </p>
 
         {/* note that the link in the ipad view is not clickable for the entire container */}
-        <section className="flex items-center justify-center gap-10 sm:flex-col lg:flex-row">
+        <section className="flex items-center justify-center gap-16 sm:flex-col lg:flex-row">
           <Link
             href="/levels/level-1"
-            className="flex items-center justify-center rounded-md bg-blue-500 transition duration-200 ease-in-out hover:scale-105 sm:h-auto sm:w-auto lg:h-16 lg:w-48 xl:h-12 xl:w-40 2xl:h-auto 2xl:w-auto 3xl:h-auto 3xl:w-auto"
+            className="flex items-center justify-center rounded-lg bg-blue-500 shadow-md transition duration-200 ease-in-out hover:scale-105 sm:h-auto sm:w-auto lg:h-16 lg:w-48 xl:h-12 xl:w-40 2xl:h-auto 2xl:w-auto 3xl:h-auto 3xl:w-auto"
           >
             <p className="xl:leading-moderate-loose lg:leading-very-loose relative z-10 text-xl font-bold text-white sm:px-5 sm:py-3 sm:text-base sm:font-medium lg:h-full lg:w-full lg:px-0 lg:py-0 lg:text-center 2xl:px-6 2xl:py-5 2xl:text-lg 2xl:font-bold 2xl:leading-none 3xl:px-5 3xl:py-4 3xl:text-xl">
               Get Started
@@ -79,7 +79,7 @@ export default function Page() {
 
           <Link
             href="https://www.patreon.com/LarryLe"
-            className="flex items-center justify-center rounded-md bg-orange-500 transition duration-200 ease-in-out hover:scale-105 sm:h-auto sm:w-auto lg:h-16 lg:w-64 xl:h-12 xl:w-64 2xl:h-auto 2xl:w-auto 3xl:h-auto 3xl:w-auto"
+            className="flex items-center justify-center rounded-lg bg-orange-500 shadow-md transition duration-200 ease-in-out hover:scale-105 sm:h-auto sm:w-auto lg:h-16 lg:w-64 xl:h-12 xl:w-64 2xl:h-auto 2xl:w-auto 3xl:h-auto 3xl:w-auto"
           >
             <p className="xl:leading-moderate-loose lg:leading-very-loose relative z-10 text-xl font-bold text-white sm:px-5 sm:py-3 sm:text-base sm:font-medium lg:h-full lg:w-full lg:px-0 lg:py-0 lg:text-center 2xl:px-6 2xl:py-5 2xl:text-lg 2xl:font-bold 2xl:leading-none 3xl:px-5 3xl:py-4 3xl:text-xl">
               Support my project on Patreon
@@ -89,13 +89,13 @@ export default function Page() {
       </header>
 
       <div className="lg:space-between relative flex w-10/12 flex-wrap justify-between sm:gap-10 lg:flex-row lg:gap-0 xl:mt-8 2xl:mt-20">
-        <div className="primary-color-2 fat-width 2xl:fat-width-1 h-56 rounded-lg border-2 border-white sm:h-40 sm:w-full lg:w-64 xl:w-96 2xl:h-56">
+        <div className="primary-color-2 fat-width 2xl:fat-width-1 mt-7 h-56 rounded-lg border-2 border-white sm:h-40 sm:w-full lg:w-64 xl:w-96 2xl:h-56">
           <p className="px-8 py-6 text-xl text-white 3xl:text-2xl">
             Your Tailwind Code Goes Here.
           </p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 sm:mt-0 lg:w-1/2 xl:mt-5">
+        <div className="mt-10 flex flex-col gap-3 sm:mt-0 lg:w-1/2 xl:mt-12">
           <p className="text-2xl text-white">Level Five</p>
 
           <section className="fat-width-2 flex h-80 flex-col gap-8 rounded-lg bg-yellow-400 p-5 sm:h-full sm:w-full sm:gap-5 xl:h-72 2xl:h-80">
@@ -186,7 +186,7 @@ export default function Page() {
         </div>
 
         <p
-          className="absolute bottom-20 max-w-96 text-3xl text-white opacity-0 sm:static lg:absolute lg:bottom-36 lg:w-64 lg:text-2xl xl:bottom-16 2xl:bottom-0 2xl:text-3xl"
+          className="3xl:w-121 absolute bottom-20 max-w-96 text-3xl text-white opacity-0 sm:static lg:absolute lg:bottom-36 lg:w-64 lg:text-2xl xl:bottom-16 2xl:bottom-0 2xl:text-3xl"
           ref={exampOneRef}
         >
           Recreate designs. Practice and perfect tailwind.
