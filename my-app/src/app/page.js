@@ -79,6 +79,7 @@ export default function Page() {
 
           <Link
             href="https://www.patreon.com/LarryLe"
+            target="_blank"
             className="flex items-center justify-center rounded-lg bg-orange-500 shadow-md transition duration-200 ease-in-out hover:scale-105 sm:h-auto sm:w-auto lg:h-16 lg:w-64 xl:h-12 xl:w-64 2xl:h-auto 2xl:w-auto 3xl:h-auto 3xl:w-auto"
           >
             <p className="xl:leading-moderate-loose lg:leading-very-loose relative z-10 text-xl font-bold text-white sm:px-5 sm:py-3 sm:text-base sm:font-medium lg:h-full lg:w-full lg:px-0 lg:py-0 lg:text-center 2xl:px-6 2xl:py-5 2xl:text-lg 2xl:font-bold 2xl:leading-none 3xl:px-5 3xl:py-4 3xl:text-xl">

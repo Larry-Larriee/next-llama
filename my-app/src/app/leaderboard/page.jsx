@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Navigation from "../../components/Navigation.jsx";
 import LeaderboardRank from "../../components/LeaderboardRank.jsx";
 
@@ -69,7 +69,7 @@ export default function Page() {
               <p className="min-w-24 text-center text-xl text-white">
                 Position
               </p>
-              <p className="min-w-24 text-center text-xl text-white">User</p>
+              <p className="w-36 text-center text-xl text-white">User</p>
             </section>
 
             <section className="flex items-center gap-6 xl:mr-5 2xl:mr-0">
@@ -78,8 +78,8 @@ export default function Page() {
               <p className="min-w-24 text-center text-xl text-white">
                 Accuracy
               </p>
-              <p className="min-w-24 text-center text-xl text-white">Date</p>
-              <p className="min-w-24 text-center text-xl text-white">
+              <p className="min-w-40 text-center text-xl text-white">Date</p>
+              <p className="min-w-28 text-center text-xl text-white">
                 Characters
               </p>
 
@@ -98,7 +98,7 @@ export default function Page() {
             </p>
           </article>
 
-          <div className="primary-color-6 mt-2 flex w-full flex-col gap-1 rounded-lg">
+          <div className="primary-color-6 mb-10 mt-2 flex w-full flex-col gap-1 rounded-lg">
             {/* the map method uses index as an argument, which is the index it is mapping in the array (i.e. 0,1,2) */}
             {leaderboard ? (
               leaderboard.map((leaderBoardRank, index) => {

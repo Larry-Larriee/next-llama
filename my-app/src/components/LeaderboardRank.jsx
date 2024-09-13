@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { useMemo, useState } from "react";
 import SeeCodeModal from "./helper/SeeCodeModal.jsx";
 
 export default function LeaderboardRank({
@@ -17,6 +18,18 @@ export default function LeaderboardRank({
   const changeModalState = () => {
     setModal(!modal);
   };
+
+  const roundedAccuracy = useMemo(() => {
+    if (accuracy === 100) return accuracy.toFixed(1);
+    if (accuracy < 10) return accuracy.toFixed(3);
+    return accuracy.toFixed(2);
+  }, [accuracy]);
+
+  const roundedTime = useMemo(() => {
+    if (time >= 10000) return Math.ceil(time / 60);
+  }, [time]);
+
+  console.log(accuracy > 25, accuracy);
 
   return (
     <>
@@ -36,19 +49,19 @@ export default function LeaderboardRank({
             <p className="min-w-24 text-center text-xl text-white">
               #{position}
             </p>
-            <p className="min-w-24 text-center text-xl text-white">{user}</p>
+            <p className="w-36 text-center text-xl text-white">{user}</p>
           </section>
 
           <section className="flex items-center gap-6">
             <p className="min-w-24 text-center text-xl text-white">{level}</p>
             <p className="min-w-24 text-center text-xl text-white">
-              {time} sec
+              {time >= 10000 ? roundedTime + " min" : time + " sec"}
             </p>
             <p className="min-w-24 text-center text-xl text-white">
-              {accuracy}%
+              {roundedAccuracy}%
             </p>
-            <p className="min-w-24 text-center text-xl text-white">{date}</p>
-            <p className="min-w-24 text-center text-xl text-white">
+            <p className="min-w-40 text-center text-xl text-white">{date}</p>
+            <p className="min-w-28 text-center text-xl text-white">
               {characters}
             </p>
 
@@ -71,19 +84,19 @@ export default function LeaderboardRank({
             <p className="min-w-24 text-center text-xl text-white">
               #{position}
             </p>
-            <p className="min-w-24 text-center text-xl text-white">{user}</p>
+            <p className="w-36 text-center text-xl text-white">{user}</p>
           </section>
 
           <section className="flex items-center gap-6">
             <p className="min-w-24 text-center text-xl text-white">{level}</p>
             <p className="min-w-24 text-center text-xl text-white">
-              {time} sec
+              {time >= 10000 ? roundedTime + " min" : time + " sec"}
             </p>
             <p className="min-w-24 text-center text-xl text-white">
-              {accuracy.toFixed(2)}%
+              {roundedAccuracy}%
             </p>
-            <p className="min-w-24 text-center text-xl text-white">{date}</p>
-            <p className="min-w-24 text-center text-xl text-white">
+            <p className="min-w-40 text-center text-xl text-white">{date}</p>
+            <p className="min-w-28 text-center text-xl text-white">
               {characters}
             </p>
 
