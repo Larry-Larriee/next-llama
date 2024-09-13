@@ -43,7 +43,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="flex w-full flex-col items-center gap-16">
+      <div className="flex w-full flex-col items-center gap-12">
         {closing === "false" && <Docs docsOpen={docsOpen} />}
         {/* the submit component also needs its change state primarily because of the onClose property to close the modal */}
         {/* Furthermore, there's an changeIsPaused function to pause the timer when the submit modal is open */}

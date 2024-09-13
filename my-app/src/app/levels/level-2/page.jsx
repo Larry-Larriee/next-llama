@@ -43,7 +43,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="flex w-full flex-col items-center gap-16">
+      <div className="flex w-full flex-col items-center gap-12">
         {closing === "false" && <Docs docsOpen={docsOpen} />}
         {submitOpen && (
           <SubmitModal

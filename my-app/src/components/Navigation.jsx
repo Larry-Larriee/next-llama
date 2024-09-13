@@ -6,7 +6,7 @@ import nextLlama from "../../assets/next-llama.png";
 
 export default function Navigation() {
   return (
-    <nav className="mt-10 flex w-10/12 items-center justify-between">
+    <nav className="mt-7 flex w-10/12 items-center justify-between">
       <Link className="flex items-center gap-5 sm:gap-9 lg:gap-5" href="/">
         <Image
           src={nextLlama}

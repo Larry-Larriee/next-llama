@@ -201,7 +201,7 @@ export default function Page() {
           Level Up. Review Quickly.
         </p>
 
-        <section className="primary-color-4 ml-32 flex w-9/12 flex-col gap-6 rounded-2xl border-2 border-white pb-20 pl-10 pt-10 sm:ml-0 sm:w-10/12 sm:items-center sm:justify-center sm:p-0 sm:pb-5 sm:pt-5 lg:h-80 xl:ml-28 xl:w-8/12 2xl:h-auto 2xl:w-9/12 2xl:pb-16">
+        <section className="primary-color-4 ml-32 flex w-9/12 flex-col gap-6 rounded-xl border-2 border-white pb-20 pl-10 pt-10 sm:ml-0 sm:w-10/12 sm:items-center sm:justify-center sm:p-0 sm:pb-5 sm:pt-5 lg:h-80 xl:ml-28 xl:w-8/12 2xl:h-auto 2xl:pb-16">
           <p className="text-2xl text-white sm:w-10/12 sm:text-lg 2xl:text-2xl">
             Level 5
           </p>
