@@ -10,7 +10,7 @@ export default function Page() {
       <div className="flex w-full flex-col items-center gap-16">
         <Navigation />
 
-        <div className="flex w-10/12 flex-col justify-center gap-16">
+        <div className="flex w-10/12 flex-col justify-center gap-12">
           <p className="text-2xl text-white xl:text-4xl">Level Select:</p>
 
           <section className="xl:level-height relative grid w-full grid-cols-3 gap-10 lg:gap-20">

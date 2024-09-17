@@ -15,28 +15,25 @@ export default function Menu() {
   let [menuOpen, setMenuOpen] = useState(false);
   let menuContainer = useRef();
 
-  let accountHyperLink = useRef();
+  let signInIcon = useRef();
+  let signInIconPing = useRef();
 
   let changeMenuOpen = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const [cookieExists, setCookieExists] = useState();
+
   useEffect(() => {
-    // once the account hyperlink renders, we remove the pulse animation
-    async function removePulse() {
-      await new Promise((resolve, reject) => setTimeout(resolve, 200));
-
-      if (accountHyperLink.current)
-        accountHyperLink.current.classList.remove("animate-pulse");
-    }
-
     fetch("https://next-llama-4s1x.onrender.com/checkCookie", {
       method: "GET",
       credentials: "include",
     }).then((response) => {
       response.json().then((data) => {
         if (data.success === true) {
-          removePulse();
+          setCookieExists(true);
+        } else {
+          setCookieExists(false);
         }
       });
     });
@@ -89,15 +86,25 @@ export default function Menu() {
                 </Link>
               </li>
 
-              <li>
-                <Link href="/account">
-                  <p
-                    className="animate-pulse text-white"
-                    ref={accountHyperLink}
-                  >
-                    Account
-                  </p>
-                </Link>
+              <li className="flex">
+                <div className="relative">
+                  <Link href="/account">
+                    <p className="text-white">Account</p>
+                  </Link>
+
+                  {cookieExists === false && (
+                    <>
+                      <div
+                        ref={signInIconPing}
+                        className="absolute -right-4 -top-1 h-3 w-3 animate-ping rounded-full bg-blue-500/50"
+                      />
+                      <div
+                        ref={signInIcon}
+                        className="absolute -right-4 -top-1 h-3 w-3 rounded-full bg-blue-500/50"
+                      />
+                    </>
+                  )}
+                </div>
               </li>
               <li>
                 <Link href="/leaderboard">
