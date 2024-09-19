@@ -9,6 +9,7 @@ import SubmitModal from "../../../components/helper/SubmitModal.jsx";
 
 import UseStopWatch from "../../../components/hooks/UseStopWatch";
 import UseAnimation from "../../../components/hooks/UseAnimation";
+import { color } from "@uiw/react-codemirror";
 
 export default function Page() {
   let levelSolution = "<p class='text-red-500 text-2xl'>Hello World</p>";
@@ -41,6 +42,11 @@ export default function Page() {
     setUserSolution(code);
   };
 
+  let colorReference = [
+    { color: "red-500", rgb: "rgb(239 68 68)" },
+    { color: "white", rgb: "rgb(255 255 255)" },
+  ];
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-12">
@@ -67,6 +73,7 @@ export default function Page() {
             levelTitle="The Tryouts"
             levelDescriptionOne="Welcome to tailwind practice! You're taking the fast lane to mastering the tailwind language and having the ability to code like magic."
             levelDescriptionTwo="For your first task, you need to get used to your power. Use tailwind to make a “Hello World,” and make it red-500 while you're at it. For a visual demonstration, click on See Design."
+            colorReference={colorReference}
           />
 
           {/* We add states and changeStates in page.jsx because docs and submit need to effect the entire page, not just the area where the editor is (editor contains the buttons) */}

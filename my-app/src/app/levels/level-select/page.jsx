@@ -45,7 +45,7 @@ export default function Page() {
               </section>
 
               <p className="hidden text-center text-2xl text-white lg:block lg:text-xl">
-                Paint the Town Red
+                Paint the Town Blue
               </p>
             </div>
 

@@ -135,17 +135,17 @@ p {
 
 @keyframes floating {
   from {
-    transform: translateX(-0.4rem);
+    transform: translateX(0.2rem);
   }
   to {
-    transform: translateX(0.4rem);
+    transform: translateX(-0.2rem);
   }
 }
 
 /* alternate property allows the animation to move back and forth (starting at -0.15rem and moves to 0.15rem, starting at 0.15rem and moves to -0.15rem) */
 /* in short, it starts at "to" and then moves to "from" after the initial animation for infinite */
 .floating {
-  animation: floating 3.5s ease-in-out infinite alternate;
+  animation: floating 3s ease-in-out infinite alternate;
 }
 
 @layer utilities {

@@ -12,7 +12,7 @@ import UseAnimation from "../../../components/hooks/UseAnimation";
 
 export default function Page() {
   let levelSolution =
-    "<div class='w-screen h-screen bg-red-500 flex justify-center items-center'><p class='text-3xl text-white'>Paint the Town Red</p></div>";
+    "<div class='w-screen h-screen bg-blue-500 flex justify-center items-center'><p class='text-3xl text-white'>Paint the Town Blue</p></div>";
 
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
@@ -41,6 +41,11 @@ export default function Page() {
     setUserSolution(code);
   };
 
+  let colorReference = [
+    { color: "blue-500", rgb: "rgb(59 130 246)" },
+    { color: "white", rgb: "rgb(255 255 255)" },
+  ];
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-12">
@@ -61,9 +66,10 @@ export default function Page() {
         <section className="flex w-10/12 justify-center gap-5 sm:flex-col xl:flex-row">
           <LevelHero
             levelNumber={"Two"}
-            levelTitle="Paint the Town Red"
-            levelDescriptionOne="Paint the town red by filling the background with the color red-500."
-            levelDescriptionTwo="In addition, write the words 'Paint the Town Red' in the center (white text and a size of 3xl)."
+            levelTitle="Paint the Town Blue"
+            levelDescriptionOne="Paint the town blue by filling the background with the color blue-500."
+            levelDescriptionTwo="In addition, the words 'Paint the Town Blue' in the center (white text and a size of 3xl)."
+            colorReference={colorReference}
           />
 
           <Editor

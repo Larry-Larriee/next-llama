@@ -43,6 +43,20 @@ export default function Page() {
     setUserSolution(code);
   };
 
+  let colorReference = [
+    { color: "red-500", rgb: "rgb(239 68 68)" },
+    { color: "orange-500", rgb: "rgb(249 115 22)" },
+    { color: "yellow-500", rgb: "rgb(234 179 8)" },
+    { color: "green-400", rgb: "rgb(74 222 128)" },
+    { color: "green-500", rgb: "rgb(34 197 94)" },
+    { color: "cyan-500", rgb: "rgb(6 182 212)" },
+    { color: "blue-500", rgb: "rgb(59 130 246)" },
+    { color: "blue-700", rgb: "rgb(29 78 216)" },
+    { color: "purple-500", rgb: "rgb(168 85 247)" },
+    { color: "gray-500/50", rgb: "rgb(107 114 128 / 0.5)" },
+    { color: "white", rgb: "rgb(255 255 255)" },
+  ];
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-12">
@@ -66,6 +80,7 @@ export default function Page() {
             levelTitle="Zombo.com"
             levelDescriptionOne="Zombo.com is a website that allows you to do anything. At least, that's what they claim. Your task is to recreate this masterpiece."
             levelDescriptionTwo="By the way, this level took me half an hour to come up with a solution. Good luck! Also remember to take advantage of tailwind animations!"
+            colorReference={colorReference}
           />
 
           <Editor

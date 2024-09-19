@@ -40,6 +40,11 @@ export default function Page() {
     setUserSolution(code);
   };
 
+  let colorReference = [
+    { color: "bg-red-500", rgb: "rgb(239 68 68)" },
+    { color: "bg-white", rgb: "rgb(255 255 255)" },
+  ];
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-12">
@@ -63,6 +68,7 @@ export default function Page() {
             levelTitle="Chinese Menu"
             levelDescriptionOne="Now I'm not Chinese, but their menu is pretty tasty. I want you to make me hungry and recreate a Chinese menu for me."
             levelDescriptionTwo="Remember that all the levels are possible! You can do it! Don't forget to check the docs for help."
+            colorReference={colorReference}
           />
 
           <Editor

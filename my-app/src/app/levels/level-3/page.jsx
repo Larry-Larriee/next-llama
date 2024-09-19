@@ -12,7 +12,7 @@ import UseAnimation from "../../../components/hooks/UseAnimation";
 
 export default function Page() {
   let levelSolution =
-    "<div class='flex justify-center items-center bg-black w-screen h-screen'><div class='bg-gray-900 flex justify-between items-center rounded-full w-96 h-32'><section class='ml-4 h-20 w-20 bg-white rounded-full'></section><article><p class='text-white text-lg'>Elon Musk (Parody)</p><p class='text-white text-lg'>@elonmusk</p></article><section class='h-20 w-20 flex gap-1 justify-center items-center'><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div></section></div></div>";
+    "<div class='flex justify-center items-center bg-black w-screen h-screen'><div class='bg-gray-800 flex justify-between items-center rounded-full w-96 h-32'><section class='ml-4 h-20 w-20 bg-white rounded-full'></section><article><p class='text-white text-lg'>Elon Musk (Parody)</p><p class='text-white text-lg'>@elonmusk</p></article><section class='h-20 w-20 flex gap-1 justify-center items-center'><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div></section></div></div>";
   ("<div class='w-screen h-screen bg-red-500 flex justify-center items-center'><p class='text-3xl text-white'>Paint the Town Red</p></div>");
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
@@ -41,6 +41,12 @@ export default function Page() {
     setUserSolution(code);
   };
 
+  let colorReference = [
+    { color: "white", rgb: "rgb(255 255 255)" },
+    { color: "black", rgb: "rgb(0 0 0)" },
+    { color: "gray-800", rgb: "rgb(31 41 55)" },
+  ];
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-12">
@@ -64,6 +70,7 @@ export default function Page() {
             levelTitle="Twitter Profile"
             levelDescriptionOne="Tailwind has a lot of real applications. You've made the right choice by choosing to learn this library."
             levelDescriptionTwo="Create a twitter profile using tailwind. Not the whole thing; just that one cool part in the navigation menu (see design). Also WARNING: this level is the hardest one yet!!"
+            colorReference={colorReference}
           />
 
           <Editor

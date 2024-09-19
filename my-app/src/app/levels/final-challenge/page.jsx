@@ -40,6 +40,11 @@ export default function Page() {
     setUserSolution(code);
   };
 
+  let colorReference = [
+    { color: "bg-red-500", rgb: "rgb(239 68 68)" },
+    { color: "bg-white", rgb: "rgb(255 255 255)" },
+  ];
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-12">
