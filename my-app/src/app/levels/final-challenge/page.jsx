@@ -41,8 +41,8 @@ export default function Page() {
   };
 
   let colorReference = [
-    { color: "bg-red-500", rgb: "rgb(239 68 68)" },
-    { color: "bg-white", rgb: "rgb(255 255 255)" },
+    { color: "bg-yellow-100", rgb: "rgb(254 249 195)" },
+    { color: "bg-yellow-300", rgb: "rgb(253 224 71)" },
   ];
 
   return (
@@ -68,6 +68,7 @@ export default function Page() {
             levelTitle="Final Challenge"
             levelDescriptionOne="If you got this far without cheating, I'm already super impressed with you. Beat this level and you're ready to graduate. For your final challenge, you have to recreate a crown using tailwind."
             levelDescriptionTwo="Hint: It might be helpful learning how to make triangles on the web. You may also have to make your own styles (yikes). This level is one of the hardest because of how unique it is. Good luck!"
+            colorReference={colorReference}
           />
 
           <Editor

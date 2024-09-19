@@ -28,9 +28,9 @@ export default function LevelHero({
           </p>
         </div>
 
-        <div className="flex h-full w-full flex-col justify-end gap-3">
-          {colorReference &&
-            colorReference.map((colorRef, index) => {
+        {colorReference && colorReference.length <= 3 && (
+          <div className="flex h-full w-full flex-col justify-end gap-4">
+            {colorReference.map((colorRef, index) => {
               return (
                 <ColorReference
                   key={colorRef + index}
@@ -39,7 +39,22 @@ export default function LevelHero({
                 />
               );
             })}
-        </div>
+          </div>
+        )}
+
+        {colorReference && colorReference.length > 3 && (
+          <div className="grid h-full w-full grid-cols-3 items-end">
+            {colorReference.map((colorRef, index) => {
+              return (
+                <ColorReference
+                  key={colorRef + index}
+                  color={colorRef.color}
+                  rgb={colorRef.rgb}
+                />
+              );
+            })}
+          </div>
+        )}
       </section>
     </div>
   );

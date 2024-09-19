@@ -41,8 +41,9 @@ export default function Page() {
   };
 
   let colorReference = [
-    { color: "bg-red-500", rgb: "rgb(239 68 68)" },
     { color: "bg-white", rgb: "rgb(255 255 255)" },
+    { color: "bg-yellow-400", rgb: "rgb(250 204 21)" },
+    { color: "bg-red-700", rgb: "rgb(185 28 28)" },
   ];
 
   return (

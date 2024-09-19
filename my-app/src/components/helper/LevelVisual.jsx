@@ -10,7 +10,7 @@ export default function LevelVisual({ levelSolution }) {
     <div className="z-5 absolute top-0 h-64 w-full rounded-md">
       <iframe
         className="levelSolutionUI h-64 w-full rounded-md bg-white"
-        srcdoc={header + levelSolution}
+        srcDoc={header + levelSolution}
       />
     </div>
   );

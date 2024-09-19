@@ -115,6 +115,12 @@ export default function Editor({
           value={userSolution}
           extensions={[javascript({ jsx: true })]}
           onChange={(e) => changeUserSolution(e)}
+          basicSetup={{
+            foldGutter: false,
+            dropCursor: false,
+            allowMultipleSelections: true,
+            indentOnInput: true,
+          }}
           theme={tailwindLlamaTheme}
           height="90%"
           className="h-full"
