@@ -297,6 +297,7 @@ app.post("/tailwindAccuracy", async (req, res) => {
       });
 
       console.log("puppeteer has finished screenshotting");
+      await browser.close();
 
       let accuracy = 0;
 
@@ -321,8 +322,6 @@ app.post("/tailwindAccuracy", async (req, res) => {
       });
 
       console.log("resemble has finished comparing", accuracy);
-
-      await browser.close();
 
       // make sure to return JSON and not strings because the front-end is handling JSON
       return res.send({ accuracy });

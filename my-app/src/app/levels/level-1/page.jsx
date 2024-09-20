@@ -9,7 +9,6 @@ import SubmitModal from "../../../components/helper/SubmitModal.jsx";
 
 import UseStopWatch from "../../../components/hooks/UseStopWatch";
 import UseAnimation from "../../../components/hooks/UseAnimation";
-import { color } from "@uiw/react-codemirror";
 
 export default function Page() {
   let levelSolution = "<p class='text-red-500 text-2xl'>Hello World</p>";
@@ -47,6 +46,8 @@ export default function Page() {
     { color: "white", rgb: "rgb(255 255 255)" },
   ];
 
+  const userSolutionUIRef = useRef(null);
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-12">
@@ -63,6 +64,7 @@ export default function Page() {
             // submit modal uses level solution to display the solution code as part of comparing user code
             levelSolution={levelSolution}
             userSolution={userSolution}
+            userSolutionUIRef={userSolutionUIRef}
           />
         )}
 
@@ -85,6 +87,7 @@ export default function Page() {
             levelSolution={levelSolution}
             userSolution={userSolution}
             changeUserSolution={changeUserSolution}
+            userSolutionUIRef={userSolutionUIRef}
           />
         </section>
       </div>

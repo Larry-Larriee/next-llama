@@ -7,6 +7,7 @@ import AssessTailwind from "./AssessTailwind.jsx";
 
 import confetti from "canvas-confetti";
 import UseNumberConversion from "../hooks/UseNumConversion";
+import html2canvas from "html2canvas";
 
 export default function SubmitModal({
   submitOpen,
@@ -16,6 +17,7 @@ export default function SubmitModal({
   changeIsPaused,
   levelSolution,
   userSolution,
+  userSolutionUIRef,
 }) {
   // When the modal is open, the timer will pause
   // Confetti will also fire lol
@@ -88,6 +90,25 @@ export default function SubmitModal({
       updateLeaderboard();
     }
   }, [submitOpen, nextLevel, time, userSolution]);
+
+  // by the time the user submits there code, the userSolutionUIRef should be available
+  useEffect(() => {
+    console.log(userSolutionUIRef.current);
+
+    if (userSolutionUIRef.current) {
+      html2canvas(userSolutionUIRef.current, {
+        useCORS: true,
+        allowTaint: true,
+      }).then((canvas) => {
+        const blob = canvas.toBlob((blob) => {
+          const url = URL.createObjectURL(blob);
+
+          console.log(url, blob);
+          const base64Data = canvas.toDataURL();
+        });
+      });
+    }
+  }, [userSolutionUIRef]);
 
   return (
     <>

@@ -6,6 +6,7 @@ import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
 import { createTheme } from "@uiw/codemirror-themes";
 import { tags as t } from "@lezer/highlight";
+import html2canvas from "html2canvas";
 
 // changeDocsOpen (setState) determines whether to open or close the tailwind docs
 // changeSubmitOpen (setState) determines whether to open or close the submit modal
@@ -17,6 +18,7 @@ export default function Editor({
   levelSolution,
   userSolution,
   changeUserSolution,
+  userSolutionUIRef,
 }) {
   // tailwind CDN configuration
   let header =
@@ -130,6 +132,23 @@ export default function Editor({
     }
   }, [designButtonRef, levelSolutionVisualOpen]);
 
+  // const testRef = useRef();
+
+  // const createImage = async () => {
+  //   console.log(testRef.current);
+
+  //   if (testRef.current) {
+  //     html2canvas(testRef.current).then((canvas) => {
+  //       const blob = canvas.toBlob((blob) => {
+  //         const url = URL.createObjectURL(blob);
+
+  //         console.log(url, blob);
+  //         const base64Data = canvas.toDataURL();
+  //       });
+  //     });
+  //   }
+  // };
+
   return (
     <section className="flex w-1/2 flex-col gap-5 sm:w-full xl:w-1/2">
       <section className="primary-color-5 flex h-64 w-full flex-col rounded-md border border-white">
@@ -159,6 +178,7 @@ export default function Editor({
         <iframe
           className="userSolutionUI h-64 w-full rounded-md bg-white"
           srcDoc={header + userSolution}
+          ref={userSolutionUIRef}
         />
 
         {levelSolutionVisualOpen && (
@@ -187,6 +207,14 @@ export default function Editor({
         >
           Submit
         </p>
+
+        {/* <p
+          className="bg-red-500 text-white"
+          ref={testRef}
+          onClick={() => createImage()}
+        >
+          Test
+        </p> */}
       </div>
     </section>
   );
