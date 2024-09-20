@@ -123,7 +123,7 @@ export default function Editor({
           }}
           theme={tailwindLlamaTheme}
           height="90%"
-          className="h-full"
+          className="textEditor h-full"
         />
       </section>
 

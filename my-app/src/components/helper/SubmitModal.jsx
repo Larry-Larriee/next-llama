@@ -44,20 +44,17 @@ export default function SubmitModal({
 
   useEffect(() => {
     async function fetchAccuracy() {
-      let response = await fetch(
-        "https://next-llama-4s1x.onrender.com/tailwindAccuracy",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            // for the final-challenge, this is going to return NaN (sending it as JSON will conver it to null which JSON can handle)
-            level: parseInt(nextLevel) - 1,
-            userSolution: userSolution,
-          }),
+      let response = await fetch(`${process.env.SERVER}/tailwindAccuracy`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({
+          // for the final-challenge, this is going to return NaN (sending it as JSON will conver it to null which JSON can handle)
+          level: parseInt(nextLevel) - 1,
+          userSolution: userSolution,
+        }),
+      });
 
       let data = await response.json();
       setAccuracy(data.accuracy);
@@ -69,7 +66,7 @@ export default function SubmitModal({
       // local variable for accuracy so I don't need to add it as a dependency
       let accuracy = await fetchAccuracy();
 
-      fetch("https://next-llama-4s1x.onrender.com/editLeaderboard", {
+      fetch(`${process.env.SERVER}/editLeaderboard`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

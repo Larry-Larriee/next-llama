@@ -15,7 +15,7 @@ export default function LevelHero({
         Problem
       </p>
 
-      <section className="flex h-full flex-col sm:pb-5 xl:p-3 xl:pb-4">
+      <section className="flex h-full flex-col gap-8 p-3 xl:pb-4">
         <div className="flex flex-col gap-8">
           <p className="text-white sm:text-2xl xl:text-3xl">
             Level {levelNumber} - {levelTitle}
@@ -29,7 +29,7 @@ export default function LevelHero({
         </div>
 
         {colorReference && colorReference.length <= 3 && (
-          <div className="flex h-full w-full flex-col justify-end gap-4">
+          <div className="flex h-full w-full flex-col justify-end gap-3 xl:gap-4">
             {colorReference.map((colorRef, index) => {
               return (
                 <ColorReference
@@ -43,7 +43,7 @@ export default function LevelHero({
         )}
 
         {colorReference && colorReference.length > 3 && (
-          <div className="grid h-full w-full grid-cols-3 items-end">
+          <div className="flex h-full w-full flex-col justify-end gap-3 lg:grid lg:grid-cols-3 lg:items-end lg:gap-2">
             {colorReference.map((colorRef, index) => {
               return (
                 <ColorReference

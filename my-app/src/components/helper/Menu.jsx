@@ -25,7 +25,7 @@ export default function Menu() {
   const [cookieExists, setCookieExists] = useState();
 
   useEffect(() => {
-    fetch("https://next-llama-4s1x.onrender.com/checkCookie", {
+    fetch(`${process.env.SERVER}/checkCookie`, {
       method: "GET",
       credentials: "include",
     }).then((response) => {
