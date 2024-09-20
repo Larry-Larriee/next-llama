@@ -78,6 +78,7 @@ export default function Page() {
 
           {/* We add states and changeStates in page.jsx because docs and submit need to effect the entire page, not just the area where the editor is (editor contains the buttons) */}
           <Editor
+            docsOpen={docsOpen}
             changeDocsOpen={() => animation.useAnimation()}
             changeSubmitOpen={changeSubmitOpen}
             // editor uses level solution to display the solution code as a visual

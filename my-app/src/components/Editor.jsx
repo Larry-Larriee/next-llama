@@ -1,6 +1,6 @@
 "use client"; // by default, files are treated like they're in a server environment
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import LevelVisual from "./helper/LevelVisual.jsx";
 import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
@@ -11,6 +11,7 @@ import { tags as t } from "@lezer/highlight";
 // changeSubmitOpen (setState) determines whether to open or close the submit modal
 // levelSolution (string) the solution to the level
 export default function Editor({
+  docsOpen,
   changeDocsOpen,
   changeSubmitOpen,
   levelSolution,
@@ -103,6 +104,32 @@ export default function Editor({
     ],
   });
 
+  const docsButtonRef = useRef();
+
+  useEffect(() => {
+    if (docsOpen && docsButtonRef.current) {
+      docsButtonRef.current.classList.remove("bg-indigo-500");
+      docsButtonRef.current.classList.add("bg-indigo-400");
+    }
+    if (!docsOpen && docsButtonRef.current) {
+      docsButtonRef.current.classList.remove("bg-indigo-400");
+      docsButtonRef.current.classList.add("bg-indigo-500");
+    }
+  }, [docsButtonRef, docsOpen]);
+
+  const designButtonRef = useRef();
+
+  useEffect(() => {
+    if (levelSolutionVisualOpen && designButtonRef.current) {
+      designButtonRef.current.classList.remove("bg-green-700");
+      designButtonRef.current.classList.add("bg-green-600");
+    }
+    if (!levelSolutionVisualOpen && designButtonRef.current) {
+      designButtonRef.current.classList.remove("bg-green-600");
+      designButtonRef.current.classList.add("bg-green-700");
+    }
+  }, [designButtonRef, levelSolutionVisualOpen]);
+
   return (
     <section className="flex w-1/2 flex-col gap-5 sm:w-full xl:w-1/2">
       <section className="primary-color-5 flex h-64 w-full flex-col rounded-md border border-white">
@@ -143,12 +170,14 @@ export default function Editor({
         <p
           className="rounded-lg bg-indigo-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
           onClick={() => changeDocsOpen()}
+          ref={docsButtonRef}
         >
           Docs
         </p>
         <p
           className="levelSolutionButton rounded-lg bg-green-700 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
           onClick={() => changelevelSolutionVisualOpen()}
+          ref={designButtonRef}
         >
           See Design
         </p>
