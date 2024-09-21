@@ -48,6 +48,14 @@ export default function Page() {
 
   const userSolutionUIRef = useRef(null);
 
+  // sumbit ready will open the modal once the accuracy is fetched and it is set to true
+  // when the modal is closed, it tells the level.jsx file to delete the component. having submitReady does not affect the functionality of submitmodal.jsx
+  const [submitReady, setSubmitReady] = useState(false);
+
+  let changeSubmitReady = (bool) => {
+    setSubmitReady(bool);
+  };
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-12">
@@ -56,6 +64,8 @@ export default function Page() {
         {/* Furthermore, there's an changeIsPaused function to pause the timer when the submit modal is open */}
         {submitOpen && (
           <SubmitModal
+            submitReady={submitReady}
+            changeSubmitReady={changeSubmitReady}
             submitOpen={submitOpen}
             changeSubmitOpen={changeSubmitOpen}
             nextLevel={"2"}
@@ -80,6 +90,8 @@ export default function Page() {
 
           {/* We add states and changeStates in page.jsx because docs and submit need to effect the entire page, not just the area where the editor is (editor contains the buttons) */}
           <Editor
+            submitOpen={submitOpen}
+            submitReady={submitReady}
             docsOpen={docsOpen}
             changeDocsOpen={() => animation.useAnimation()}
             changeSubmitOpen={changeSubmitOpen}
@@ -87,7 +99,6 @@ export default function Page() {
             levelSolution={levelSolution}
             userSolution={userSolution}
             changeUserSolution={changeUserSolution}
-            userSolutionUIRef={userSolutionUIRef}
           />
         </section>
       </div>

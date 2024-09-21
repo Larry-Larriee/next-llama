@@ -6,19 +6,19 @@ import CodeMirror from "@uiw/react-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
 import { createTheme } from "@uiw/codemirror-themes";
 import { tags as t } from "@lezer/highlight";
-import html2canvas from "html2canvas";
 
 // changeDocsOpen (setState) determines whether to open or close the tailwind docs
 // changeSubmitOpen (setState) determines whether to open or close the submit modal
 // levelSolution (string) the solution to the level
 export default function Editor({
+  submitOpen,
+  submitReady,
   docsOpen,
   changeDocsOpen,
   changeSubmitOpen,
   levelSolution,
   userSolution,
   changeUserSolution,
-  userSolutionUIRef,
 }) {
   // tailwind CDN configuration
   let header =
@@ -132,23 +132,6 @@ export default function Editor({
     }
   }, [designButtonRef, levelSolutionVisualOpen]);
 
-  // const testRef = useRef();
-
-  // const createImage = async () => {
-  //   console.log(testRef.current);
-
-  //   if (testRef.current) {
-  //     html2canvas(testRef.current).then((canvas) => {
-  //       const blob = canvas.toBlob((blob) => {
-  //         const url = URL.createObjectURL(blob);
-
-  //         console.log(url, blob);
-  //         const base64Data = canvas.toDataURL();
-  //       });
-  //     });
-  //   }
-  // };
-
   return (
     <section className="flex w-1/2 flex-col gap-5 sm:w-full xl:w-1/2">
       <section className="primary-color-5 flex h-64 w-full flex-col rounded-md border border-white">
@@ -178,7 +161,6 @@ export default function Editor({
         <iframe
           className="userSolutionUI h-64 w-full rounded-md bg-white"
           srcDoc={header + userSolution}
-          ref={userSolutionUIRef}
         />
 
         {levelSolutionVisualOpen && (
@@ -201,20 +183,36 @@ export default function Editor({
         >
           See Design
         </p>
-        <p
-          className="rounded-lg bg-orange-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
-          onClick={() => changeSubmitOpen()}
-        >
-          Submit
-        </p>
-
-        {/* <p
-          className="bg-red-500 text-white"
-          ref={testRef}
-          onClick={() => createImage()}
-        >
-          Test
-        </p> */}
+        {submitOpen === false && (
+          <p
+            className="rounded-lg bg-orange-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer"
+            onClick={() => changeSubmitOpen()}
+          >
+            Submit
+          </p>
+        )}
+        {submitOpen === true && submitReady === false && (
+          <p className="flex items-center gap-2 rounded-lg bg-orange-400/90 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer">
+            Submit
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              className="animate-spin"
+            >
+              <path
+                d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z"
+                fill="white"
+              />
+            </svg>
+          </p>
+        )}
+        {submitOpen === true && submitReady === true && (
+          <p className="rounded-lg bg-orange-500 px-8 py-2 text-lg text-white transition duration-200 ease-in-out hover:scale-105 hover:cursor-pointer">
+            Submit
+          </p>
+        )}
       </div>
     </section>
   );

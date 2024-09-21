@@ -7,9 +7,10 @@ import AssessTailwind from "./AssessTailwind.jsx";
 
 import confetti from "canvas-confetti";
 import UseNumberConversion from "../hooks/UseNumConversion";
-import html2canvas from "html2canvas";
 
 export default function SubmitModal({
+  submitReady,
+  changeSubmitReady,
   submitOpen,
   changeSubmitOpen,
   nextLevel,
@@ -17,32 +18,32 @@ export default function SubmitModal({
   changeIsPaused,
   levelSolution,
   userSolution,
-  userSolutionUIRef,
 }) {
-  // When the modal is open, the timer will pause
-  // Confetti will also fire lol
-  useEffect(() => {
-    if (submitOpen) changeIsPaused();
-
-    confetti({
-      spread: 125,
-    });
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [submitOpen]);
-
-  // scrolls the user to the top of their device when the modal is open (because h-full on mobile is not h-full on desktop)
-  function scrollToTop() {
-    window.scrollTo(0, 0);
-  }
-
+  const [accuracy, setAccuracy] = useState();
   const [compareSolution, setCompareSolution] = useState(false);
 
   let changeCompareSolution = () => {
     setCompareSolution(!compareSolution);
   };
 
-  const [accuracy, setAccuracy] = useState();
+  // When the modal is open, the timer will pause
+  // Confetti will also fire lol
+  useEffect(() => {
+    // the changeIsPaused fires twice: one when the submitOpens initally and again after submitReady changes and it sees submitOpen is still true
+    if (submitOpen && submitReady === false) changeIsPaused();
+
+    if (submitReady)
+      confetti({
+        spread: 125,
+      });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [submitOpen, submitReady]);
+
+  // scrolls the user to the top of their device when the modal is open (because h-full on mobile is not h-full on desktop)
+  function scrollToTop() {
+    window.scrollTo(0, 0);
+  }
 
   useEffect(() => {
     async function fetchAccuracy() {
@@ -56,10 +57,24 @@ export default function SubmitModal({
           level: parseInt(nextLevel) - 1,
           userSolution: userSolution,
         }),
+      }).catch((error) => {
+        console.error("error fetching accuracy: ", error);
       });
+
+      // even if the accuracy does not return, the submitReady will still change to true to open the modal
+      if (!response)
+        return new Promise((resolve) => {
+          setAccuracy(-1.0);
+          changeSubmitReady(true);
+          resolve(-1.0);
+          window.alert(
+            "There was an error fetching the accuracy. Please try again later.",
+          );
+        });
 
       let data = await response.json();
       setAccuracy(data.accuracy);
+      changeSubmitReady(true);
 
       return new Promise((resolve) => resolve(data.accuracy));
     }
@@ -82,44 +97,41 @@ export default function SubmitModal({
           accuracy: accuracy,
           characters: userSolution.length,
         }),
-      }).then((response) => response.json().then((data) => console.log(data)));
+      }).then((response) =>
+        response.json().then((data) => {
+          console.log(data);
+        }),
+      );
     }
 
-    if (submitOpen === true) {
+    if (submitOpen === true && submitReady === false) {
       scrollToTop();
       updateLeaderboard();
     }
-  }, [submitOpen, nextLevel, time, userSolution]);
+  }, [
+    submitOpen,
+    submitReady,
+    changeSubmitReady,
+    nextLevel,
+    time,
+    userSolution,
+  ]);
 
-  // by the time the user submits there code, the userSolutionUIRef should be available
   useEffect(() => {
-    console.log(userSolutionUIRef.current);
-
-    if (userSolutionUIRef.current) {
-      html2canvas(userSolutionUIRef.current, {
-        useCORS: true,
-        allowTaint: true,
-      }).then((canvas) => {
-        const blob = canvas.toBlob((blob) => {
-          const url = URL.createObjectURL(blob);
-
-          console.log(url, blob);
-          const base64Data = canvas.toDataURL();
-        });
-      });
-    }
-  }, [userSolutionUIRef]);
+    console.log(accuracy);
+  }, [accuracy]);
 
   return (
     <>
       {/* onClose changes the state when the user clicks outside the modal, like another way to close if the user does not click the close button */}
       <Dialog
-        open={submitOpen}
+        open={submitReady}
         as="div"
         className="relative z-10 focus:outline-none"
         onClose={() => {
           changeSubmitOpen();
           changeIsPaused();
+          changeSubmitReady(false);
         }}
       >
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -234,7 +246,9 @@ export default function SubmitModal({
         </div>
       </Dialog>
 
-      <div className="index-0 z-5 absolute h-screen w-screen bg-black/50" />
+      {submitReady && (
+        <div className="index-0 z-5 absolute h-screen w-screen bg-black/50" />
+      )}
     </>
   );
 }
