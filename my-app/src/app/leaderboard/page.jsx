@@ -117,12 +117,12 @@ export default function Page() {
                 );
               })
             ) : (
-              <section className="flex flex-col gap-1">
+              <section className="flex flex-col gap-1 rounded-md">
                 <div className="primary-color-6 h-16 w-full animate-pulse rounded-t-md" />
                 <div className="h-16 w-full animate-pulse bg-indigo-400/75" />
                 <div className="primary-color-6 h-16 w-full animate-pulse" />
                 <div className="h-16 w-full animate-pulse bg-indigo-400/75" />
-                <div className="primary-color-6 h-16 w-full animate-pulse" />
+                <div className="primary-color-6 h-16 w-full animate-pulse rounded-b-md" />
               </section>
             )}
           </div>

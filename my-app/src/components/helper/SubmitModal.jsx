@@ -80,6 +80,8 @@ export default function SubmitModal({
     }
 
     async function updateLeaderboard() {
+      console.log("ran leaderboard");
+
       // local variable for accuracy so I don't need to add it as a dependency
       let accuracy = await fetchAccuracy();
 
@@ -108,18 +110,10 @@ export default function SubmitModal({
       scrollToTop();
       updateLeaderboard();
     }
-  }, [
-    submitOpen,
-    submitReady,
-    changeSubmitReady,
-    nextLevel,
-    time,
-    userSolution,
-  ]);
 
-  useEffect(() => {
-    console.log(accuracy);
-  }, [accuracy]);
+    // If you have another mechanism (e.g., a custom hook, a higher-order component) that ensures the dependency is updated correctly, you can omit it from useEffect. (aka changeSumbitReady)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [submitOpen, submitReady, nextLevel, time, userSolution]);
 
   return (
     <>
