@@ -8,6 +8,16 @@ import AssessTailwind from "./AssessTailwind.jsx";
 import confetti from "canvas-confetti";
 import UseNumberConversion from "../hooks/UseNumConversion";
 
+// submitReady (boolean): determines when to open the modal inclusive of the user's accuracy
+// changeSubmitReady (function): changes the submitReady state
+// submitOpen (boolean): determines when to fetch for accuracy and is neccessary for the submit modal to open
+// changeSubmitOpen (function): changes the submitOpen state
+// nextLevel (string): the next level that the user will go to
+// time (number): the time it took for the user to complete the level
+// changeIsPaused (function): pauses the timer
+// levelSolution (string): the solution to the level
+// userSolution (string): the user's solution
+// return (JSX): a modal that displays the user's solution, the solution, and the user's accuracy and time
 export default function SubmitModal({
   submitReady,
   changeSubmitReady,

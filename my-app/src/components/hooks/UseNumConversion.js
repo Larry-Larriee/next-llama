@@ -7,6 +7,8 @@ const numberObject = {
   "final-challenge": "Five",
 };
 
+// number (string): the number to convert to word form. for example, 1
+// return (string): the number in word form
 function UseNumberConversion(number) {
   return numberObject[number];
 }

@@ -98,7 +98,7 @@ export default function Page() {
             </p>
           </article>
 
-          <div className="primary-color-6 mb-10 mt-2 flex w-full flex-col gap-1 rounded-lg">
+          <div className="primary-color-6 mb-10 mt-2 flex w-full flex-col gap-1">
             {/* the map method uses index as an argument, which is the index it is mapping in the array (i.e. 0,1,2) */}
             {leaderboard ? (
               leaderboard.map((leaderBoardRank, index) => {

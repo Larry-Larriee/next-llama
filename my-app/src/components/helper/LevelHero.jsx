@@ -1,7 +1,12 @@
 import React from "react";
 import ColorReference from "./ColorReference.jsx";
-import { color } from "@uiw/react-codemirror";
 
+// levelNumber (number): the number of the level the user is on
+// levelTitle (string): the title of the level the user is on
+// levelDescriptionOne (string): the main description of the level the user is on
+// levelDescriptionTwo (string): the secondary description of the level the user is on
+// colorReference (array): an array of objects that contain the color name and rgb value of each color reference
+// return (JSX): the level hero for the user to reference in the level page
 export default function LevelHero({
   levelNumber,
   levelTitle,

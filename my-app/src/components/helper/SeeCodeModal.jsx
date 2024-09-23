@@ -1,6 +1,11 @@
 import React from "react";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 
+// modal (boolean): determines when the code modal is open
+// changeModalState (function): changes the state of the modal
+// user (string): the user who submitted the code
+// code (string): the code that the user submitted
+// return (JSX): a modal that displaying the code that the user submitted. can be found after the user clicks on the submit button
 export default function SeeCodeModal({ modal, changeModalState, user, code }) {
   return (
     <>

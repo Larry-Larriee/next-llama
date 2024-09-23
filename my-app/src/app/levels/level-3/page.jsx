@@ -13,7 +13,6 @@ import UseAnimation from "../../../components/hooks/UseAnimation";
 export default function Page() {
   let levelSolution =
     "<div class='flex justify-center items-center bg-black w-screen h-screen'><div class='bg-gray-800 flex justify-between items-center rounded-full w-96 h-32'><section class='ml-4 h-20 w-20 bg-white rounded-full'></section><article><p class='text-white text-lg'>Elon Musk (Parody)</p><p class='text-white text-lg'>@elonmusk</p></article><section class='h-20 w-20 flex gap-1 justify-center items-center'><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div><div class='w-2 h-2 rounded-full bg-white'></div></section></div></div>";
-  ("<div class='w-screen h-screen bg-red-500 flex justify-center items-center'><p class='text-3xl text-white'>Paint the Town Red</p></div>");
   const [docsOpen, setDocsOpen] = useState(false);
   const [closing, setClosing] = useState("");
 
@@ -47,12 +46,20 @@ export default function Page() {
     { color: "gray-800", rgb: "rgb(31 41 55)" },
   ];
 
+  const [submitReady, setSubmitReady] = useState(false);
+
+  let changeSubmitReady = (bool) => {
+    setSubmitReady(bool);
+  };
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-12">
         {closing === "false" && <Docs docsOpen={docsOpen} />}
         {submitOpen && (
           <SubmitModal
+            submitReady={submitReady}
+            changeSubmitReady={changeSubmitReady}
             submitOpen={submitOpen}
             changeSubmitOpen={changeSubmitOpen}
             nextLevel={"4"}
@@ -74,6 +81,9 @@ export default function Page() {
           />
 
           <Editor
+            submitOpen={submitOpen}
+            submitReady={submitReady}
+            docsOpen={docsOpen}
             changeDocsOpen={() => animation.useAnimation()}
             changeSubmitOpen={changeSubmitOpen}
             levelSolution={levelSolution}

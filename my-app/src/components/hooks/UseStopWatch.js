@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 
-// returns time (integer) time of stopwatch
-// returns changeIsPaused (setState) toggles whether to pause the stopwatch
+// return (integer) time of stopwatch
+// return (setState) changeIsPaused setState toggles whether to pause the stopwatch
 const UseStopWatch = () => {
   const [time, setTime] = useState(0);
 

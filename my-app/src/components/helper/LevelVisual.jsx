@@ -1,6 +1,7 @@
 import React from "react";
-import Image from "next/image";
 
+// levelSolution (string): the HTML code for the level solution
+// return (JSX): an iframe displaying the a visual of the level solution for the user to reference
 export default function LevelVisual({ levelSolution }) {
   // tailwind CDN configuration
   let header =

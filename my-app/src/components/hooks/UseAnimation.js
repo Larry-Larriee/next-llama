@@ -3,6 +3,7 @@ import React, { useState } from "react";
 // elementOpen (boolean) determines whether the element is open or not
 // setElementOpen (useState) toggles the value of elementOpen
 // setElementClosing (useState) toggles the value of elementClosing
+// return (object) returns an object with a function that plays the animation when called
 let UseAnimation = (elementOpen, changeElementOpen, changeElementClosing) => {
   const [debounce, setDebounce] = useState(false);
 

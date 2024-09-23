@@ -10,7 +10,7 @@ import {
 
 import Link from "next/link";
 
-// This react component is meant to work with the Navigation component
+// return (JSX) This react component is meant to work with the Navigation component. it opens up a headless UI dialog when the user clicks on the menu icon.
 export default function Menu() {
   let [menuOpen, setMenuOpen] = useState(false);
   let menuContainer = useRef();

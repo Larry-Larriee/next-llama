@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 // threshold (integer): takes a number between 0 and 1. A threshold of 1 means that the element needs to be 100% in view to trigger the function. A threshold of 0 means that the function will trigger as soon as any part of the element is in view.
 // rootMargin (string): takes a string that is a margin around the root element. You are able to add extra area around the element for intersection observer to detect
-// returns an object with a property of isInView (boolean)
+// return (object) an object with a property of isInView (boolean) that determines whether the element is in view
 const UseInView = (ref, threshold = 0, rootMargin = "0px") => {
   const [isInView, setIsInView] = useState(false);
 
@@ -24,7 +24,7 @@ const UseInView = (ref, threshold = 0, rootMargin = "0px") => {
     return () => observer.disconnect;
   }, [threshold, rootMargin, ref]);
 
-  // react hooks are not react components. I can pass useState values upstream to the component that calls this hook
+  // react hooks are not react components. There is no "upsteam" when I use this hook
   return { isInView };
 };
 

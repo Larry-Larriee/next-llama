@@ -7,9 +7,15 @@ import { javascript } from "@codemirror/lang-javascript";
 import { createTheme } from "@uiw/codemirror-themes";
 import { tags as t } from "@lezer/highlight";
 
-// changeDocsOpen (setState) determines whether to open or close the tailwind docs
-// changeSubmitOpen (setState) determines whether to open or close the submit modal
-// levelSolution (string) the solution to the level
+// changeDocsOpen (setState) determines whether to open or close the tailwind docs. used by the docs button
+// changeSubmitOpen (setState) determines whether to open or close the submit modal. used by the submit button
+// levelSolution (string) the solution to the level. sent to levelvisual
+// userSolution (string) the user's solution
+// changeUserSolution (setState) sets the user's solution whenever the user types in the code editor
+// submitOpen (boolean) determines whether the submit modal should have a loading icon
+// submitReady (boolean) determines whether the submit modal is ready to be displayed. in this case, the submit button will change back to normal and no longer have the loading icon
+// docsOpen (boolean) determines whether the tailwind docs are open or not. used to change the color of the docs button
+// return (JSX) returns the editor component, which includes the code editor, the user's solution visual, the level solution visual, and all buttons (which may change color when clicked)
 export default function Editor({
   submitOpen,
   submitReady,

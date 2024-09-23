@@ -2,6 +2,7 @@
 
 import React from "react";
 
+// return (JSX): the background of squares on the front page
 export default function SquareBackground() {
   return (
     <article className="-z-5 floating absolute top-0 h-1/4 md:w-8/12 lg:w-10/12">

@@ -3,6 +3,15 @@
 import React, { useMemo, useState } from "react";
 import SeeCodeModal from "./helper/SeeCodeModal.jsx";
 
+// position (number) the index of the user on the leaderboard
+// user (string) the username of the user
+// level (number) the level the user completed
+// time (number) the time it took the user to complete the level
+// accuracy (number) the accuracy of the user's code
+// date (string) the date the user completed the level
+// characters (number) the number of characters in the user's code
+// code (string) the user's code
+// return (JSX) the leaderboard rank component for each individual user
 export default function LeaderboardRank({
   position,
   user,

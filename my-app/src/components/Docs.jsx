@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 
+// docsOpen (boolean) determines when to open the tailwind documentation
 export default function Docs({ docsOpen }) {
   let iframe = useRef();
 

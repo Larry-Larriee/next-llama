@@ -2,6 +2,9 @@
 
 import React, { useState, useRef, useEffect } from "react";
 
+// color (string): the name of the color. for example, this could be "blue-500"
+// rgb (string): the rgb value of the color. for example, this could be "rgb(59 130 246)"
+// return (JSX): a div which displays the color and the name of the color for the user to reference in the level hero
 export default function ColorReference({ color, rgb }) {
   const colorRef = useRef();
 

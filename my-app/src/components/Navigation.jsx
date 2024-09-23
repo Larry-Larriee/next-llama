@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import nextLlama from "../../assets/next-llama.png";
 
+// return (JSX) the navigation bar for the website. It includes a logo and the menu component
 export default function Navigation() {
   return (
     <nav className="mt-7 flex w-10/12 items-center justify-between">

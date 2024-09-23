@@ -45,12 +45,20 @@ export default function Page() {
     { color: "bg-yellow-300", rgb: "rgb(253 224 71)" },
   ];
 
+  const [submitReady, setSubmitReady] = useState(false);
+
+  let changeSubmitReady = (bool) => {
+    setSubmitReady(bool);
+  };
+
   return (
     <>
       <div className="flex w-full flex-col items-center gap-12">
         {closing === "false" && <Docs docsOpen={docsOpen} />}
         {submitOpen && (
           <SubmitModal
+            submitReady={submitReady}
+            changeSubmitReady={changeSubmitReady}
             submitOpen={submitOpen}
             changeSubmitOpen={changeSubmitOpen}
             nextLevel={"congrats"}
@@ -72,6 +80,9 @@ export default function Page() {
           />
 
           <Editor
+            submitOpen={submitOpen}
+            submitReady={submitReady}
+            docsOpen={docsOpen}
             changeDocsOpen={() => animation.useAnimation()}
             changeSubmitOpen={changeSubmitOpen}
             levelSolution={levelSolution}

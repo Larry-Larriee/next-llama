@@ -46,8 +46,6 @@ export default function Page() {
     { color: "white", rgb: "rgb(255 255 255)" },
   ];
 
-  const userSolutionUIRef = useRef(null);
-
   // sumbit ready will open the modal once the accuracy is fetched and it is set to true
   // when the modal is closed, it tells the level.jsx file to delete the component. having submitReady does not affect the functionality of submitmodal.jsx
   const [submitReady, setSubmitReady] = useState(false);
